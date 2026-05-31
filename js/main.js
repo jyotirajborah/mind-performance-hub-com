@@ -66,22 +66,24 @@ const articles = [
     {
         id: 5,
         title: "Time Management Strategies for Peak Productivity",
-        excerpt: "Practical techniques to optimize your time and accomplish more with less stress.",
+        excerpt: "Master time management with proven strategies. Learn to prioritize tasks, eliminate time wasters, and accomplish more with less stress.",
         category: "Productivity",
         readTime: "9 min read",
         date: "2026-05-18",
         image: "",
-        slug: "time-management-strategies"
+        slug: "time-management-strategies",
+        url: "articles/time-management-strategies.html"
     },
     {
         id: 6,
         title: "Mindfulness Techniques for Better Focus",
-        excerpt: "Simple mindfulness practices to enhance your attention and concentration.",
+        excerpt: "Learn simple mindfulness techniques to enhance focus and concentration. Science-backed practices for better attention and mental clarity.",
         category: "Focus & Concentration",
         readTime: "6 min read",
         date: "2026-05-15",
         image: "",
-        slug: "mindfulness-better-focus"
+        slug: "mindfulness-better-focus",
+        url: "articles/mindfulness-better-focus.html"
     }
 ];
 
