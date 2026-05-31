@@ -33,7 +33,7 @@ body {
 /* Header & Navigation */
 .header {
     background: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,14 +43,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 1.25rem 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: opacity 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.8;
 }
 
 .nav-toggle {
@@ -59,27 +67,49 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0.5rem;
 }
 
 .nav-toggle span {
     width: 25px;
-    height: 3px;
+    height: 2px;
     background: var(--text-dark);
-    margin: 3px 0;
+    margin: 4px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
+    align-items: center;
 }
 
 .nav-menu a {
     color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
     transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
 }
 
 .nav-menu a:hover,
@@ -377,7 +407,7 @@ section h2 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .nav-toggle {
         display: flex;
     }
@@ -389,13 +419,33 @@ section h2 {
         right: 0;
         background: var(--white);
         flex-direction: column;
-        padding: 1rem;
-        box-shadow: var(--shadow);
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         display: none;
+        gap: 0;
     }
 
     .nav-menu.active {
         display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    .nav-menu a::after {
+        display: none;
     }
 
     .hero h1 {
