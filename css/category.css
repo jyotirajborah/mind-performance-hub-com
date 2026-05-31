@@ -1,0 +1,59 @@
+.category-hero {
+    background: var(--bg-light);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.category-hero .category-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.category-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-hero p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+}
+
+.subcategories {
+    padding: 3rem 0;
+}
+
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.subcategory-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.subcategory-card:hover {
+    transform: translateY(-3px);
+}
+
+.subcategory-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.subcategory-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.category-articles {
+    padding: 3rem 0;
+    background: var(--bg-light);
+}

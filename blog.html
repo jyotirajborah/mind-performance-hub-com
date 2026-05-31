@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all articles on brain health, focus, productivity, and personal development.">
+    <title>Blog - Mind Performance Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Mind Performance Hub</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="brain-health.html">Brain Health</a></li>
+                <li><a href="focus-concentration.html">Focus & Concentration</a></li>
+                <li><a href="productivity.html">Productivity & Self-Improvement</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb container">
+            <a href="index.html">Home</a> / <span>Blog</span>
+        </div>
+
+        <section class="blog-header">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>Explore practical insights on brain health, focus, productivity, and personal growth.</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div class="blog-layout">
+                    <aside class="blog-sidebar">
+                        <div class="sidebar-widget">
+                            <h3>Search</h3>
+                            <input type="search" id="search-input" placeholder="Search articles..." class="search-input">
+                        </div>
+                        <div class="sidebar-widget">
+                            <h3>Categories</h3>
+                            <ul class="category-list">
+                                <li><a href="#" data-category="all" class="active">All Articles</a></li>
+                                <li><a href="#" data-category="Brain Health">Brain Health</a></li>
+                                <li><a href="#" data-category="Focus & Concentration">Focus & Concentration</a></li>
+                                <li><a href="#" data-category="Productivity">Productivity</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <div class="blog-main">
+                        <div class="article-grid" id="blog-articles"></div>
+                        <div id="no-results" class="no-results" style="display: none;">
+                            <p>No articles found. Try a different search or category.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Mind Performance Hub</h4>
+                    <p>Practical insights on brain health, focus, productivity, and personal growth.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mind Performance Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Article content">
+    <title>Article - Mind Performance Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/article.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Mind Performance Hub</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="brain-health.html">Brain Health</a></li>
+                <li><a href="focus-concentration.html">Focus & Concentration</a></li>
+                <li><a href="productivity.html">Productivity & Self-Improvement</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-page">
+            <div class="article-header">
+                <div class="container">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> / <a href="blog.html">Blog</a> / <span id="article-breadcrumb">Article</span>
+                    </div>
+                    <span class="article-category" id="article-category">Category</span>
+                    <h1 id="article-title">Article Title</h1>
+                    <div class="article-meta">
+                        <span id="article-date">Date</span>
+                        <span>•</span>
+                        <span id="article-read-time">Read Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-featured-image" id="article-image"></div>
+
+            <div class="article-container">
+                <aside class="article-sidebar">
+                    <div class="toc-widget">
+                        <h3>Table of Contents</h3>
+                        <ul id="toc-list">
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#main-content">Main Content</a></li>
+                            <li><a href="#conclusion">Conclusion</a></li>
+                        </ul>
+                    </div>
+                    <div class="share-widget">
+                        <h3>Share</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn" onclick="shareArticle('twitter')">Twitter</button>
+                            <button class="share-btn" onclick="shareArticle('facebook')">Facebook</button>
+                            <button class="share-btn" onclick="shareArticle('linkedin')">LinkedIn</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="article-content-wrapper">
+                    <div class="article-content" id="article-content">
+                        <p>Article content will be loaded here...</p>
+                    </div>
+
+                    <div class="affiliate-disclosure-box">
+                        <h4>Affiliate Disclosure</h4>
+                        <p>This article may contain affiliate links. If you make a purchase through these links, we may earn a commission at no extra cost to you. <a href="affiliate-disclosure.html">Read our full disclosure</a>.</p>
+                    </div>
+
+                    <div class="related-articles">
+                        <h3>Related Articles</h3>
+                        <div class="related-grid" id="related-articles"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Mind Performance Hub</h4>
+                    <p>Practical insights on brain health, focus, productivity, and personal growth.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mind Performance Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/article.js"></script>
+</body>
+</html>
