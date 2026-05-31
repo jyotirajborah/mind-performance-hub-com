@@ -22,22 +22,24 @@ const articles = [
     {
         id: 1,
         title: "10 Science-Backed Ways to Improve Your Memory",
-        excerpt: "Discover proven techniques to enhance your memory retention and recall abilities.",
+        excerpt: "Discover proven techniques to enhance your memory retention and recall abilities based on neuroscience research.",
         category: "Brain Health",
         readTime: "8 min read",
         date: "2026-05-28",
         image: "",
-        slug: "improve-memory-science-backed"
+        slug: "improve-memory-science-backed",
+        url: "articles/improve-memory-science-backed.html"
     },
     {
         id: 2,
         title: "The Ultimate Guide to Deep Work and Focus",
-        excerpt: "Learn how to achieve peak concentration and eliminate distractions for maximum productivity.",
+        excerpt: "Master deep work and achieve peak focus. Learn proven strategies to eliminate distractions and maximize productivity.",
         category: "Focus & Concentration",
         readTime: "12 min read",
         date: "2026-05-25",
         image: "",
-        slug: "deep-work-focus-guide"
+        slug: "deep-work-focus-guide",
+        url: "articles/deep-work-focus-guide.html"
     },
     {
         id: 3,
@@ -119,12 +121,13 @@ const resources = [
 
 // Render Article Card
 function renderArticleCard(article) {
+    const articleUrl = article.url || `article.html?slug=${article.slug}`;
     return `
         <article class="article-card">
             <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
             <div class="article-content">
                 <span class="article-category">${article.category}</span>
-                <h3><a href="article.html?slug=${article.slug}">${article.title}</a></h3>
+                <h3><a href="${articleUrl}">${article.title}</a></h3>
                 <p class="article-excerpt">${article.excerpt}</p>
                 <div class="article-meta">
                     <span>${article.readTime}</span>
