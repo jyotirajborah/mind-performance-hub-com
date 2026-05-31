@@ -44,22 +44,24 @@ const articles = [
     {
         id: 3,
         title: "Building Habits That Stick: A Practical Framework",
-        excerpt: "Master the art of habit formation with this evidence-based approach.",
+        excerpt: "Master habit formation with this evidence-based framework. Learn how to build lasting habits that stick and break bad ones effectively.",
         category: "Productivity",
         readTime: "10 min read",
         date: "2026-05-22",
         image: "",
-        slug: "building-habits-framework"
+        slug: "building-habits-framework",
+        url: "articles/building-habits-framework.html"
     },
     {
         id: 4,
         title: "How Sleep Affects Your Cognitive Performance",
-        excerpt: "Understanding the critical relationship between quality sleep and brain function.",
+        excerpt: "Understanding the critical relationship between quality sleep and brain function. Learn to optimize your sleep for peak mental performance.",
         category: "Brain Health",
         readTime: "7 min read",
         date: "2026-05-20",
         image: "",
-        slug: "sleep-cognitive-performance"
+        slug: "sleep-cognitive-performance",
+        url: "articles/sleep-cognitive-performance.html"
     },
     {
         id: 5,
