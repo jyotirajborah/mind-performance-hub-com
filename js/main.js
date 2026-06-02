@@ -17,120 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Sample Articles Data
-const articles = [
-    {
-        id: 1,
-        title: "10 Science-Backed Ways to Improve Your Memory",
-        excerpt: "Discover proven techniques to enhance your memory retention and recall abilities based on neuroscience research.",
-        category: "Brain Health",
-        readTime: "8 min read",
-        date: "2026-05-28",
-        image: "",
-        slug: "improve-memory-science-backed",
-        url: "articles/improve-memory-science-backed.html"
-    },
-    {
-        id: 2,
-        title: "The Ultimate Guide to Deep Work and Focus",
-        excerpt: "Master deep work and achieve peak focus. Learn proven strategies to eliminate distractions and maximize productivity.",
-        category: "Focus & Concentration",
-        readTime: "12 min read",
-        date: "2026-05-25",
-        image: "",
-        slug: "deep-work-focus-guide",
-        url: "articles/deep-work-focus-guide.html"
-    },
-    {
-        id: 3,
-        title: "Building Habits That Stick: A Practical Framework",
-        excerpt: "Master habit formation with this evidence-based framework. Learn how to build lasting habits that stick and break bad ones effectively.",
-        category: "Productivity",
-        readTime: "10 min read",
-        date: "2026-05-22",
-        image: "",
-        slug: "building-habits-framework",
-        url: "articles/building-habits-framework.html"
-    },
-    {
-        id: 4,
-        title: "How Sleep Affects Your Cognitive Performance",
-        excerpt: "Understanding the critical relationship between quality sleep and brain function. Learn to optimize your sleep for peak mental performance.",
-        category: "Brain Health",
-        readTime: "7 min read",
-        date: "2026-05-20",
-        image: "",
-        slug: "sleep-cognitive-performance",
-        url: "articles/sleep-cognitive-performance.html"
-    },
-    {
-        id: 5,
-        title: "Time Management Strategies for Peak Productivity",
-        excerpt: "Master time management with proven strategies. Learn to prioritize tasks, eliminate time wasters, and accomplish more with less stress.",
-        category: "Productivity",
-        readTime: "9 min read",
-        date: "2026-05-18",
-        image: "",
-        slug: "time-management-strategies",
-        url: "articles/time-management-strategies.html"
-    },
-    {
-        id: 6,
-        title: "Mindfulness Techniques for Better Focus",
-        excerpt: "Learn simple mindfulness techniques to enhance focus and concentration. Science-backed practices for better attention and mental clarity.",
-        category: "Focus & Concentration",
-        readTime: "6 min read",
-        date: "2026-05-15",
-        image: "",
-        slug: "mindfulness-better-focus",
-        url: "articles/mindfulness-better-focus.html"
-    }
-];
-
-// Sample Resources Data
-const resources = [
-    {
-        id: 1,
-        title: "Deep Work by Cal Newport",
-        type: "Book",
-        description: "Essential reading on achieving focused success in a distracted world.",
-        link: "#",
-        category: "Focus"
-    },
-    {
-        id: 2,
-        title: "Notion - All-in-One Workspace",
-        type: "Tool",
-        description: "Powerful productivity tool for notes, tasks, and knowledge management.",
-        link: "#",
-        category: "Productivity"
-    },
-    {
-        id: 3,
-        title: "Headspace - Meditation App",
-        type: "App",
-        description: "Guided meditation and mindfulness for mental clarity and focus.",
-        link: "#",
-        category: "Brain Health"
-    },
-    {
-        id: 4,
-        title: "Learning How to Learn",
-        type: "Course",
-        description: "Popular Coursera course on effective learning techniques.",
-        link: "#",
-        category: "Learning"
-    }
-];
+const articles = window.MPH_CONTENT?.articles || [];
+const resources = window.MPH_CONTENT?.resources || [];
 
 // Render Article Card
 function renderArticleCard(article) {
     const articleUrl = article.url || `article.html?slug=${article.slug}`;
+    const subcategory = article.subcategory ? `<span>${article.subcategory}</span>` : '';
     return `
         <article class="article-card">
             <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
             <div class="article-content">
                 <span class="article-category">${article.category}</span>
+                ${subcategory ? `<div class="article-subcategory">${subcategory}</div>` : ''}
                 <h3><a href="${articleUrl}">${article.title}</a></h3>
                 <p class="article-excerpt">${article.excerpt}</p>
                 <div class="article-meta">
