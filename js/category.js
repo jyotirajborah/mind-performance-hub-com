@@ -64,6 +64,7 @@ function populateSubcategoryLists(articles) {
         // Filter articles based on subcategory heading
         let matchingArticles = [];
         
+        // Brain Health subcategories
         if (heading.includes('Memory')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
@@ -72,36 +73,65 @@ function populateSubcategoryLists(articles) {
         } else if (heading.includes('Mental Energy')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.subcategory === 'Mental Energy' || a.title.toLowerCase().includes('energy') || a.title.toLowerCase().includes('fatigue'))
+                (a.subcategory === 'Mental Energy' || a.title.toLowerCase().includes('energy') || 
+                 a.title.toLowerCase().includes('fatigue') || a.title.toLowerCase().includes('stamina'))
             );
         } else if (heading.includes('Sleep')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
                 (a.subcategory === 'Sleep' || a.title.toLowerCase().includes('sleep'))
             );
-        } else if (heading.includes('Learning')) {
+        } else if (heading.includes('Learning') && heading.includes('Cognitive')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
                 (a.subcategory === 'Learning' || a.title.toLowerCase().includes('learn') || 
-                 a.title.toLowerCase().includes('recall') || a.title.toLowerCase().includes('repetition'))
+                 a.title.toLowerCase().includes('recall') || a.title.toLowerCase().includes('repetition') ||
+                 a.title.toLowerCase().includes('spaced'))
             );
         } else if (heading.includes('Brain Optimization')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
                 (a.title.toLowerCase().includes('brain') || a.title.toLowerCase().includes('cognitive') || 
-                 a.title.toLowerCase().includes('nootropic') || a.title.toLowerCase().includes('neuroplasticity'))
+                 a.title.toLowerCase().includes('nootropic') || a.title.toLowerCase().includes('neuroplasticity') ||
+                 a.title.toLowerCase().includes('optimization'))
             );
-        } else if (heading.includes('Focus Habits')) {
+        }
+        
+        // Focus & Concentration subcategories
+        else if (heading.includes('Focus Habits')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                a.title.toLowerCase().includes('focus')
+                (a.title.toLowerCase().includes('focus') || a.title.toLowerCase().includes('mindfulness') ||
+                 a.title.toLowerCase().includes('attention'))
             );
         } else if (heading.includes('Deep Work')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('deep work') || a.title.toLowerCase().includes('concentration'))
+                (a.title.toLowerCase().includes('deep work') || a.title.toLowerCase().includes('concentration') ||
+                 a.title.toLowerCase().includes('distraction'))
             );
-        } else if (heading.includes('Habit')) {
+        } else if (heading.includes('Attention Training')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('attention') || a.title.toLowerCase().includes('focus') ||
+                 a.title.toLowerCase().includes('mindfulness'))
+            );
+        } else if (heading.includes('Study') && heading.includes('Learning')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('study') || a.title.toLowerCase().includes('learn') ||
+                 a.title.toLowerCase().includes('retention') || a.title.toLowerCase().includes('recall'))
+            );
+        } else if (heading.includes('Distraction Management')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('distraction') || a.title.toLowerCase().includes('focus') ||
+                 a.title.toLowerCase().includes('deep work'))
+            );
+        }
+        
+        // Productivity subcategories
+        else if (heading.includes('Habit')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
                 a.title.toLowerCase().includes('habit')
@@ -109,7 +139,26 @@ function populateSubcategoryLists(articles) {
         } else if (heading.includes('Time Management')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                a.title.toLowerCase().includes('time')
+                (a.title.toLowerCase().includes('time') || a.title.toLowerCase().includes('productivity') ||
+                 a.title.toLowerCase().includes('schedule'))
+            );
+        } else if (heading.includes('Goal Setting')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('goal') || a.title.toLowerCase().includes('achievement') ||
+                 a.title.toLowerCase().includes('success'))
+            );
+        } else if (heading.includes('Learning') && heading.includes('Skill')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('learn') || a.title.toLowerCase().includes('skill') ||
+                 a.title.toLowerCase().includes('development'))
+            );
+        } else if (heading.includes('Personal Performance')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('performance') || a.title.toLowerCase().includes('energy') ||
+                 a.title.toLowerCase().includes('motivation') || a.title.toLowerCase().includes('productivity'))
             );
         }
         
