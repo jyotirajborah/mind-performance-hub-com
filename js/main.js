@@ -66,6 +66,14 @@ function renderArticleCard(article) {
         ? `${article.category} > ${detectedSubcategory}`
         : article.category;
     
+    // Assign category-specific color classes
+    let categoryClass = 'category-brain-health';
+    if (article.category === 'Focus & Concentration') {
+        categoryClass = 'category-focus';
+    } else if (article.category === 'Productivity') {
+        categoryClass = 'category-productivity';
+    }
+    
     // Extract relevant tags from title and excerpt (using SITE_TAGS only)
     const titleAndExcerpt = (article.title + ' ' + article.excerpt).toLowerCase();
     const matchedTags = SITE_TAGS.filter(tag => 
@@ -82,7 +90,7 @@ function renderArticleCard(article) {
         <article class="article-card">
             <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
             <div class="article-content">
-                <span class="article-breadcrumb">${breadcrumb}</span>
+                <span class="article-breadcrumb ${categoryClass}">${breadcrumb}</span>
                 <h3><a href="${articleUrl}">${article.title}</a></h3>
                 <p class="article-excerpt">${article.excerpt}</p>
                 <div class="article-meta">
