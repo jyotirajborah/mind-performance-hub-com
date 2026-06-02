@@ -100,7 +100,7 @@ for article_file in article_files:
         article_entry = {
             "id": article_id,
             "title": metadata.get('title', 'Untitled'),
-            "excerpt": metadata.get('description', ''),
+            "excerpt": metadata.get('description', '').replace('\n', ' ').replace('\r', ''),
             "category": metadata.get('category', 'Brain Health'),
             "subcategory": metadata.get('subcategory', ''),
             "type": article_type,
@@ -119,27 +119,12 @@ articles_data.sort(key=lambda x: x['date'], reverse=True)
 for idx, article in enumerate(articles_data, 1):
     article['id'] = idx
 
-# Generate JavaScript file
-js_content = 'window.MPH_CONTENT = {\n  "articles": [\n'
+# Generate JavaScript file using json.dumps for proper escaping
+import json
 
-for i, article in enumerate(articles_data):
-    js_content += '    {\n'
-    js_content += f'      "id": {article["id"]},\n'
-    js_content += f'      "title": "{article["title"]}",\n'
-    js_content += f'      "excerpt": "{article["excerpt"]}",\n'
-    js_content += f'      "category": "{article["category"]}",\n'
-    js_content += f'      "subcategory": "{article["subcategory"]}",\n'
-    js_content += f'      "type": "{article["type"]}",\n'
-    js_content += f'      "readTime": "{article["readTime"]}",\n'
-    js_content += f'      "date": "{article["date"]}",\n'
-    js_content += f'      "slug": "{article["slug"]}"\n'
-    js_content += '    }'
-    
-    if i < len(articles_data) - 1:
-        js_content += ','
-    js_content += '\n'
-
-js_content += '  ]\n};\n'
+js_content = 'window.MPH_CONTENT = '
+js_content += json.dumps({"articles": articles_data}, indent=2, ensure_ascii=False)
+js_content += ';\n'
 
 # Write to file
 output_path = Path('js/content-data.js')
