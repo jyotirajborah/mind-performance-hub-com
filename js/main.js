@@ -35,11 +35,11 @@ function renderArticleCard(article) {
     
     // Determine subcategory from article title or explicit subcategory field
     const subcategoryKeywords = {
-        'Memory': ['memory'],
-        'Mental Energy': ['energy', 'fatigue', 'stamina'],
-        'Sleep': ['sleep'],
-        'Learning': ['learn', 'recall', 'repetition', 'spaced'],
-        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity'],
+        'Memory': ['memory', 'remember', 'retention', 'recall'],
+        'Mental Energy': ['energy', 'fatigue', 'stamina', 'caffeine', 'alert', 'vigor'],
+        'Sleep': ['sleep', 'insomnia', 'rest'],
+        'Learning': ['learn', 'repetition', 'spaced', 'study'],
+        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity', 'optimization', 'performance', 'mental'],
         'Focus Habits': ['focus', 'mindfulness', 'attention'],
         'Deep Work': ['deep work', 'concentration'],
         'Study Techniques': ['study', 'retention'],
