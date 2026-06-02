@@ -69,19 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const category = this.dataset.category;
             const isExpanded = subcategoryList.style.display === 'block';
 
-            // Collapse all other subcategories
-            document.querySelectorAll('.subcategory-list').forEach(list => {
-                if (list !== subcategoryList) {
-                    list.style.display = 'none';
-                }
-            });
-            document.querySelectorAll('.expand-icon').forEach(icon => {
-                if (icon !== expandIcon) {
-                    icon.textContent = '+';
-                }
-            });
-
-            // Toggle this subcategory list
+            // Toggle this subcategory list (don't close others)
             if (isExpanded) {
                 subcategoryList.style.display = 'none';
                 expandIcon.textContent = '+';
