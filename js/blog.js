@@ -37,11 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Render results
         if (filteredArticles.length > 0) {
-            blogArticlesContainer.innerHTML = filteredArticles.map(article => 
-                renderArticleCard(article)
-            ).join('');
-            blogArticlesContainer.style.display = 'grid';
-            noResults.style.display = 'none';
+            try {
+                const html = filteredArticles.map(article => {
+                    console.log('Rendering article:', article.title);
+                    return renderArticleCard(article);
+                }).join('');
+                
+                console.log('HTML generated, length:', html.length);
+                blogArticlesContainer.innerHTML = html;
+                blogArticlesContainer.style.display = 'grid';
+                noResults.style.display = 'none';
+                console.log('Articles rendered successfully');
+            } catch (error) {
+                console.error('Error rendering articles:', error);
+                blogArticlesContainer.innerHTML = '<p>Error loading articles. Check console.</p>';
+            }
         } else {
             blogArticlesContainer.style.display = 'none';
             noResults.style.display = 'block';
