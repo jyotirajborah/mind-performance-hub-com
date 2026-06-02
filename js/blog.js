@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const blogArticlesContainer = document.getElementById('blog-articles');
     const searchInput = document.getElementById('search-input');
-    const categoryLinks = document.querySelectorAll('.category-list a');
-    const subcategoryList = document.getElementById('subcategory-list');
     const noResults = document.getElementById('no-results');
 
     let currentCategory = 'all';
@@ -12,68 +10,120 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get articles from content-data.js
     const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
     
-    // Subcategory definitions
-    const subcategories = {
-        'Brain Health': [
-            { name: 'Memory', keywords: ['memory'] },
-            { name: 'Mental Energy', keywords: ['energy', 'fatigue', 'stamina'] },
-            { name: 'Sleep', keywords: ['sleep'] },
-            { name: 'Learning', keywords: ['learn', 'recall', 'repetition', 'spaced'] },
-            { name: 'Brain Optimization', keywords: ['brain', 'cognitive', 'nootropic', 'neuroplasticity'] }
-        ],
-        'Focus & Concentration': [
-            { name: 'Focus Habits', keywords: ['focus', 'mindfulness', 'attention'] },
-            { name: 'Deep Work', keywords: ['deep work', 'concentration', 'distraction'] },
-            { name: 'Attention Training', keywords: ['attention', 'focus'] },
-            { name: 'Study Techniques', keywords: ['study', 'learn', 'retention'] }
-        ],
-        'Productivity': [
-            { name: 'Habit Building', keywords: ['habit'] },
-            { name: 'Time Management', keywords: ['time', 'productivity', 'schedule'] },
-            { name: 'Goal Setting', keywords: ['goal', 'achievement', 'success'] },
-            { name: 'Skill Development', keywords: ['learn', 'skill', 'development'] }
-        ]
+    // Subcategory keyword matching
+    const subcategoryKeywords = {
+        'Memory': ['memory'],
+        'Mental Energy': ['energy', 'fatigue', 'stamina'],
+        'Sleep': ['sleep'],
+        'Learning': ['learn', 'recall', 'repetition', 'spaced'],
+        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity'],
+        'Focus Habits': ['focus', 'mindfulness', 'attention'],
+        'Deep Work': ['deep work', 'concentration', 'distraction'],
+        'Attention Training': ['attention', 'focus'],
+        'Study Techniques': ['study', 'learn', 'retention'],
+        'Habit Building': ['habit'],
+        'Time Management': ['time', 'productivity', 'schedule'],
+        'Goal Setting': ['goal', 'achievement', 'success'],
+        'Skill Development': ['learn', 'skill', 'development']
     };
     
-    // Debug logging
-    console.log('MPH_CONTENT exists:', !!window.MPH_CONTENT);
     console.log('Articles loaded:', articles.length);
 
-    function updateSubcategoryList() {
-        if (currentCategory === 'all') {
-            subcategoryList.innerHTML = '';
-            return;
-        }
+    // Handle expand/collapse and category selection
+    const categoryItems = document.querySelectorAll('.category-item');
+    const allArticlesLink = document.querySelector('[data-category="all"]');
+    
+    // All Articles link
+    if (allArticlesLink) {
+        allArticlesLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove all active classes
+            document.querySelectorAll('.category-list a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Collapse all subcategories
+            document.querySelectorAll('.subcategory-list').forEach(list => {
+                list.style.display = 'none';
+            });
+            document.querySelectorAll('.expand-icon').forEach(icon => {
+                icon.textContent = '+';
+            });
+            
+            currentCategory = 'all';
+            currentSubcategory = 'all';
+            filterAndRenderArticles();
+        });
+    }
 
-        const subs = subcategories[currentCategory] || [];
-        const html = '<li><a href="#" data-subcategory="all" class="active">All ' + currentCategory + '</a></li>' +
-            subs.map(sub => 
-                `<li><a href="#" data-subcategory="${sub.name}">${sub.name}</a></li>`
-            ).join('');
-        
-        subcategoryList.innerHTML = html;
-
-        // Add event listeners to subcategory links
+    categoryItems.forEach(item => {
+        const categoryLink = item.querySelector('.category-link');
+        const subcategoryList = item.querySelector('.subcategory-list');
+        const expandIcon = item.querySelector('.expand-icon');
         const subcategoryLinks = subcategoryList.querySelectorAll('a');
+
+        // Category link click - expand/collapse and show all from that category
+        categoryLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const category = this.dataset.category;
+            const isExpanded = subcategoryList.style.display === 'block';
+
+            // Collapse all other subcategories
+            document.querySelectorAll('.subcategory-list').forEach(list => {
+                if (list !== subcategoryList) {
+                    list.style.display = 'none';
+                }
+            });
+            document.querySelectorAll('.expand-icon').forEach(icon => {
+                if (icon !== expandIcon) {
+                    icon.textContent = '+';
+                }
+            });
+
+            // Toggle this subcategory list
+            if (isExpanded) {
+                subcategoryList.style.display = 'none';
+                expandIcon.textContent = '+';
+            } else {
+                subcategoryList.style.display = 'block';
+                expandIcon.textContent = '−';
+            }
+
+            // Remove all active classes
+            document.querySelectorAll('.category-list a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show all articles from this category
+            currentCategory = category;
+            currentSubcategory = 'all';
+            filterAndRenderArticles();
+        });
+
+        // Subcategory link clicks
         subcategoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                subcategoryLinks.forEach(l => l.classList.remove('active'));
+                
+                // Remove all active classes
+                document.querySelectorAll('.category-list a').forEach(a => a.classList.remove('active'));
                 this.classList.add('active');
+
+                currentCategory = this.dataset.category;
                 currentSubcategory = this.dataset.subcategory;
                 filterAndRenderArticles();
             });
         });
-    }
+    });
 
     function matchesSubcategory(article, subcategoryName) {
         if (subcategoryName === 'all') return true;
         
-        const subDef = subcategories[currentCategory]?.find(s => s.name === subcategoryName);
-        if (!subDef) return false;
+        const keywords = subcategoryKeywords[subcategoryName];
+        if (!keywords) return false;
 
         const titleLower = article.title.toLowerCase();
-        return subDef.keywords.some(keyword => titleLower.includes(keyword));
+        return keywords.some(keyword => titleLower.includes(keyword));
     }
 
     function filterAndRenderArticles() {
@@ -123,19 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Category filter
-    categoryLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            categoryLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-            currentCategory = this.dataset.category;
-            currentSubcategory = 'all'; // Reset subcategory when category changes
-            updateSubcategoryList();
-            filterAndRenderArticles();
-        });
-    });
-
     // Search functionality
     if (searchInput) {
         searchInput.addEventListener('input', function() {
@@ -145,6 +182,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initial render
-    updateSubcategoryList();
     filterAndRenderArticles();
 });
