@@ -57,6 +57,27 @@ function renderArticleCard(article) {
         ? `${article.category} > ${detectedSubcategory}`
         : article.category;
     
+    // Extract relevant tags from title and excerpt
+    const allTags = [
+        'Memory', 'Focus', 'Sleep', 'Energy', 'Learning', 
+        'Productivity', 'Habits', 'Time Management', 'Deep Work',
+        'Cognitive', 'Mindfulness', 'Study', 'Goal Setting', 
+        'Stress', 'Fatigue', 'Neuroplasticity', 'Nootropics', 
+        'Hydration', 'Exercise', 'Nutrition', 'Brain Health',
+        'Concentration', 'Performance', 'Optimization'
+    ];
+    
+    const titleAndExcerpt = (article.title + ' ' + article.excerpt).toLowerCase();
+    const matchedTags = allTags.filter(tag => 
+        titleAndExcerpt.includes(tag.toLowerCase())
+    ).slice(0, 4); // Limit to 4 tags per card
+    
+    const tagsHtml = matchedTags.length > 0 
+        ? `<div class="article-tags">${matchedTags.map(tag => 
+            `<span class="article-tag">${tag}</span>`
+          ).join('')}</div>`
+        : '';
+    
     return `
         <article class="article-card">
             <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
@@ -68,6 +89,7 @@ function renderArticleCard(article) {
                     <span>${article.readTime}</span>
                     <span>${formatDate(article.date)}</span>
                 </div>
+                ${tagsHtml}
             </div>
         </article>
     `;

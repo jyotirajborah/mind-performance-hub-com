@@ -301,6 +301,23 @@ section h2 {
     color: var(--text-light);
 }
 
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.article-tag {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    background: var(--bg-light);
+    color: var(--text-light);
+    font-size: 0.75rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
 /* Resource Grid */
 .resource-grid {
     display: grid;
