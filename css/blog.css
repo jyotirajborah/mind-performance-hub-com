@@ -25,6 +25,14 @@
     height: fit-content;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.blog-sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-widget {
