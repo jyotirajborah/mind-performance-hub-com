@@ -14,19 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Subcategory keyword matching
     const subcategoryKeywords = {
-        'Memory': ['memory'],
-        'Mental Energy': ['energy', 'fatigue', 'stamina'],
-        'Sleep': ['sleep'],
-        'Learning': ['learn', 'recall', 'repetition', 'spaced'],
-        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity'],
-        'Focus Habits': ['focus', 'mindfulness', 'attention'],
-        'Deep Work': ['deep work', 'concentration', 'distraction'],
-        'Attention Training': ['attention', 'focus'],
-        'Study Techniques': ['study', 'learn', 'retention'],
+        'Memory': ['memory', 'remember', 'retention', 'recall'],
+        'Mental Energy': ['energy', 'fatigue', 'stamina', 'caffeine', 'alert', 'vigor'],
+        'Sleep': ['sleep', 'insomnia', 'rest'],
+        'Learning': ['learn', 'repetition', 'spaced'],
+        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity', 'optimization'],
+        'Focus Habits': ['mindfulness', 'technique'],
+        'Deep Work': ['deep work'],
+        'Attention Training': ['attention'],
+        'Study Techniques': ['study'],
         'Habit Building': ['habit'],
-        'Time Management': ['time', 'productivity', 'schedule'],
-        'Goal Setting': ['goal', 'achievement', 'success'],
-        'Skill Development': ['learn', 'skill', 'development']
+        'Time Management': ['time management'],
+        'Goal Setting': ['goal'],
+        'Skill Development': ['skill', 'development']
     };
     
     console.log('Articles loaded:', articles.length);

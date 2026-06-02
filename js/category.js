@@ -101,32 +101,28 @@ function populateSubcategoryLists(articles) {
         else if (heading.includes('Focus Habits')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('focus') || a.title.toLowerCase().includes('mindfulness') ||
-                 a.title.toLowerCase().includes('attention'))
+                (a.title.toLowerCase().includes('mindfulness') ||
+                 a.title.toLowerCase().includes('technique'))
             );
         } else if (heading.includes('Deep Work')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('deep work') || a.title.toLowerCase().includes('concentration') ||
-                 a.title.toLowerCase().includes('distraction'))
+                (a.title.toLowerCase().includes('deep work'))
             );
         } else if (heading.includes('Attention Training')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('attention') || a.title.toLowerCase().includes('focus') ||
-                 a.title.toLowerCase().includes('mindfulness'))
+                (a.title.toLowerCase().includes('attention'))
             );
         } else if (heading.includes('Study') && heading.includes('Learning')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('study') || a.title.toLowerCase().includes('learn') ||
-                 a.title.toLowerCase().includes('retention') || a.title.toLowerCase().includes('recall'))
+                (a.title.toLowerCase().includes('study'))
             );
         } else if (heading.includes('Distraction Management')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('distraction') || a.title.toLowerCase().includes('focus') ||
-                 a.title.toLowerCase().includes('deep work'))
+                (a.title.toLowerCase().includes('distraction'))
             );
         }
         
