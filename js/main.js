@@ -23,13 +23,45 @@ const resources = window.MPH_CONTENT?.resources || [];
 // Render Article Card
 function renderArticleCard(article) {
     const articleUrl = article.url || `articles/${article.slug}.html`;
-    const subcategory = article.subcategory ? `<span>${article.subcategory}</span>` : '';
+    
+    // Determine subcategory from article title or explicit subcategory field
+    const subcategoryKeywords = {
+        'Memory': ['memory'],
+        'Mental Energy': ['energy', 'fatigue', 'stamina'],
+        'Sleep': ['sleep'],
+        'Learning': ['learn', 'recall', 'repetition', 'spaced'],
+        'Brain Optimization': ['brain', 'cognitive', 'nootropic', 'neuroplasticity'],
+        'Focus Habits': ['focus', 'mindfulness', 'attention'],
+        'Deep Work': ['deep work', 'concentration'],
+        'Study Techniques': ['study', 'retention'],
+        'Habit Building': ['habit'],
+        'Time Management': ['time', 'productivity', 'schedule'],
+        'Goal Setting': ['goal', 'achievement'],
+        'Skill Development': ['skill', 'development']
+    };
+    
+    // Detect subcategory
+    let detectedSubcategory = article.subcategory || '';
+    if (!detectedSubcategory) {
+        const titleLower = article.title.toLowerCase();
+        for (const [subcat, keywords] of Object.entries(subcategoryKeywords)) {
+            if (keywords.some(keyword => titleLower.includes(keyword))) {
+                detectedSubcategory = subcat;
+                break;
+            }
+        }
+    }
+    
+    // Build breadcrumb tag
+    const breadcrumb = detectedSubcategory 
+        ? `${article.category} > ${detectedSubcategory}`
+        : article.category;
+    
     return `
         <article class="article-card">
             <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
             <div class="article-content">
-                <span class="article-category">${article.category}</span>
-                ${subcategory ? `<div class="article-subcategory">${subcategory}</div>` : ''}
+                <span class="article-breadcrumb">${breadcrumb}</span>
                 <h3><a href="${articleUrl}">${article.title}</a></h3>
                 <p class="article-excerpt">${article.excerpt}</p>
                 <div class="article-meta">

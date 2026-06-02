@@ -262,7 +262,8 @@ section h2 {
     padding: 1.5rem;
 }
 
-.article-category {
+.article-category,
+.article-breadcrumb {
     display: inline-block;
     background: var(--primary-color);
     color: var(--white);
@@ -270,6 +271,7 @@ section h2 {
     border-radius: 4px;
     font-size: 0.875rem;
     margin-bottom: 0.75rem;
+    font-weight: 500;
 }
 
 .article-card h3 {
