@@ -37,42 +37,101 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function populateSubcategoryLists(articles) {
-    // Find all subcategory cards that have empty or minimal lists
+    // Find all subcategory cards
     const subcategoryCards = document.querySelectorAll('.subcategory-card');
     
     subcategoryCards.forEach(card => {
         const heading = card.querySelector('h3')?.textContent.trim();
-        const existingList = card.querySelector('ul');
+        let existingList = card.querySelector('ul');
         
-        // Map subcategory headings to content-data subcategories
-        let subcategoryFilter = '';
-        if (heading.includes('Memory')) subcategoryFilter = 'Memory';
-        else if (heading.includes('Mental Energy')) subcategoryFilter = 'Mental Energy';
-        else if (heading.includes('Sleep')) subcategoryFilter = 'Sleep';
-        else if (heading.includes('Learning')) subcategoryFilter = 'Learning';
+        // If list already exists with many items, skip it
+        if (existingList && existingList.children.length > 10) {
+            return;
+        }
         
-        if (subcategoryFilter) {
-            const matchingArticles = articles.filter(a => 
-                a.subcategory === subcategoryFilter || 
-                (heading.includes('Sleep') && a.title.toLowerCase().includes('sleep'))
-            ).slice(0, 10); // Show first 10
-            
-            if (matchingArticles.length > 0 && !existingList) {
-                const ul = document.createElement('ul');
-                ul.style.marginTop = '10px';
-                ul.style.fontSize = '0.9em';
-                
-                matchingArticles.forEach(article => {
-                    const li = document.createElement('li');
-                    const a = document.createElement('a');
-                    a.href = `articles/${article.slug}.html`;
-                    a.textContent = article.title;
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                });
-                
-                card.appendChild(ul);
+        // Get current page category
+        const pageTitle = document.querySelector('.category-hero h1')?.textContent || '';
+        let categoryFilter = '';
+        
+        if (pageTitle.includes('Brain Health')) {
+            categoryFilter = 'Brain Health';
+        } else if (pageTitle.includes('Focus')) {
+            categoryFilter = 'Focus & Concentration';
+        } else if (pageTitle.includes('Productivity')) {
+            categoryFilter = 'Productivity';
+        }
+        
+        // Filter articles based on subcategory heading
+        let matchingArticles = [];
+        
+        if (heading.includes('Memory')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.subcategory === 'Memory' || a.title.toLowerCase().includes('memory'))
+            );
+        } else if (heading.includes('Mental Energy')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.subcategory === 'Mental Energy' || a.title.toLowerCase().includes('energy') || a.title.toLowerCase().includes('fatigue'))
+            );
+        } else if (heading.includes('Sleep')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.subcategory === 'Sleep' || a.title.toLowerCase().includes('sleep'))
+            );
+        } else if (heading.includes('Learning')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.subcategory === 'Learning' || a.title.toLowerCase().includes('learn'))
+            );
+        } else if (heading.includes('Brain Optimization')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('brain') || a.title.toLowerCase().includes('cognitive'))
+            );
+        } else if (heading.includes('Focus Habits')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                a.title.toLowerCase().includes('focus')
+            );
+        } else if (heading.includes('Deep Work')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                (a.title.toLowerCase().includes('deep work') || a.title.toLowerCase().includes('concentration'))
+            );
+        } else if (heading.includes('Habit')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                a.title.toLowerCase().includes('habit')
+            );
+        } else if (heading.includes('Time Management')) {
+            matchingArticles = articles.filter(a => 
+                a.category === categoryFilter && 
+                a.title.toLowerCase().includes('time')
+            );
+        }
+        
+        // Create or replace the list
+        if (matchingArticles.length > 0) {
+            if (existingList) {
+                existingList.remove();
             }
+            
+            const ul = document.createElement('ul');
+            ul.style.marginTop = '10px';
+            ul.style.fontSize = '0.9em';
+            
+            matchingArticles.slice(0, 15).forEach(article => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `articles/${article.slug}.html`;
+                a.textContent = article.title;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+            
+            card.appendChild(ul);
+            console.log(`Populated ${heading} with ${matchingArticles.length} articles`);
         }
     });
 }
