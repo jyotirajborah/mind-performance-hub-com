@@ -2243,6 +2243,42 @@ window.MPH_CONTENT = {
       "readTime": "9 min read",
       "date": "2025-11-09",
       "slug": "peak-performance-guide"
+    },
+    {
+      "id": 207,
+      "title": "Understanding Your Natural Energy Patterns: Circadian and Ultradian Rhythms",
+      "excerpt": "Master your natural energy rhythms. Learn how circadian and ultradian cycles affect mental performance and how to optimize your schedule for peak productivity.",
+      "category": "Brain Health",
+      "subcategory": "Mental Energy",
+      "type": "article",
+      "readTime": "11 min read",
+      "date": "2026-06-02",
+      "slug": "circadian-energy-patterns",
+      "url": "articles/circadian-energy-patterns.html"
+    },
+    {
+      "id": 208,
+      "title": "Mental Fatigue vs Physical Fatigue: Understanding the Difference",
+      "excerpt": "Learn the critical differences between mental and physical fatigue, their unique causes, and evidence-based strategies to manage each type effectively.",
+      "category": "Brain Health",
+      "subcategory": "Mental Energy",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-02",
+      "slug": "mental-vs-physical-fatigue",
+      "url": "articles/mental-vs-physical-fatigue.html"
+    },
+    {
+      "id": 209,
+      "title": "Energy-Draining Habits to Eliminate: Breaking Free from Energy Vampires",
+      "excerpt": "Identify and eliminate the hidden habits that drain your mental energy. Learn to recognize energy vampires and replace them with energizing alternatives.",
+      "category": "Brain Health",
+      "subcategory": "Mental Energy",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-02",
+      "slug": "energy-draining-habits",
+      "url": "articles/energy-draining-habits.html"
     }
   ],
   "resources": [
