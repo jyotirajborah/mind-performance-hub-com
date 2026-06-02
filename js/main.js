@@ -20,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
 const articles = window.MPH_CONTENT?.articles || [];
 const resources = window.MPH_CONTENT?.resources || [];
 
+// Shared tag list used across the site
+const SITE_TAGS = [
+    'Memory', 'Focus', 'Sleep', 'Energy', 'Learning', 
+    'Productivity', 'Habits', 'Time Management', 'Deep Work',
+    'Brain Health', 'Cognitive', 'Mindfulness', 'Study',
+    'Goal Setting', 'Stress', 'Fatigue', 'Neuroplasticity',
+    'Nootropics', 'Hydration', 'Exercise', 'Nutrition'
+];
+
 // Render Article Card
 function renderArticleCard(article) {
     const articleUrl = article.url || `articles/${article.slug}.html`;
@@ -57,18 +66,9 @@ function renderArticleCard(article) {
         ? `${article.category} > ${detectedSubcategory}`
         : article.category;
     
-    // Extract relevant tags from title and excerpt
-    const allTags = [
-        'Memory', 'Focus', 'Sleep', 'Energy', 'Learning', 
-        'Productivity', 'Habits', 'Time Management', 'Deep Work',
-        'Cognitive', 'Mindfulness', 'Study', 'Goal Setting', 
-        'Stress', 'Fatigue', 'Neuroplasticity', 'Nootropics', 
-        'Hydration', 'Exercise', 'Nutrition', 'Brain Health',
-        'Concentration', 'Performance', 'Optimization'
-    ];
-    
+    // Extract relevant tags from title and excerpt (using SITE_TAGS only)
     const titleAndExcerpt = (article.title + ' ' + article.excerpt).toLowerCase();
-    const matchedTags = allTags.filter(tag => 
+    const matchedTags = SITE_TAGS.filter(tag => 
         titleAndExcerpt.includes(tag.toLowerCase())
     ).slice(0, 4); // Limit to 4 tags per card
     
@@ -117,3 +117,6 @@ function formatDate(dateString) {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { articles, resources, renderArticleCard, renderResourceCard };
 }
+
+// Make SITE_TAGS globally available
+window.SITE_TAGS = SITE_TAGS;

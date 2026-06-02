@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const tagCloud = document.getElementById('tag-cloud');
         if (!tagCloud) return;
 
-        // Define all tags with their keywords
-        const tags = [
+        // Use the same tags from main.js (SITE_TAGS)
+        const tags = window.SITE_TAGS || [
             'Memory', 'Focus', 'Sleep', 'Energy', 'Learning', 
             'Productivity', 'Habits', 'Time Management', 'Deep Work',
             'Brain Health', 'Cognitive', 'Mindfulness', 'Study',
