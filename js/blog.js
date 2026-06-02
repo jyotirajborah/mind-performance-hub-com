@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentCategory = 'all';
     let searchQuery = '';
 
+    // Get articles from content-data.js
+    const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
+
     function filterAndRenderArticles() {
         let filteredArticles = articles;
 

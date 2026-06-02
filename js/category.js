@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const categoryArticlesContainer = document.getElementById('category-articles');
     
-    if (categoryArticlesContainer && typeof articles !== 'undefined') {
+    // Get articles from content-data.js
+    const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
+    
+    if (categoryArticlesContainer && articles.length > 0) {
         // Get current page category from title
         const pageTitle = document.querySelector('.category-hero h1').textContent;
         
