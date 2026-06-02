@@ -49,6 +49,34 @@
     color: var(--text-dark);
 }
 
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 1rem;
+}
+
+.widget-toggle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    transition: transform 0.3s;
+}
+
+.widget-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.widget-content.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .search-input {
     width: 100%;
     padding: 0.75rem;

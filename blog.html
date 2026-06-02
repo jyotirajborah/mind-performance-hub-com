@@ -47,15 +47,29 @@
                 <div class="blog-layout">
                     <aside class="blog-sidebar">
                         <div class="sidebar-widget">
-                            <h3>Search</h3>
-                            <input type="search" id="search-input" placeholder="Search articles..." class="search-input">
+                            <h3 class="widget-header">
+                                Search
+                                <span class="widget-toggle">−</span>
+                            </h3>
+                            <div class="widget-content">
+                                <input type="search" id="search-input" placeholder="Search articles..." class="search-input">
+                            </div>
                         </div>
                         <div class="sidebar-widget">
-                            <h3>Popular Tags</h3>
-                            <div class="tag-cloud" id="tag-cloud"></div>
+                            <h3 class="widget-header">
+                                Popular Tags
+                                <span class="widget-toggle">−</span>
+                            </h3>
+                            <div class="widget-content">
+                                <div class="tag-cloud" id="tag-cloud"></div>
+                            </div>
                         </div>
                         <div class="sidebar-widget">
-                            <h3>Categories</h3>
+                            <h3 class="widget-header">
+                                Categories
+                                <span class="widget-toggle">−</span>
+                            </h3>
+                            <div class="widget-content">
                             <ul class="category-list">
                                 <li>
                                     <a href="#" data-category="all" class="active">
@@ -97,6 +111,7 @@
                                     </ul>
                                 </li>
                             </ul>
+                            </div>
                         </div>
                     </aside>
                     <div class="blog-main">
