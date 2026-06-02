@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Get articles from content-data.js
     const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
+    
+    // Debug logging
+    console.log('MPH_CONTENT exists:', !!window.MPH_CONTENT);
+    console.log('Articles loaded:', articles.length);
+    console.log('First article:', articles[0]);
 
     function filterAndRenderArticles() {
         let filteredArticles = articles;
@@ -27,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 article.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
             );
         }
+
+        console.log('Filtered articles:', filteredArticles.length);
 
         // Render results
         if (filteredArticles.length > 0) {

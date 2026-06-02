@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; border: 1px solid #ccc; }
+        .article { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Blog Articles Debug</h1>
+    <div class="debug" id="debug-info"></div>
+    <div id="articles-container"></div>
+
+    <script src="js/content-data.js"></script>
+    <script>
+        const debugInfo = document.getElementById('debug-info');
+        const articlesContainer = document.getElementById('articles-container');
+        
+        // Debug information
+        let debugHtml = '<h3>Debug Info:</h3>';
+        debugHtml += '<p><strong>window.MPH_CONTENT exists:</strong> ' + (window.MPH_CONTENT ? 'Yes' : 'No') + '</p>';
+        
+        if (window.MPH_CONTENT) {
+            debugHtml += '<p><strong>Articles array exists:</strong> ' + (window.MPH_CONTENT.articles ? 'Yes' : 'No') + '</p>';
+            if (window.MPH_CONTENT.articles) {
+                debugHtml += '<p><strong>Number of articles:</strong> ' + window.MPH_CONTENT.articles.length + '</p>';
+                debugHtml += '<p><strong>First article title:</strong> ' + (window.MPH_CONTENT.articles[0]?.title || 'N/A') + '</p>';
+            }
+        }
+        
+        debugInfo.innerHTML = debugHtml;
+        
+        // Display articles
+        if (window.MPH_CONTENT && window.MPH_CONTENT.articles) {
+            const articles = window.MPH_CONTENT.articles;
+            articlesContainer.innerHTML = '<h2>Articles (' + articles.length + '):</h2>';
+            articles.forEach((article, index) => {
+                articlesContainer.innerHTML += `
+                    <div class="article">
+                        <strong>${index + 1}. ${article.title}</strong><br>
+                        Category: ${article.category}<br>
+                        Slug: ${article.slug}<br>
+                        Date: ${article.date}
+                    </div>
+                `;
+            });
+        } else {
+            articlesContainer.innerHTML = '<p style="color: red;">No articles found!</p>';
+        }
+    </script>
+</body>
+</html>

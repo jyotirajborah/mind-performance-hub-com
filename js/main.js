@@ -22,7 +22,7 @@ const resources = window.MPH_CONTENT?.resources || [];
 
 // Render Article Card
 function renderArticleCard(article) {
-    const articleUrl = article.url || `article.html?slug=${article.slug}`;
+    const articleUrl = article.url || `articles/${article.slug}.html`;
     const subcategory = article.subcategory ? `<span>${article.subcategory}</span>` : '';
     return `
         <article class="article-card">
