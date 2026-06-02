@@ -29,6 +29,76 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Articles loaded:', articles.length);
 
+    // Generate tag cloud
+    function generateTagCloud() {
+        const tagCloud = document.getElementById('tag-cloud');
+        if (!tagCloud) return;
+
+        // Define all tags with their keywords
+        const tags = [
+            'Memory', 'Focus', 'Sleep', 'Energy', 'Learning', 
+            'Productivity', 'Habits', 'Time Management', 'Deep Work',
+            'Brain Health', 'Cognitive', 'Mindfulness', 'Study',
+            'Goal Setting', 'Stress', 'Fatigue', 'Neuroplasticity',
+            'Nootropics', 'Hydration', 'Exercise', 'Nutrition'
+        ];
+
+        // Count how many articles match each tag
+        const tagCounts = tags.map(tag => {
+            const count = articles.filter(article => 
+                article.title.toLowerCase().includes(tag.toLowerCase()) ||
+                article.excerpt.toLowerCase().includes(tag.toLowerCase())
+            ).length;
+            return { tag, count };
+        }).filter(item => item.count > 0);
+
+        // Sort by count (most popular first) and limit to top 15
+        tagCounts.sort((a, b) => b.count - a.count);
+        const topTags = tagCounts.slice(0, 15);
+
+        // Calculate font sizes (min 0.85rem, max 1.4rem)
+        const maxCount = Math.max(...topTags.map(t => t.count));
+        const minCount = Math.min(...topTags.map(t => t.count));
+        
+        // Render tags
+        tagCloud.innerHTML = topTags.map(item => {
+            const size = minCount === maxCount ? 1 :
+                0.85 + ((item.count - minCount) / (maxCount - minCount)) * 0.55;
+            return `<a href="#" class="tag" data-tag="${item.tag}" style="font-size: ${size}rem">${item.tag}</a>`;
+        }).join('');
+
+        // Add click handlers
+        tagCloud.querySelectorAll('.tag').forEach(tagEl => {
+            tagEl.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove all active states
+                document.querySelectorAll('.category-list a').forEach(a => a.classList.remove('active'));
+                tagCloud.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+                
+                // Mark this tag as active
+                this.classList.add('active');
+                
+                // Filter by tag keyword
+                searchQuery = this.dataset.tag;
+                currentCategory = 'all';
+                currentSubcategory = 'all';
+                
+                // Collapse all categories
+                document.querySelectorAll('.subcategory-list').forEach(list => {
+                    list.style.display = 'none';
+                });
+                document.querySelectorAll('.expand-icon').forEach(icon => {
+                    icon.textContent = '+';
+                });
+                
+                filterAndRenderArticles();
+            });
+        });
+    }
+
+    generateTagCloud();
+
     // Handle expand/collapse and category selection
     const categoryItems = document.querySelectorAll('.category-item');
     const allArticlesLink = document.querySelector('[data-category="all"]');
