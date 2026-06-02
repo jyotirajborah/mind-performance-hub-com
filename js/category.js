@@ -37,17 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function populateSubcategoryLists(articles) {
+    console.log('populateSubcategoryLists called with', articles.length, 'articles');
+    
     // Find all subcategory cards
     const subcategoryCards = document.querySelectorAll('.subcategory-card');
+    console.log('Found', subcategoryCards.length, 'subcategory cards');
     
     subcategoryCards.forEach(card => {
         const heading = card.querySelector('h3')?.textContent.trim();
-        let existingList = card.querySelector('ul');
-        
-        // If list already exists with many items, skip it
-        if (existingList && existingList.children.length > 10) {
-            return;
-        }
+        console.log('Processing card:', heading);
         
         // Get current page category
         const pageTitle = document.querySelector('.category-hero h1')?.textContent || '';
@@ -60,6 +58,8 @@ function populateSubcategoryLists(articles) {
         } else if (pageTitle.includes('Productivity')) {
             categoryFilter = 'Productivity';
         }
+        
+        console.log('Category filter:', categoryFilter);
         
         // Filter articles based on subcategory heading
         let matchingArticles = [];
@@ -82,12 +82,14 @@ function populateSubcategoryLists(articles) {
         } else if (heading.includes('Learning')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.subcategory === 'Learning' || a.title.toLowerCase().includes('learn'))
+                (a.subcategory === 'Learning' || a.title.toLowerCase().includes('learn') || 
+                 a.title.toLowerCase().includes('recall') || a.title.toLowerCase().includes('repetition'))
             );
         } else if (heading.includes('Brain Optimization')) {
             matchingArticles = articles.filter(a => 
                 a.category === categoryFilter && 
-                (a.title.toLowerCase().includes('brain') || a.title.toLowerCase().includes('cognitive'))
+                (a.title.toLowerCase().includes('brain') || a.title.toLowerCase().includes('cognitive') || 
+                 a.title.toLowerCase().includes('nootropic') || a.title.toLowerCase().includes('neuroplasticity'))
             );
         } else if (heading.includes('Focus Habits')) {
             matchingArticles = articles.filter(a => 
@@ -111,12 +113,17 @@ function populateSubcategoryLists(articles) {
             );
         }
         
-        // Create or replace the list
+        console.log(`${heading}: Found ${matchingArticles.length} matching articles`);
+        
+        // Remove existing ul if present (even hardcoded ones)
+        const existingList = card.querySelector('ul');
+        if (existingList) {
+            existingList.remove();
+            console.log(`Removed existing list from ${heading}`);
+        }
+        
+        // Create and append new list with all matching articles
         if (matchingArticles.length > 0) {
-            if (existingList) {
-                existingList.remove();
-            }
-            
             const ul = document.createElement('ul');
             ul.style.marginTop = '10px';
             ul.style.fontSize = '0.9em';
@@ -131,7 +138,9 @@ function populateSubcategoryLists(articles) {
             });
             
             card.appendChild(ul);
-            console.log(`Populated ${heading} with ${matchingArticles.length} articles`);
+            console.log(`✓ Populated ${heading} with ${matchingArticles.length} articles`);
+        } else {
+            console.log(`✗ No articles found for ${heading}`);
         }
     });
 }
