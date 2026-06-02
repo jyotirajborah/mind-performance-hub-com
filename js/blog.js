@@ -75,25 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (content.classList.contains('collapsed')) {
                 // Expand
-                content.style.maxHeight = content.scrollHeight + 'px';
                 content.classList.remove('collapsed');
+                content.style.maxHeight = 'none';
                 toggle.textContent = '−';
             } else {
                 // Collapse
-                content.style.maxHeight = content.scrollHeight + 'px';
-                // Force reflow
-                content.offsetHeight;
-                content.style.maxHeight = '0';
                 content.classList.add('collapsed');
                 toggle.textContent = '+';
             }
         });
-        
-        // Set initial max-height for smooth transitions
-        const content = header.nextElementSibling;
-        if (content && !content.classList.contains('collapsed')) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
     });
 
     // Generate tag cloud
@@ -165,13 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     generateTagCloud();
-
-    // Update widget max-heights after dynamic content loads
-    setTimeout(() => {
-        document.querySelectorAll('.widget-content:not(.collapsed)').forEach(content => {
-            content.style.maxHeight = content.scrollHeight + 'px';
-        });
-    }, 100);
 
     // Handle expand/collapse and category selection
     const categoryItems = document.querySelectorAll('.category-item');
