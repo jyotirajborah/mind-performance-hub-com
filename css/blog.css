@@ -80,6 +80,18 @@
     color: var(--primary-color);
 }
 
+/* Count badges */
+.count {
+    font-size: 0.85em;
+    color: var(--text-light);
+    font-weight: normal;
+}
+
+.category-list a:hover .count,
+.category-list a.active .count {
+    color: var(--primary-color);
+}
+
 /* Category with subcategories */
 .category-item {
     margin-bottom: 0.5rem;
@@ -145,6 +157,11 @@
 .tag.active {
     background: var(--primary-color);
     color: var(--white);
+}
+
+.tag-count {
+    font-size: 0.85em;
+    opacity: 0.8;
 }
 
 .blog-main {

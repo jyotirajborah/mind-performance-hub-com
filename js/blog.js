@@ -29,6 +29,43 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Articles loaded:', articles.length);
 
+    // Calculate and display article counts
+    function updateCounts() {
+        // Total articles
+        document.getElementById('count-all').textContent = `(${articles.length})`;
+
+        // Category counts
+        const brainHealthCount = articles.filter(a => a.category === 'Brain Health').length;
+        const focusCount = articles.filter(a => a.category === 'Focus & Concentration').length;
+        const productivityCount = articles.filter(a => a.category === 'Productivity').length;
+
+        document.getElementById('count-brain-health').textContent = `(${brainHealthCount})`;
+        document.getElementById('count-focus').textContent = `(${focusCount})`;
+        document.getElementById('count-productivity').textContent = `(${productivityCount})`;
+
+        // Subcategory counts
+        const subcategoryCounts = {};
+        
+        document.querySelectorAll('.subcategory-list a').forEach(link => {
+            const category = link.dataset.category;
+            const subcategory = link.dataset.subcategory;
+            
+            if (category && subcategory) {
+                const count = articles.filter(article => {
+                    if (article.category !== category) return false;
+                    return matchesSubcategory(article, subcategory);
+                }).length;
+                
+                const countSpan = link.querySelector('.count');
+                if (countSpan) {
+                    countSpan.textContent = `(${count})`;
+                }
+            }
+        });
+    }
+
+    updateCounts();
+
     // Generate tag cloud
     function generateTagCloud() {
         const tagCloud = document.getElementById('tag-cloud');
@@ -60,11 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxCount = Math.max(...topTags.map(t => t.count));
         const minCount = Math.min(...topTags.map(t => t.count));
         
-        // Render tags
+        // Render tags with counts
         tagCloud.innerHTML = topTags.map(item => {
             const size = minCount === maxCount ? 1 :
                 0.85 + ((item.count - minCount) / (maxCount - minCount)) * 0.55;
-            return `<a href="#" class="tag" data-tag="${item.tag}" style="font-size: ${size}rem">${item.tag}</a>`;
+            return `<a href="#" class="tag" data-tag="${item.tag}" style="font-size: ${size}rem">${item.tag} <span class="tag-count">(${item.count})</span></a>`;
         }).join('');
 
         // Add click handlers
