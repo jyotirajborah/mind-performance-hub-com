@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentCategory = 'all';
     let currentSubcategory = 'all';
     let searchQuery = '';
+    let currentPage = 1;
+    const articlesPerPage = 10;
 
     // Get articles from content-data.js
     const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
@@ -140,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchQuery = this.dataset.tag;
                 currentCategory = 'all';
                 currentSubcategory = 'all';
+                currentPage = 1; // Reset to first page
                 
                 // Collapse all categories
                 document.querySelectorAll('.subcategory-list').forEach(list => {
@@ -179,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             currentCategory = 'all';
             currentSubcategory = 'all';
+            currentPage = 1; // Reset to first page
             filterAndRenderArticles();
         });
     }
@@ -212,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show all articles from this category
             currentCategory = category;
             currentSubcategory = 'all';
+            currentPage = 1; // Reset to first page
             filterAndRenderArticles();
         });
 
@@ -226,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 currentCategory = this.dataset.category;
                 currentSubcategory = this.dataset.subcategory;
+                currentPage = 1; // Reset to first page
                 filterAndRenderArticles();
             });
         });
@@ -268,16 +274,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Filtered articles:', filteredArticles.length);
 
+        // Calculate pagination
+        const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+        const startIndex = (currentPage - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+        const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+
         // Render results
         if (filteredArticles.length > 0) {
             try {
-                const html = filteredArticles.map(article => {
+                const html = paginatedArticles.map(article => {
                     return renderArticleCard(article);
                 }).join('');
                 
                 blogArticlesContainer.innerHTML = html;
                 blogArticlesContainer.style.display = 'grid';
                 noResults.style.display = 'none';
+                
+                // Render pagination
+                renderPagination(totalPages, filteredArticles.length);
             } catch (error) {
                 console.error('Error rendering articles:', error);
                 blogArticlesContainer.innerHTML = '<p>Error loading articles. Check console.</p>';
@@ -285,13 +300,65 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             blogArticlesContainer.style.display = 'none';
             noResults.style.display = 'block';
+            document.getElementById('pagination').innerHTML = '';
         }
+    }
+
+    function renderPagination(totalPages, totalArticles) {
+        const paginationContainer = document.getElementById('pagination');
+        
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            return;
+        }
+
+        let paginationHTML = '<div class="pagination-info">Showing ' + 
+            ((currentPage - 1) * articlesPerPage + 1) + '-' + 
+            Math.min(currentPage * articlesPerPage, totalArticles) + 
+            ' of ' + totalArticles + ' articles</div>';
+        
+        paginationHTML += '<div class="pagination-controls">';
+        
+        // Previous button
+        if (currentPage > 1) {
+            paginationHTML += `<button class="pagination-btn" data-page="${currentPage - 1}">« Previous</button>`;
+        }
+        
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            // Show first page, last page, current page, and pages around current
+            if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                const activeClass = i === currentPage ? 'active' : '';
+                paginationHTML += `<button class="pagination-btn ${activeClass}" data-page="${i}">${i}</button>`;
+            } else if (i === currentPage - 3 || i === currentPage + 3) {
+                paginationHTML += '<span class="pagination-ellipsis">...</span>';
+            }
+        }
+        
+        // Next button
+        if (currentPage < totalPages) {
+            paginationHTML += `<button class="pagination-btn" data-page="${currentPage + 1}">Next »</button>`;
+        }
+        
+        paginationHTML += '</div>';
+        paginationContainer.innerHTML = paginationHTML;
+        
+        // Add click handlers
+        paginationContainer.querySelectorAll('.pagination-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                currentPage = parseInt(this.dataset.page);
+                filterAndRenderArticles();
+                // Scroll to top of articles
+                blogArticlesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
     }
 
     // Search functionality
     if (searchInput) {
         searchInput.addEventListener('input', function() {
             searchQuery = this.value;
+            currentPage = 1; // Reset to first page
             filterAndRenderArticles();
         });
     }
