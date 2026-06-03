@@ -494,6 +494,193 @@ window.MPH_CONTENT = {
       "readTime": "10 min read",
       "date": "2026-06-04",
       "slug": "dopamine-mental-energy"
+    },
+    {
+      "id": 46,
+      "title": "Sleep Stages and Brain Function: Complete Guide",
+      "excerpt": "Learn how different sleep stages affect your brain function and cognitive performance.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "guide",
+      "readTime": "9 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-stages-brain-function"
+    },
+    {
+      "id": 47,
+      "title": "REM Sleep and Memory Consolidation",
+      "excerpt": "Discover how REM sleep is crucial for memory consolidation and learning.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-03",
+      "slug": "rem-sleep-memory-consolidation"
+    },
+    {
+      "id": 48,
+      "title": "Effects of Sleep Deprivation on Cognition",
+      "excerpt": "Understand the serious cognitive effects of sleep deprivation and how to recover.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-deprivation-cognitive-effects"
+    },
+    {
+      "id": 49,
+      "title": "The Cognitive Benefits of Napping",
+      "excerpt": "Learn the science behind napping and how to nap for optimal cognitive benefits.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-03",
+      "slug": "napping-cognitive-benefits"
+    },
+    {
+      "id": 50,
+      "title": "Melatonin and Sleep Quality",
+      "excerpt": "Understand how melatonin works and whether supplementation is right for you.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-03",
+      "slug": "melatonin-sleep-quality"
+    },
+    {
+      "id": 51,
+      "title": "Sleep Disorders and Cognitive Impact",
+      "excerpt": "Understand how common sleep disorders affect cognitive function and what to do.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "11 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-disorders-cognitive-impact"
+    },
+    {
+      "id": 52,
+      "title": "Optimizing Your Sleep Environment",
+      "excerpt": "Create the perfect sleep environment for optimal rest and brain recovery.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "13 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-environment-optimization"
+    },
+    {
+      "id": 53,
+      "title": "Caffeine and Sleep: Finding the Balance",
+      "excerpt": "Learn how to balance caffeine consumption with quality sleep for optimal performance.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-03",
+      "slug": "caffeine-sleep-relationship"
+    },
+    {
+      "id": 54,
+      "title": "Sleep Tracking for Cognitive Insights",
+      "excerpt": "Discover how sleep tracking can provide insights to optimize your cognitive performance.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "12 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-tracking-cognitive-insights"
+    },
+    {
+      "id": 55,
+      "title": "Sleep Supplements for Brain Health",
+      "excerpt": "Evidence-based guide to sleep supplements that support brain health and recovery.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "guide",
+      "readTime": "10 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-supplements-brain-health"
+    },
+    {
+      "id": 56,
+      "title": "Sleep Temperature Optimization",
+      "excerpt": "Learn the optimal temperature for quality sleep and cognitive recovery.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-temperature-optimization"
+    },
+    {
+      "id": 57,
+      "title": "Sleep Position and Brain Health",
+      "excerpt": "Discover how your sleep position affects brain health and waste clearance.",
+      "category": "Brain Health",
+      "subcategory": "Sleep",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-03",
+      "slug": "sleep-position-brain-health"
+    },
+    {
+      "id": 58,
+      "title": "Advanced Memory Enhancement Techniques",
+      "excerpt": "Discover advanced techniques to enhance your memory performance and cognitive abilities.",
+      "category": "Brain Health",
+      "subcategory": "Memory",
+      "type": "article",
+      "readTime": "12 min read",
+      "date": "2026-06-03",
+      "slug": "memory-enhancement-techniques"
+    },
+    {
+      "id": 59,
+      "title": "The Complete Guide to Mnemonic Devices",
+      "excerpt": "Master the art of mnemonic devices to remember information faster and retain it longer.",
+      "category": "Brain Health",
+      "subcategory": "Memory",
+      "type": "guide",
+      "readTime": "11 min read",
+      "date": "2026-06-03",
+      "slug": "mnemonic-devices-complete-guide"
+    },
+    {
+      "id": 60,
+      "title": "Visual Memory Training Exercises",
+      "excerpt": "Strengthen your visual memory with proven training exercises and techniques.",
+      "category": "Brain Health",
+      "subcategory": "Memory",
+      "type": "article",
+      "readTime": "12 min read",
+      "date": "2026-06-03",
+      "slug": "visual-memory-training"
+    },
+    {
+      "id": 61,
+      "title": "How to Improve Auditory Memory",
+      "excerpt": "Learn techniques to improve your ability to remember what you hear.",
+      "category": "Brain Health",
+      "subcategory": "Memory",
+      "type": "article",
+      "readTime": "12 min read",
+      "date": "2026-06-03",
+      "slug": "auditory-memory-improvement"
+    },
+    {
+      "id": 62,
+      "title": "Understanding Semantic Memory",
+      "excerpt": "Learn what semantic memory is and how to strengthen your knowledge retention.",
+      "category": "Brain Health",
+      "subcategory": "Memory",
+      "type": "article",
+      "readTime": "13 min read",
+      "date": "2026-06-03",
+      "slug": "semantic-memory-explained"
     }
   ]
 };
