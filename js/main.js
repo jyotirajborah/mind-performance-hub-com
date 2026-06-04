@@ -132,7 +132,6 @@ function formatDate(dateString) {
     // For article pages, determine the parent category from the article data
     const isArticlePage = path.includes('/articles/');
     if (isArticlePage) {
-        // Get slug from filename
         const slug = path.split('/').pop().replace('.html', '');
         const articleData = (window.MPH_CONTENT?.articles || []).find(a => a.slug === slug);
         
@@ -156,14 +155,16 @@ function formatDate(dateString) {
 
     // For non-article pages, match by URL
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        if (path === linkPath || (path === '/' && linkPath.endsWith('index.html'))) {
-            link.classList.add('active');
-        }
+        try {
+            const linkPath = new URL(link.href).pathname;
+            if (path === linkPath || (path === '/' && linkPath.endsWith('index.html'))) {
+                link.classList.add('active');
+            }
+        } catch(e) {}
     });
 })();
+
+// Export for use in other files
+if (typeof module !== 'undefined' && module.exports) {
     module.exports = { articles, resources, renderArticleCard, renderResourceCard };
 }
-
-// Make SITE_TAGS globally available
-window.SITE_TAGS = SITE_TAGS;
