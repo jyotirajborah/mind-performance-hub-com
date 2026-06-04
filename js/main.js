@@ -121,8 +121,47 @@ function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
-// Export for use in other files
-if (typeof module !== 'undefined' && module.exports) {
+// Auto-set active nav item based on current page URL or article category
+(function setActiveNav() {
+    const path = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // Remove any existing active classes first
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // For article pages, determine the parent category from the article data
+    const isArticlePage = path.includes('/articles/');
+    if (isArticlePage) {
+        // Get slug from filename
+        const slug = path.split('/').pop().replace('.html', '');
+        const articleData = (window.MPH_CONTENT?.articles || []).find(a => a.slug === slug);
+        
+        if (articleData) {
+            const categoryMap = {
+                'Brain Health': 'brain-health.html',
+                'Focus & Concentration': 'focus-concentration.html',
+                'Productivity': 'productivity.html'
+            };
+            const targetHref = categoryMap[articleData.category];
+            if (targetHref) {
+                navLinks.forEach(link => {
+                    if (link.href.includes(targetHref)) {
+                        link.classList.add('active');
+                    }
+                });
+                return;
+            }
+        }
+    }
+
+    // For non-article pages, match by URL
+    navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        if (path === linkPath || (path === '/' && linkPath.endsWith('index.html'))) {
+            link.classList.add('active');
+        }
+    });
+})();
     module.exports = { articles, resources, renderArticleCard, renderResourceCard };
 }
 
