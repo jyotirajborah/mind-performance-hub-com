@@ -103,29 +103,30 @@ function populateSubcategoryLists(articles) {
         
         console.log(`${heading}: Found ${matchingArticles.length} matching articles`);
         
-        // Remove existing ul if present (even hardcoded ones)
-        const existingList = card.querySelector('ul');
+        // Remove existing ul/ol if present (even hardcoded ones)
+        const existingList = card.querySelector('ul, ol');
         if (existingList) {
             existingList.remove();
-            console.log(`Removed existing list from ${heading}`);
         }
         
         // Create and append new list with all matching articles
         if (matchingArticles.length > 0) {
-            const ul = document.createElement('ul');
-            ul.style.marginTop = '10px';
-            ul.style.fontSize = '0.9em';
+            const ol = document.createElement('ol');
+            ol.style.marginTop = '10px';
+            ol.style.fontSize = '0.9em';
+            ol.style.paddingLeft = '1.4em';
             
             matchingArticles.slice(0, 15).forEach(article => {
                 const li = document.createElement('li');
+                li.style.marginBottom = '4px';
                 const a = document.createElement('a');
                 a.href = `articles/${article.slug}.html`;
                 a.textContent = article.title;
                 li.appendChild(a);
-                ul.appendChild(li);
+                ol.appendChild(li);
             });
             
-            card.appendChild(ul);
+            card.appendChild(ol);
             console.log(`✓ Populated ${heading} with ${matchingArticles.length} articles`);
         } else {
             console.log(`✗ No articles found for ${heading}`);
