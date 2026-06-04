@@ -116,7 +116,7 @@ function populateSubcategoryLists(articles) {
             ol.style.fontSize = '0.9em';
             ol.style.paddingLeft = '1.4em';
             
-            matchingArticles.slice(0, 15).forEach(article => {
+            matchingArticles.forEach(article => {
                 const li = document.createElement('li');
                 li.style.marginBottom = '4px';
                 const a = document.createElement('a');
