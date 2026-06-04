@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brain Song – Activate Your Brainwaves for a Sharper, Healthier Mind | MindPerformanceHub</title>
+    <meta name="description" content="A simple 12-minute audio that helps naturally activate healthy brainwave patterns linked to BDNF – the key molecule for learning, focus, and overall brain wellness.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ===== LANDING PAGE STYLES ===== */
+
+        .lp-body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #1f2937;
+            background: #fff;
+        }
+
+        /* ---- TOP BAR ---- */
+        .lp-topbar {
+            background: #1e3a8a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+        .lp-topbar strong { color: #fbbf24; }
+
+        /* ---- NAV ---- */
+        .lp-nav {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .lp-nav .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .lp-nav .cta-top {
+            background: #f59e0b;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+        .lp-nav .cta-top:hover { background: #d97706; }
+
+        /* ---- HERO ---- */
+        .lp-hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #f5f3ff 100%);
+            padding: 70px 20px 60px;
+            text-align: center;
+        }
+        .lp-hero .eyebrow {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 16px;
+        }
+        .lp-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1e3a8a;
+            max-width: 780px;
+            margin: 0 auto 20px;
+        }
+        .lp-hero h1 span { color: #7c3aed; }
+        .lp-hero .subtitle {
+            font-size: 1.15rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .lp-hero .hero-cta {
+            display: inline-block;
+            background: #f59e0b;
+            color: #fff;
+            padding: 18px 44px;
+            border-radius: 8px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(245,158,11,0.35);
+            transition: all 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .lp-hero .hero-cta:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(245,158,11,0.45);
+        }
+        .lp-hero .guarantee-note {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+        .lp-hero .guarantee-note span { color: #16a34a; font-weight: 600; }
+
+        /* ---- TRUST BADGES ---- */
+        .lp-badges {
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 28px 20px;
+        }
+        .lp-badges .badges-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .badge-item .badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ---- SECTION SHARED ---- */
+        .lp-section {
+            padding: 64px 20px;
+        }
+        .lp-section.bg-light {
+            background: #f9fafb;
+        }
+        .section-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 800;
+            color: #1e3a8a;
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+        .section-body {
+            font-size: 1.05rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+        .section-body p { margin-bottom: 16px; }
+        .section-body strong { color: #1f2937; }
+
+        /* ---- PRODUCT INTRO ---- */
+        .lp-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        @media (max-width: 700px) {
+            .lp-intro { grid-template-columns: 1fr; }
+        }
+        .product-image-box {
+            text-align: center;
+        }
+        .product-image-box .product-mock {
+            width: 100%;
+            max-width: 320px;
+            background: linear-gradient(145deg, #1e3a8a, #7c3aed);
+            border-radius: 20px;
+            padding: 36px 28px;
+            color: #fff;
+            display: inline-block;
+            box-shadow: 0 20px 50px rgba(30,58,138,0.3);
+        }
+        .product-mock .product-icon { font-size: 3rem; margin-bottom: 10px; }
+        .product-mock h3 { font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
+        .product-mock p { font-size: 0.8rem; opacity: 0.8; margin-top: 6px; }
+        .product-mock .headphones { font-size: 2.5rem; margin-top: 18px; opacity: 0.7; }
+
+        /* ---- SCIENCE SECTION ---- */
+        .science-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-top: 32px;
+        }
+        .science-box h4 { font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 10px; }
+        .science-box p { font-size: 0.95rem; color: #374151; line-height: 1.7; }
+
+        /* ---- BENEFITS ---- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 36px;
+        }
+        .benefit-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 28px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .benefit-card .benefit-icon { font-size: 2rem; margin-bottom: 14px; }
+        .benefit-card h4 { font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 8px; }
+        .benefit-card p { font-size: 0.9rem; color: #6b7280; line-height: 1.6; }
+
+        /* ---- HOW IT WORKS ---- */
+        .steps-list {
+            list-style: none;
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .step-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-content h4 { font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 6px; }
+        .step-content p { font-size: 0.95rem; color: #4b5563; line-height: 1.6; }
+
+        /* ---- WHO ITS FOR ---- */
+        .audience-list {
+            list-style: none;
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+        .audience-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.98rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+        .audience-list li::before {
+            content: "✓";
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #16a34a;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ---- CTA BOX ---- */
+        .lp-cta-box {
+            background: linear-gradient(135deg, #1e3a8a, #4338ca);
+            border-radius: 16px;
+            padding: 56px 40px;
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(30,58,138,0.3);
+        }
+        .lp-cta-box .cta-eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 14px;
+        }
+        .lp-cta-box h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .lp-cta-box h2 span { color: #fbbf24; }
+        .lp-cta-box p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .price-display {
+            margin-bottom: 28px;
+        }
+        .price-display .price-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+        .price-display .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            line-height: 1;
+        }
+        .price-display .price-note {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+        .lp-cta-box .main-cta {
+            display: inline-block;
+            background: #f59e0b;
+            color: #fff;
+            padding: 20px 52px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+            transition: all 0.2s;
+            display: block;
+            max-width: 420px;
+            margin: 0 auto 18px;
+        }
+        .lp-cta-box .main-cta:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+        .lp-cta-box .cta-sub {
+            font-size: 0.82rem;
+            opacity: 0.65;
+        }
+        .lp-cta-box .cta-sub span { color: #86efac; font-weight: 600; }
+        .product-note {
+            margin-top: 20px;
+            font-size: 0.78rem;
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        /* ---- GUARANTEE ---- */
+        .guarantee-block {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 40px;
+        }
+        .guarantee-block .g-icon { font-size: 2.5rem; flex-shrink: 0; }
+        .guarantee-block h4 { font-size: 1rem; font-weight: 700; color: #166534; margin-bottom: 8px; }
+        .guarantee-block p { font-size: 0.92rem; color: #374151; line-height: 1.6; }
+
+        /* ---- FAQ ---- */
+        .faq-list {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 18px 24px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: #1e3a8a;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.3rem;
+            color: #2563eb;
+            font-weight: 400;
+        }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-answer {
+            padding: 0 24px 18px;
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* ---- DISCLAIMER ---- */
+        .lp-disclaimer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 20px;
+            text-align: center;
+        }
+        .lp-disclaimer p {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            max-width: 860px;
+            margin: 0 auto 10px;
+            line-height: 1.6;
+        }
+        .lp-disclaimer a { color: #6b7280; text-decoration: underline; }
+
+        /* ---- FOOTER ---- */
+        .lp-footer {
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 0.82rem;
+        }
+        .lp-footer a { color: #6b7280; text-decoration: none; margin: 0 10px; }
+        .lp-footer a:hover { color: #d1d5db; }
+        .lp-footer .footer-links { margin-bottom: 10px; }
+
+        /* ---- STICKY BOTTOM BAR (mobile) ---- */
+        .sticky-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1e3a8a;
+            padding: 12px 20px;
+            z-index: 999;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+        }
+        .sticky-cta-bar a {
+            display: block;
+            background: #f59e0b;
+            color: #fff;
+            text-align: center;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        @media (max-width: 640px) {
+            .sticky-cta-bar { display: block; }
+            body { padding-bottom: 72px; }
+            .lp-cta-box { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body class="lp-body">
+
+    <!-- TOP BAR -->
+    <div class="lp-topbar">
+        🎧 Limited Time: Get <strong>The Brain Song</strong> for just $39 — <strong>60-Day Money-Back Guarantee</strong>
+    </div>
+
+    <!-- NAV -->
+    <nav class="lp-nav">
+        <a href="index.html" class="logo">MindPerformanceHub</a>
+        <a href="https://2ee61kravqdtbu5360r8x9s5cm.hop.clickbank.net" class="cta-top" target="_blank" rel="nofollow sponsored">GET STARTED →</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="lp-hero">
+        <p class="eyebrow">Neuroscience-Backed Audio</p>
+        <h1>Activate Your Brainwaves for a <span>Sharper, Healthier Mind</span></h1>
+        <p class="subtitle">A simple 12-minute daily audio that helps naturally support the brain molecule behind learning, focus, and mental clarity — no effort required.</p>
+        <a href="https://2ee61kravqdtbu5360r8x9s5cm.hop.clickbank.net" class="hero-cta" target="_blank" rel="nofollow sponsored">
+            🎧 Try The Brain Song — Just $39
+        </a>
+        <p class="guarantee-note"><span>✓ 60-Day Money-Back Guarantee</span> &nbsp;·&nbsp; Delivered Instantly &nbsp;·&nbsp; Use at Home</p>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <div class="lp-badges">
+        <div class="badges-inner">
+            <div class="badge-item">
+                <div class="badge-icon">⏱️</div>
+                <span>Simple 12-minute daily routine</span>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">🧬</div>
+                <span>Based on modern brainwave research</span>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">🏠</div>
+                <span>Use from the comfort of home</span>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">🔒</div>
+                <span>60-day money-back guarantee</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT INTRO -->
+    <section class="lp-section">
+        <div class="section-inner">
+            <div class="lp-intro">
+                <div class="section-body">
+                    <p class="section-label">Where Neuroscience Meets Sound</p>
+                    <h2 class="section-title">What Is The Brain Song?</h2>
+                    <p>The Brain Song is a simple, <strong>12-minute digital audio</strong> that helps naturally activate healthy brainwave patterns linked to <strong>BDNF — Brain-Derived Neurotrophic Factor</strong>, often called the brain's own "fertilizer."</p>
+                    <p>BDNF is the key molecule that supports <strong>learning, focus, and overall brain wellness</strong>. It helps support healthy communication between brain cells and overall mental performance.</p>
+                    <p>Research suggests that <strong>Gamma brainwaves</strong> may play a role in encouraging BDNF activity — which is why The Brain Song was developed to gently guide the brain toward Gamma frequencies using advanced sound patterns.</p>
+                    <div class="science-box">
+                        <h4>🔬 The Science Behind It</h4>
+                        <p>BDNF is known by neuroscientists as a "fertilizer for the brain." It helps support healthy communication between brain cells and overall mental performance. The Brain Song uses carefully engineered audio to support your brain's natural Gamma activity — safely and effortlessly.</p>
+                    </div>
+                </div>
+                <div class="product-image-box">
+                    <div class="product-mock">
+                        <div class="product-icon">🧠</div>
+                        <h3>THE<br>BRAIN<br>SONG</h3>
+                        <p>Digital Audio Program</p>
+                        <div class="headphones">🎧</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="lp-section bg-light">
+        <div class="section-inner">
+            <p class="section-label">What You Can Expect</p>
+            <h2 class="section-title">Support Your Brain's Peak Performance</h2>
+            <p class="section-body">Just 12 minutes a day — the potential benefits of supporting healthy BDNF activity and Gamma brainwaves.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Sharper Focus</h4>
+                    <p>Support your ability to concentrate and stay mentally "on" during the tasks that matter most.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h4>Faster Learning</h4>
+                    <p>BDNF supports the formation of new neural connections, the biological foundation of learning new skills and information.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘</div>
+                    <h4>Mental Wellness</h4>
+                    <p>Feel calmer and more balanced as healthy brainwave activity supports your overall sense of mental wellbeing.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h4>Mental Clarity</h4>
+                    <p>Reduce brain fog and support the kind of clear, lucid thinking that lets you do your best work.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔋</div>
+                    <h4>Sustained Energy</h4>
+                    <p>Support healthy cognitive energy levels throughout your day — without stimulants or crashes.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🕐</div>
+                    <h4>Only 12 Minutes</h4>
+                    <p>No lengthy commitment. Just put on headphones, press play, and let the audio do the work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="lp-section">
+        <div class="section-inner">
+            <p class="section-label">How It Works</p>
+            <h2 class="section-title">Three Simple Steps to a Sharper Mind</h2>
+            <ul class="steps-list">
+                <li class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Get Instant Access</h4>
+                        <p>Your purchase is delivered digitally the moment you complete your order. No waiting, no shipping. Access it from any device.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Put On Your Headphones</h4>
+                        <p>Find a comfortable spot, put on your headphones or earbuds, and press play. That's it — the audio handles the rest.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Listen for 12 Minutes Daily</h4>
+                        <p>Make it part of your morning routine, lunch break, or wind-down time. Just 12 minutes a day to support your brain's natural performance potential.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="guarantee-block">
+                <div class="g-icon">🛡️</div>
+                <div>
+                    <h4>60-Day Money-Back Guarantee</h4>
+                    <p>Your purchase is backed by a full 60-day money-back guarantee through ClickBank. If you're not satisfied for any reason, simply contact support for a complete refund — no questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="lp-section bg-light">
+        <div class="section-inner">
+            <p class="section-label">Is This Right For You?</p>
+            <h2 class="section-title">The Brain Song Is Perfect For People Who…</h2>
+            <ul class="audience-list">
+                <li>Want to support sharper focus and mental clarity naturally</li>
+                <li>Are looking for a simple, effortless daily brain health habit</li>
+                <li>Feel mentally foggy, fatigued, or unfocused during the day</li>
+                <li>Want to support their brain's ability to learn and adapt</li>
+                <li>Are interested in neuroscience-backed wellness tools</li>
+                <li>Want to support long-term brain health as they age</li>
+                <li>Have tried stimulants and want a gentler alternative</li>
+                <li>Are curious about the power of sound and brainwave science</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MAIN CTA SECTION -->
+    <section class="lp-section">
+        <div class="lp-cta-box">
+            <p class="cta-eyebrow">🎧 Get Instant Digital Access</p>
+            <h2>Activate Your Brain Song Now — And Give Your Mind <span>The Care It Deserves</span></h2>
+            <p>Join thousands of people using this relaxing, neuroscience-inspired sound to support focus, learning, and overall mental wellness. Try it today, risk-free.</p>
+            <div class="price-display">
+                <p class="price-label">Today Just For</p>
+                <p class="price">$39</p>
+                <p class="price-note">One-time payment · Instant digital delivery</p>
+            </div>
+            <a href="https://2ee61kravqdtbu5360r8x9s5cm.hop.clickbank.net" class="main-cta" target="_blank" rel="nofollow sponsored">
+                🎧 BUY BRAIN SONG NOW
+            </a>
+            <p class="cta-sub"><span>✓ 60-Day Money-Back Guarantee</span> &nbsp;·&nbsp; Secure Checkout via ClickBank</p>
+            <p class="product-note">Product is delivered digitally. Images are for visualization only.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="lp-section bg-light">
+        <div class="section-inner">
+            <p class="section-label">Common Questions</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What exactly is The Brain Song?</summary>
+                    <div class="faq-answer">The Brain Song is a 12-minute digital audio program that uses specially designed sound patterns to gently guide your brain toward Gamma brainwave frequencies. These frequencies are associated with BDNF — a key molecule linked to learning, focus, and brain health.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>How do I use it?</summary>
+                    <div class="faq-answer">Simply put on headphones and listen to the audio for 12 minutes. You can do this in the morning, during a break, or whenever works for your schedule. Consistent daily use is recommended for best results.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>How do I get access after purchasing?</summary>
+                    <div class="faq-answer">The Brain Song is delivered digitally and instantly. As soon as your order is complete through ClickBank's secure checkout, you'll receive access to download or stream your program.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is there a money-back guarantee?</summary>
+                    <div class="faq-answer">Yes. Your purchase is backed by a 60-day money-back guarantee through ClickBank. If you're not satisfied for any reason within 60 days, contact support for a full refund.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is this suitable for everyone?</summary>
+                    <div class="faq-answer">The Brain Song is designed for adults looking to support their cognitive wellness naturally. As with any wellness product, if you have a medical condition, are pregnant, or have concerns about audio sensitivities, consult your healthcare provider before use. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need special headphones?</summary>
+                    <div class="faq-answer">Standard stereo headphones or earbuds work well. For the best experience, use headphones that provide good audio quality and a comfortable fit for your 12-minute session.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECOND CTA -->
+    <section class="lp-section" style="padding-top: 0;">
+        <div class="section-inner" style="text-align: center;">
+            <h2 class="section-title" style="margin-bottom: 14px;">Ready to Start Your Brain Song Experience?</h2>
+            <p class="section-body" style="margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto;">Join thousands who use this relaxing, neuroscience-inspired audio daily. Try it risk-free for 60 days.</p>
+            <a href="https://2ee61kravqdtbu5360r8x9s5cm.hop.clickbank.net" target="_blank" rel="nofollow sponsored" style="display: inline-block; background: #f59e0b; color: #fff; padding: 18px 44px; border-radius: 8px; font-size: 1.1rem; font-weight: 800; text-decoration: none; box-shadow: 0 4px 18px rgba(245,158,11,0.35);">
+                🎧 Get Instant Access — $39
+            </a>
+            <p style="margin-top: 12px; font-size: 0.82rem; color: #9ca3af;">60-Day Money-Back Guarantee · Secure Checkout via ClickBank</p>
+        </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="lp-disclaimer">
+        <p>*These statements have not been evaluated by the U.S. Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        <p>ClickBank is the retailer of products on this site. CLICKBANK® is a registered trademark of Click Sales Inc., a Delaware corporation located at 1444 S. Entertainment Ave., Suite 410 Boise, ID 83709, USA and used by permission. ClickBank's role as retailer does not constitute an endorsement, approval or review of these products or any claim, statement or opinion used in promotion of these products.</p>
+        <p>MindPerformanceHub.com is an affiliate of this product and may receive compensation for purchases made through links on this page. See our <a href="affiliate-disclosure.html">Affiliate Disclosure</a> for full details.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="lp-footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>© 2026 MindPerformanceHub.com · All Rights Reserved</p>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-cta-bar">
+        <a href="https://2ee61kravqdtbu5360r8x9s5cm.hop.clickbank.net" target="_blank" rel="nofollow sponsored">🎧 Get The Brain Song — $39</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .article { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        .error { color: red; background: #ffe6e6; padding: 10px; }
+        .success { color: green; background: #e6ffe6; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Content Data Test</h1>
+    <div id="status"></div>
+    <div id="articles"></div>
+
+    <script src="js/content-data.js"></script>
+    <script>
+        const status = document.getElementById('status');
+        const articlesDiv = document.getElementById('articles');
+        
+        if (typeof window.MPH_CONTENT === 'undefined') {
+            status.innerHTML = '<div class="error">❌ window.MPH_CONTENT is undefined! content-data.js did not load.</div>';
+        } else if (!window.MPH_CONTENT.articles) {
+            status.innerHTML = '<div class="error">❌ window.MPH_CONTENT.articles is undefined!</div>';
+        } else {
+            const count = window.MPH_CONTENT.articles.length;
+            status.innerHTML = '<div class="success">✅ Loaded ' + count + ' articles successfully!</div>';
+            
+            // Display first 5 articles
+            articlesDiv.innerHTML = '<h2>First 5 Articles:</h2>';
+            window.MPH_CONTENT.articles.slice(0, 5).forEach(article => {
+                articlesDiv.innerHTML += `
+                    <div class="article">
+                        <strong>${article.title}</strong><br>
+                        Category: ${article.category}<br>
+                        Slug: ${article.slug}<br>
+                        URL: articles/${article.slug}.html
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
