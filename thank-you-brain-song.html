@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In! | Mind Performance Hub</title>
+    <link rel="canonical" href="https://mindperformancehub.com/thank-you-brain-song.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background: #f9fafb; }
+        .ty-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .ty-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 56px 48px;
+            max-width: 580px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        .ty-icon { font-size: 3rem; margin-bottom: 16px; }
+        .ty-card h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+        .ty-card .sub {
+            font-size: 1.05rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .ty-card .sub strong { color: #1f2937; }
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .cta-btn {
+            display: block;
+            background: #f59e0b;
+            color: #fff;
+            padding: 18px 32px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-decoration: none;
+            margin-bottom: 14px;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(245,158,11,0.35);
+        }
+        .cta-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+        .skip-note {
+            font-size: 0.82rem;
+            color: #9ca3af;
+        }
+        .skip-note a { color: #6b7280; }
+        .logo-link {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+            margin-top: 32px;
+        }
+
+        /* countdown */
+        .countdown {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        .countdown span { font-weight: 700; color: #1e3a8a; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav container">
+        <a href="index.html" class="logo">Mind Performance Hub</a>
+    </nav>
+</header>
+
+<div class="ty-wrap">
+    <div class="ty-card">
+        <div class="ty-icon">✅</div>
+        <h1>You're In!</h1>
+        <p class="sub">Welcome to Mind Performance Hub updates. You'll be first to know about brain health tools and research we review.</p>
+
+        <div class="highlight-box">
+            <p><strong>We have one recommendation for you right now:</strong> The Brain Song — a 12-minute daily audio that uses Gamma brainwave entrainment to support BDNF, the key molecule behind focus, memory, and mental clarity. Simple, effortless, and backed by neuroscience.</p>
+        </div>
+
+        <p class="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
+
+        <a href="https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net" class="cta-btn" id="cta-link" target="_blank" rel="nofollow sponsored">
+            🎧 Check Out The Brain Song →
+        </a>
+
+        <p class="skip-note">
+            Not interested right now? <a href="index.html">Return to the site</a>
+        </p>
+
+        <a href="index.html" class="logo-link">Mind Performance Hub</a>
+    </div>
+</div>
+
+<script>
+    // Countdown and auto-redirect
+    let seconds = 5;
+    const timerEl = document.getElementById('timer');
+    const countdown = setInterval(() => {
+        seconds--;
+        timerEl.textContent = seconds;
+        if (seconds <= 0) {
+            clearInterval(countdown);
+            window.location.href = 'https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net';
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
