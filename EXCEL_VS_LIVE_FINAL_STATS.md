@@ -170,3 +170,54 @@ These articles should link to `brain-song-review.html`:
 - [ ] Add internal links from the 5 articles above to the bridge page
 - [ ] Connect email form in bridge page to actual email provider (Mailchimp / ConvertKit)
 - [ ] Add Brain Song to resources.html page
+
+---
+
+## Site Structure: All Categories & Subcategories
+
+### 🧠 Brain Health
+| Subcategory | Live Articles | Pinterest Board Name |
+|-------------|:---:|---------------------|
+| Memory | 21 | Memory Improvement Tips |
+| Mental Energy | 19 | Mental Energy & Brain Fuel |
+| Sleep & Brain Function | 14 | Sleep & Brain Health |
+| Learning & Cognitive Skills | 3 | Learning Faster & Smarter |
+| Cognitive Performance | 1 | Brain Training & Cognitive Performance |
+
+### 🎯 Focus & Concentration
+| Subcategory | Live Articles | Pinterest Board Name |
+|-------------|:---:|---------------------|
+| Focus Habits & Techniques | 1 | Focus Habits & Concentration |
+| Deep Work | 1 | Deep Work & Flow State |
+| Attention Training | 0 | Attention & Mental Focus |
+| Study & Learning Techniques | 0 | Study Techniques & Learning |
+| Distraction Management | 0 | Distraction Management |
+
+### 🚀 Productivity & Self-Improvement
+| Subcategory | Live Articles | Pinterest Board Name |
+|-------------|:---:|---------------------|
+| Habit Building | 1 | Habit Building & Behavior Change |
+| Time Management | 1 | Time Management & Productivity |
+| Goal Setting & Achievement | 0 | Goal Setting & Achievement |
+| Learning & Skill Development | 0 | Skill Development & Learning |
+| Personal Performance | 0 | Personal Performance & Self-Improvement |
+
+### Pinterest Board Strategy
+- **Total boards to create: 14** (11 subcategory + 3 main + 1 catch-all)
+- **Catch-all board:** Mind Performance Hub — Best of
+- **Priority order to create:** Memory → Mental Energy → Sleep → Focus Habits → Deep Work → Habit Building → Time Management → rest
+- **Pinning rule:** Save to subcategory board FIRST, then main category board, then catch-all
+- **Pin volume target:** 10-20 pins per article × 62 articles = 620–1,240 pins total
+- **Design spec:** 1000 × 1500 px (2:3 ratio)
+
+### Pinterest Pin Formula (per article)
+1. Main article pin
+2. Educational / "What is X" pin
+3. Listicle pin (5 ways / 3 tips)
+4. Topic-specific angle pin
+5. Myth-busting pin
+6. Brain health angle pin
+7. Sleep/memory/energy crossover pin
+8. Learning/productivity angle pin
+9. Motivation pin
+10. FAQ pin
