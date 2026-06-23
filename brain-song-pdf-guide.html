@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>The Brain Song Guide | Mind Performance Hub</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        /* ===== SCREEN STYLES ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: #f0f4ff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f172a;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,409 +19,562 @@
             min-height: 100vh;
         }
 
-        /* Download button — hidden when printing */
-        .download-bar {
+        /* ===== TOP BAR ===== */
+        .top-bar {
             width: 100%;
-            max-width: 760px;
+            max-width: 800px;
             display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
         }
 
-        .btn-download {
-            background: #2563eb;
+        .top-bar .site-link {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .site-link:hover { color: #fff; }
+
+        .btn-save {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: #fff;
             border: none;
-            padding: 12px 28px;
+            padding: 13px 30px;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            font-family: -apple-system, sans-serif;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.2s;
+            box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn-download:hover { background: #1e40af; }
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(245,158,11,0.5);
+        }
 
-        /* ===== PDF PAGE ===== */
-        .pdf-page {
-            width: 760px;
-            min-height: 1050px;
+        .btn-save.loading { opacity: 0.7; cursor: wait; }
+
+        /* ===== PDF DOCUMENT ===== */
+        #pdf-content {
+            width: 800px;
             background: #fff;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.5);
         }
 
-        /* Header */
-        .pdf-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #4338ca 100%);
-            padding: 40px 48px 36px;
-            color: #fff;
-            text-align: center;
+        /* ===== HEADER ===== */
+        .doc-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #312e81 100%);
+            padding: 48px 56px 44px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .pdf-header .brand {
-            font-family: -apple-system, sans-serif;
-            font-size: 0.75rem;
+        .doc-header::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: rgba(99,102,241,0.15);
+        }
+
+        .doc-header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: rgba(251,191,36,0.08);
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header-text .brand {
+            font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 16px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 14px;
         }
 
-        .pdf-header .product-icon { font-size: 3rem; margin-bottom: 10px; }
+        .header-text h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
 
-        .pdf-header h1 {
-            font-size: 2.2rem;
+        .header-text h1 .accent { color: #fbbf24; }
+
+        .header-text .subtitle {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+            max-width: 420px;
+        }
+
+        .header-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            min-width: 140px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-badge .badge-icon { font-size: 2.8rem; margin-bottom: 8px; }
+        .header-badge .badge-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .header-badge .badge-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+
+        /* ===== STAT BAR ===== */
+        .stat-bar {
+            background: #fbbf24;
+            padding: 14px 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
             font-weight: 700;
-            line-height: 1.2;
+            color: #1e3a8a;
+        }
+
+        .stat-item .stat-icon { font-size: 1rem; }
+
+        /* ===== BODY ===== */
+        .doc-body {
+            padding: 40px 56px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* Intro */
+        .intro-block {
+            background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+            border-radius: 12px;
+            padding: 24px 28px;
+            border-left: 5px solid #2563eb;
+        }
+
+        .intro-block .intro-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2563eb;
             margin-bottom: 8px;
         }
 
-        .pdf-header h1 span { color: #fbbf24; }
-
-        .pdf-header .tagline {
-            font-size: 1rem;
-            opacity: 0.85;
-            font-style: italic;
-        }
-
-        /* Body */
-        .pdf-body {
-            padding: 36px 48px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .intro-text {
-            font-size: 1rem;
+        .intro-block p {
+            font-size: 0.95rem;
             color: #374151;
-            line-height: 1.8;
-            text-align: center;
-            font-style: italic;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 20px;
+            line-height: 1.75;
         }
 
-        /* Two column layout */
+        .intro-block strong { color: #1e3a8a; }
+
+        /* Two col */
         .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .section-box {
-            background: #f8faff;
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid #e0e7ff;
+        .feature-card {
+            border-radius: 12px;
+            padding: 22px 24px;
+            border: 1px solid #e5e7eb;
         }
 
-        .section-box h3 {
-            font-family: -apple-system, sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #2563eb;
-            margin-bottom: 12px;
-        }
+        .feature-card.blue { background: #f0f9ff; border-color: #bae6fd; }
+        .feature-card.purple { background: #faf5ff; border-color: #e9d5ff; }
 
-        .section-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .section-box ul li {
-            font-size: 0.88rem;
-            color: #374151;
-            padding: 5px 0;
-            line-height: 1.5;
+        .feature-card .card-header {
             display: flex;
-            gap: 8px;
-            align-items: flex-start;
-            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
-        .section-box ul li:last-child { border-bottom: none; }
-
-        .section-box ul li::before {
-            content: "✓";
-            color: #2563eb;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-top: 1px;
+        .feature-card .card-icon {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
         }
 
-        /* Science box */
-        .science-box {
-            background: #eff6ff;
-            border-left: 4px solid #2563eb;
-            border-radius: 0 8px 8px 0;
-            padding: 18px 22px;
-        }
+        .blue .card-icon { background: #0ea5e9; }
+        .purple .card-icon { background: #8b5cf6; }
 
-        .science-box h3 {
-            font-family: -apple-system, sans-serif;
-            font-size: 0.7rem;
+        .feature-card .card-title {
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            color: #1e3a8a;
-            margin-bottom: 10px;
         }
 
-        .science-box p {
+        .blue .card-title { color: #0369a1; }
+        .purple .card-title { color: #6d28d9; }
+
+        .feature-card ul { list-style: none; }
+
+        .feature-card ul li {
             font-size: 0.88rem;
             color: #374151;
-            line-height: 1.7;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            line-height: 1.45;
         }
 
-        .science-box strong { color: #1e3a8a; }
+        .feature-card ul li:last-child { border-bottom: none; }
+
+        .blue li::before { content: "✦"; color: #0ea5e9; font-size: 0.7rem; margin-top: 2px; flex-shrink: 0; }
+        .purple li::before { content: "✦"; color: #8b5cf6; font-size: 0.7rem; margin-top: 2px; flex-shrink: 0; }
 
         /* Steps */
+        .steps-section { }
+
+        .steps-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 14px;
+        }
+
         .steps-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            justify-content: space-between;
         }
 
-        .step {
-            flex: 1;
-            text-align: center;
-            padding: 16px 12px;
+        .step-card {
             background: #f8faff;
-            border-radius: 10px;
             border: 1px solid #e0e7ff;
+            border-radius: 10px;
+            padding: 18px 14px;
+            text-align: center;
         }
 
-        .step .step-num {
-            width: 36px;
-            height: 36px;
-            background: #2563eb;
+        .step-num {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 0.9rem;
-            margin: 0 auto 8px;
-            font-family: -apple-system, sans-serif;
+            font-size: 1rem;
+            margin: 0 auto 10px;
         }
 
-        .step p {
+        .step-card p {
             font-size: 0.8rem;
             color: #374151;
             line-height: 1.5;
         }
 
-        /* CTA */
-        .pdf-cta {
-            background: linear-gradient(135deg, #1e3a8a, #4338ca);
-            border-radius: 12px;
-            padding: 28px 32px;
-            text-align: center;
-            color: #fff;
+        .step-card p strong {
+            display: block;
+            color: #1e3a8a;
+            margin-bottom: 3px;
         }
 
-        .pdf-cta h2 {
-            font-size: 1.25rem;
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            border-radius: 14px;
+            padding: 36px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "🧠";
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.04;
+            top: -20px;
+            right: -10px;
+            line-height: 1;
+        }
+
+        .cta-section .cta-label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 10px;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+            color: #fff;
             margin-bottom: 8px;
         }
 
-        .pdf-cta h2 span { color: #fbbf24; }
+        .cta-section h2 span { color: #fbbf24; }
 
-        .pdf-cta p {
-            font-size: 0.85rem;
-            opacity: 0.85;
-            margin-bottom: 18px;
-            font-style: italic;
+        .cta-section .cta-sub {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+            line-height: 1.6;
         }
 
-        .pdf-cta .cta-url {
+        .cta-btn {
             display: inline-block;
-            background: #f59e0b;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: #fff;
-            padding: 14px 36px;
-            border-radius: 8px;
-            font-family: -apple-system, sans-serif;
-            font-size: 1rem;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-size: 1.05rem;
             font-weight: 800;
             text-decoration: none;
+            box-shadow: 0 6px 24px rgba(245,158,11,0.4);
         }
 
-        .pdf-cta .url-text {
-            display: block;
-            margin-top: 10px;
+        .cta-guarantee {
+            margin-top: 12px;
             font-size: 0.75rem;
-            opacity: 0.6;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
+            color: rgba(255,255,255,0.4);
         }
 
         /* Footer */
-        .pdf-footer {
-            background: #1e3a8a;
-            padding: 14px 48px;
+        .doc-footer {
+            background: #1e293b;
+            padding: 16px 56px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.72rem;
-            font-family: -apple-system, sans-serif;
         }
 
-        .pdf-footer strong { color: rgba(255,255,255,0.9); }
+        .doc-footer .footer-brand {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.7);
+        }
 
-        /* ===== PRINT STYLES ===== */
+        .doc-footer .footer-note {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* ===== PRINT / PDF STYLES ===== */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .download-bar { display: none; }
-
-            .pdf-page {
-                width: 100%;
-                min-height: auto;
+            body { background: white; padding: 0; }
+            .top-bar { display: none; }
+            #pdf-content {
                 box-shadow: none;
                 border-radius: 0;
-            }
-
-            @page {
-                size: A4;
-                margin: 0;
+                width: 100%;
             }
         }
 
-        /* Mobile */
-        @media (max-width: 800px) {
-            .pdf-page { width: 100%; }
-            .pdf-header { padding: 30px 24px; }
-            .pdf-body { padding: 24px; }
+        @media (max-width: 860px) {
+            #pdf-content { width: 100%; }
+            .doc-header { padding: 32px 24px; }
+            .header-inner { grid-template-columns: 1fr; }
+            .header-badge { display: none; }
+            .stat-bar { padding: 14px 24px; flex-wrap: wrap; gap: 10px; }
+            .doc-body { padding: 24px; }
             .two-col { grid-template-columns: 1fr; }
-            .steps-row { flex-direction: column; }
-            .pdf-footer { flex-direction: column; gap: 4px; text-align: center; }
+            .steps-row { grid-template-columns: repeat(2,1fr); }
+            .doc-footer { padding: 14px 24px; flex-direction: column; gap: 6px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Download Button -->
-    <div class="download-bar">
-        <button class="btn-download" onclick="window.print()">
-            ⬇️ Download as PDF
+    <!-- Top bar -->
+    <div class="top-bar">
+        <a href="index.html" class="site-link">← Mind Performance Hub</a>
+        <button class="btn-save" id="savePdfBtn" onclick="savePDF()">
+            ⬇️ Save as PDF
         </button>
     </div>
 
-    <!-- PDF Page -->
-    <div class="pdf-page">
+    <!-- Document -->
+    <div id="pdf-content">
 
         <!-- Header -->
-        <div class="pdf-header">
-            <p class="brand">Mind Performance Hub</p>
-            <div class="product-icon">🧠</div>
-            <h1>The Brain Song<br><span>Quick Start Guide</span></h1>
-            <p class="tagline">Activate Your Brainwaves for a Sharper, Healthier Mind</p>
+        <div class="doc-header">
+            <div class="header-inner">
+                <div class="header-text">
+                    <p class="brand">Mind Performance Hub · Brain Performance Guide</p>
+                    <h1>The Brain Song<br><span class="accent">Quick Start Guide</span></h1>
+                    <p class="subtitle">Activate your Gamma brainwaves and support BDNF — the molecule behind sharper memory, faster learning, and sustained mental clarity.</p>
+                </div>
+                <div class="header-badge">
+                    <div class="badge-icon">🧠</div>
+                    <div class="badge-label">Daily Use</div>
+                    <div class="badge-value">12 Min</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stat bar -->
+        <div class="stat-bar">
+            <div class="stat-item"><span class="stat-icon">⏱️</span> 12-Minute Daily Routine</div>
+            <div class="stat-item"><span class="stat-icon">🎧</span> Any Headphones Work</div>
+            <div class="stat-item"><span class="stat-icon">🛡️</span> 60-Day Money-Back Guarantee</div>
+            <div class="stat-item"><span class="stat-icon">⚡</span> Instant Digital Delivery</div>
         </div>
 
         <!-- Body -->
-        <div class="pdf-body">
+        <div class="doc-body">
 
-            <p class="intro-text">
-                A simple 12-minute daily audio that uses Gamma brainwave entrainment to support BDNF —
-                the key molecule behind memory, focus, and cognitive clarity.
-            </p>
-
-            <!-- Science -->
-            <div class="science-box">
-                <h3>🔬 The Science Behind It</h3>
-                <p>
-                    <strong>BDNF (Brain-Derived Neurotrophic Factor)</strong> is known as the brain's
-                    own "fertilizer" — it supports the survival of neurons and encourages the formation
-                    of new neural connections. Research links <strong>Gamma brainwave activity (30–100 Hz)</strong>
-                    to increased BDNF production. The Brain Song uses carefully engineered audio to gently
-                    guide your brain toward Gamma frequencies — safely and effortlessly.
-                </p>
+            <!-- Intro -->
+            <div class="intro-block">
+                <p class="intro-label">🔬 What Is The Brain Song?</p>
+                <p>The Brain Song is a neuroscience-inspired audio program that uses carefully engineered sound patterns to guide your brain toward <strong>Gamma brainwave frequencies (30–100 Hz)</strong>. Research links Gamma activity to higher <strong>BDNF (Brain-Derived Neurotrophic Factor)</strong> — the key protein that supports neuron survival, memory consolidation, and cognitive flexibility. Just 12 minutes a day, with headphones, from anywhere.</p>
             </div>
 
             <!-- Two columns -->
             <div class="two-col">
-                <div class="section-box">
-                    <h3>✓ What It Supports</h3>
+                <div class="feature-card blue">
+                    <div class="card-header">
+                        <div class="card-icon">💡</div>
+                        <span class="card-title">What It Supports</span>
+                    </div>
                     <ul>
                         <li>Sharper focus &amp; mental clarity</li>
-                        <li>Memory formation &amp; retention</li>
+                        <li>Memory formation &amp; long-term retention</li>
                         <li>Faster learning &amp; information processing</li>
                         <li>Sustained mental energy without stimulants</li>
-                        <li>Overall cognitive wellness &amp; brain health</li>
+                        <li>Overall cognitive wellness as you age</li>
                     </ul>
                 </div>
-                <div class="section-box">
-                    <h3>✓ Why It Works</h3>
+                <div class="feature-card purple">
+                    <div class="card-header">
+                        <div class="card-icon">✅</div>
+                        <span class="card-title">Why It Works</span>
+                    </div>
                     <ul>
-                        <li>Only 12 minutes per day</li>
+                        <li>BDNF + Gamma brainwave science</li>
                         <li>No supplements or side effects</li>
-                        <li>Works with any standard headphones</li>
-                        <li>Instant digital delivery</li>
-                        <li>60-day money-back guarantee</li>
+                        <li>Works with any stereo headphones</li>
+                        <li>Passive — just listen and relax</li>
+                        <li>Risk-free with 60-day guarantee</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- How to use -->
-            <div class="steps-row">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <p><strong>Get Access</strong><br>Purchase and receive instant digital delivery</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <p><strong>Put on Headphones</strong><br>Any standard earbuds or headphones work</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <p><strong>Press Play</strong><br>Listen for 12 minutes — daily for best results</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <p><strong>Experience the Shift</strong><br>Clearer thinking, better focus over time</p>
+            <!-- Steps -->
+            <div class="steps-section">
+                <p class="steps-label">How To Use It — 4 Simple Steps</p>
+                <div class="steps-row">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <p><strong>Get Access</strong>Click the link below for instant digital access</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <p><strong>Put On Headphones</strong>Any earbuds or over-ear headphones work</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <p><strong>Press Play</strong>Relax and let the audio do its work</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">4</div>
+                        <p><strong>Repeat Daily</strong>12 minutes each day for lasting results</p>
+                    </div>
                 </div>
             </div>
 
             <!-- CTA -->
-            <div class="pdf-cta">
+            <div class="cta-section">
+                <p class="cta-label">Your Next Step</p>
                 <h2>Ready to Try <span>The Brain Song?</span></h2>
-                <p>Click the link below to access the official Brain Song page and get started today.</p>
+                <p class="cta-sub">Click below to access the official Brain Song page — instant digital delivery, risk-free with a full 60-day money-back guarantee.</p>
                 <a href="https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net"
-                   class="cta-url"
+                   class="cta-btn"
                    target="_blank"
                    rel="nofollow sponsored">
                     🎧 Get The Brain Song Now →
                 </a>
-                <span class="url-text">https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net</span>
+                <p class="cta-guarantee">60-Day Money-Back Guarantee · Secure Checkout via ClickBank</p>
             </div>
 
         </div>
 
         <!-- Footer -->
-        <div class="pdf-footer">
-            <span><strong>Mind Performance Hub</strong> · mindperformancehub.com</span>
-            <span>Affiliate disclosure: we may earn a commission if you purchase through our link.</span>
+        <div class="doc-footer">
+            <span class="footer-brand">Mind Performance Hub · mindperformancehub.com</span>
+            <span class="footer-note">Affiliate disclosure: we may earn a commission if you purchase through our link · hello@mindperformancehub.blog</span>
         </div>
 
     </div>
+
+    <script>
+        function savePDF() {
+            const btn = document.getElementById('savePdfBtn');
+            btn.textContent = '⏳ Generating PDF...';
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            const element = document.getElementById('pdf-content');
+
+            const opt = {
+                margin:       0,
+                filename:     'The-Brain-Song-Guide-MindPerformanceHub.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, logging: false },
+                jsPDF:        { unit: 'px', format: [800, 1100], orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.textContent = '✅ PDF Saved!';
+                setTimeout(() => {
+                    btn.textContent = '⬇️ Save as PDF';
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                }, 2500);
+            });
+        }
+    </script>
 
 </body>
 </html>
