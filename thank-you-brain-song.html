@@ -3,56 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're In! | Mind Performance Hub</title>
-    <link rel="canonical" href="https://mindperformancehub.com/thank-you-brain-song.html">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Thank You | Mind Performance Hub</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        body { background: #f9fafb; }
-        .ty-wrap {
+        body { background: #f0f4ff; }
+
+        .ty-page {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ty-main {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 48px 20px;
         }
+
         .ty-card {
             background: #fff;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 56px 48px;
-            max-width: 580px;
+            max-width: 620px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 40px rgba(30,58,138,0.1);
         }
-        .ty-icon { font-size: 3rem; margin-bottom: 16px; }
-        .ty-card h1 {
+
+        .ty-check {
+            width: 72px;
+            height: 72px;
+            background: #d1fae5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 2rem;
+            margin: 0 auto 24px;
+        }
+
+        .ty-card h1 {
+            font-size: 2.2rem;
             font-weight: 800;
             color: #1e3a8a;
             margin-bottom: 12px;
+            line-height: 1.2;
         }
-        .ty-card .sub {
+
+        .ty-card .welcome {
             font-size: 1.05rem;
             color: #4b5563;
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
-        .ty-card .sub strong { color: #1f2937; }
-        .highlight-box {
-            background: #eff6ff;
-            border-left: 4px solid #2563eb;
-            border-radius: 0 8px 8px 0;
-            padding: 18px 22px;
-            text-align: left;
-            margin-bottom: 32px;
+
+        .divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 0 0 32px;
         }
-        .highlight-box p {
+
+        .rec-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 14px;
+        }
+
+        .rec-box {
+            background: linear-gradient(135deg, #1e3a8a, #4338ca);
+            border-radius: 14px;
+            padding: 32px 28px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .rec-box .rec-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+        .rec-box h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .rec-box h2 span { color: #fbbf24; }
+
+        .rec-box p {
             font-size: 0.95rem;
-            color: #374151;
+            opacity: 0.85;
             line-height: 1.7;
-            margin: 0;
+            margin-bottom: 24px;
         }
-        .cta-btn {
+
+        .rec-points {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            text-align: left;
+        }
+
+        .rec-points li {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            padding: 5px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .rec-points li::before {
+            content: "✓";
+            color: #86efac;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .cta-main {
             display: block;
             background: #f59e0b;
             color: #fff;
@@ -61,82 +133,100 @@
             font-size: 1.1rem;
             font-weight: 800;
             text-decoration: none;
-            margin-bottom: 14px;
             transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 4px 16px rgba(245,158,11,0.35);
+            box-shadow: 0 4px 18px rgba(245,158,11,0.4);
         }
-        .cta-btn:hover {
+
+        .cta-main:hover {
             background: #d97706;
             transform: translateY(-2px);
         }
-        .skip-note {
-            font-size: 0.82rem;
-            color: #9ca3af;
+
+        .guarantee {
+            font-size: 0.78rem;
+            opacity: 0.6;
+            margin-top: 10px;
         }
-        .skip-note a { color: #6b7280; }
-        .logo-link {
+
+        .ty-footer {
+            text-align: center;
+            padding: 28px 20px;
+            border-top: 1px solid #e5e7eb;
+            background: #fff;
+        }
+
+        .ty-footer a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin: 0 12px;
+        }
+
+        .ty-footer a:hover { color: #2563eb; }
+
+        .ty-footer .home-link {
             display: inline-block;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: #2563eb;
-            text-decoration: none;
-            margin-top: 32px;
+            margin-bottom: 12px;
         }
 
-        /* countdown */
-        .countdown {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-bottom: 20px;
+        @media (max-width: 600px) {
+            .ty-card { padding: 36px 24px; }
+            .ty-card h1 { font-size: 1.7rem; }
         }
-        .countdown span { font-weight: 700; color: #1e3a8a; }
     </style>
 </head>
-<body>
+<body class="ty-page">
 
-<header class="header">
-    <nav class="nav container">
-        <a href="index.html" class="logo">Mind Performance Hub</a>
-    </nav>
-</header>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">Mind Performance Hub</a>
+        </nav>
+    </header>
 
-<div class="ty-wrap">
-    <div class="ty-card">
-        <div class="ty-icon">✅</div>
-        <h1>You're In!</h1>
-        <p class="sub">Welcome to Mind Performance Hub updates. You'll be first to know about brain health tools and research we review.</p>
+    <main class="ty-main">
+        <div class="ty-card">
 
-        <div class="highlight-box">
-            <p><strong>We have one recommendation for you right now:</strong> The Brain Song — a 12-minute daily audio that uses Gamma brainwave entrainment to support BDNF, the key molecule behind focus, memory, and mental clarity. Simple, effortless, and backed by neuroscience.</p>
+            <div class="ty-check">✅</div>
+            <h1>You're subscribed!</h1>
+            <p class="welcome">Welcome to Mind Performance Hub. You'll receive brain health insights, research updates, and tools we genuinely recommend.</p>
+
+            <div class="divider"></div>
+
+            <p class="rec-label">🎧 Our Top Recommendation Right Now</p>
+
+            <div class="rec-box">
+                <div class="rec-icon">🧠</div>
+                <h2>The Brain Song — <span>12 Minutes a Day</span></h2>
+                <p>A neuroscience-inspired audio that supports Gamma brainwave activity linked to BDNF — the key molecule behind memory, focus, and mental clarity.</p>
+                <ul class="rec-points">
+                    <li>Just 12 minutes daily — no effort required</li>
+                    <li>Supports BDNF &amp; Gamma brainwave activity</li>
+                    <li>Use at home with any headphones</li>
+                    <li>Backed by a 60-day money-back guarantee</li>
+                </ul>
+                <a href="https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net" class="cta-main" target="_blank" rel="nofollow sponsored">
+                    🎧 Check Out The Brain Song →
+                </a>
+                <p class="guarantee">60-Day Money-Back Guarantee · Secure Checkout via ClickBank</p>
+            </div>
+
+            <p style="font-size:0.85rem;color:#6b7280;margin-top:8px;">
+                Not interested? No problem. <a href="index.html" style="color:#2563eb;">Browse our free articles →</a>
+            </p>
+
         </div>
+    </main>
 
-        <p class="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
-
-        <a href="https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net" class="cta-btn" id="cta-link" target="_blank" rel="nofollow sponsored">
-            🎧 Check Out The Brain Song →
-        </a>
-
-        <p class="skip-note">
-            Not interested right now? <a href="index.html">Return to the site</a>
-        </p>
-
-        <a href="index.html" class="logo-link">Mind Performance Hub</a>
-    </div>
-</div>
-
-<script>
-    // Countdown and auto-redirect
-    let seconds = 5;
-    const timerEl = document.getElementById('timer');
-    const countdown = setInterval(() => {
-        seconds--;
-        timerEl.textContent = seconds;
-        if (seconds <= 0) {
-            clearInterval(countdown);
-            window.location.href = 'https://85bd0ji-yf5zdzd-21ke4d0eyz.hop.clickbank.net';
-        }
-    }, 1000);
-</script>
+    <footer class="ty-footer">
+        <a href="index.html" class="home-link">← Back to Mind Performance Hub</a>
+        <br>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+    </footer>
 
 </body>
 </html>
