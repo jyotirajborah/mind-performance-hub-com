@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Your Walking Program | Mind Performance Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f4ff; color: #1f2937; line-height: 1.7; }
+
+        .top-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .top-nav .logo { font-size: 1.2rem; font-weight: 700; color: #2563eb; text-decoration: none; }
+        .top-nav .back-link { font-size: 0.85rem; color: #6b7280; text-decoration: none; }
+        .top-nav .back-link:hover { color: #2563eb; }
+
+        .page-wrap { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+
+        /* ACCESS HEADER */
+        .access-header { background: linear-gradient(135deg, #166534, #15803d); border-radius: 16px; padding: 40px 48px; color: #fff; text-align: center; margin-bottom: 36px; }
+        .access-header .check { font-size: 3rem; margin-bottom: 12px; }
+        .access-header h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
+        .access-header p { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto; }
+
+        /* DOWNLOAD CARD */
+        .download-card { background: #fff; border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 28px; }
+        .download-card .dc-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .download-card .dc-icon { width: 56px; height: 56px; background: linear-gradient(135deg, #166534, #16a34a); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+        .download-card .dc-title { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
+        .download-card .dc-sub { font-size: 0.88rem; color: #6b7280; margin-top: 2px; }
+        .download-card .dc-desc { font-size: 0.95rem; color: #374151; line-height: 1.7; margin-bottom: 24px; }
+        .download-btn { display: inline-flex; align-items: center; gap: 10px; background: #166534; color: #fff; padding: 15px 32px; border-radius: 8px; font-size: 1rem; font-weight: 800; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 16px rgba(22,101,52,0.3); }
+        .download-btn:hover { background: #15803d; transform: translateY(-2px); }
+        .download-note { margin-top: 10px; font-size: 0.78rem; color: #9ca3af; }
+
+        /* CONTENTS */
+        .contents-card { background: #fff; border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 28px; }
+        .contents-card h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 20px; }
+        .contents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .contents-grid { grid-template-columns: 1fr; } }
+        .content-item { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: #f9fafb; border-radius: 8px; }
+        .content-item .ci-num { width: 24px; height: 24px; background: #166534; color: #fff; border-radius: 50%; font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+        .content-item .ci-text { font-size: 0.88rem; color: #374151; line-height: 1.5; }
+        .content-item .ci-text strong { color: #0f172a; display: block; font-size: 0.9rem; }
+
+        /* WEEK OVERVIEW */
+        .week-card { background: #fff; border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 28px; }
+        .week-card h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+        .week-card .phase-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .phase-badge { padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; }
+        .phase-badge.base { background: #d1fae5; color: #166534; }
+        .phase-badge.build { background: #dbeafe; color: #1e40af; }
+        .phase-badge.peak { background: #fae8ff; color: #7e22ce; }
+
+        .week-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .week-table th { background: #f1f5f9; padding: 10px 12px; text-align: left; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #475569; }
+        .week-table td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #374151; line-height: 1.5; }
+        .week-table tr:last-child td { border-bottom: none; }
+        .week-table tr:hover td { background: #f8faff; }
+        .week-num { font-weight: 800; color: #166534; white-space: nowrap; }
+        .phase-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+        .dot-base { background: #16a34a; }
+        .dot-build { background: #2563eb; }
+        .dot-peak { background: #7c3aed; }
+
+        /* CALORIE TABLE */
+        .calorie-card { background: #fff; border-radius: 14px; padding: 36px 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 28px; overflow-x: auto; }
+        .calorie-card h2 { font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+        .calorie-card .cal-sub { font-size: 0.88rem; color: #6b7280; margin-bottom: 20px; }
+        .cal-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 480px; }
+        .cal-table th { background: #166534; color: #fff; padding: 10px 14px; text-align: center; font-size: 0.78rem; }
+        .cal-table td { padding: 9px 14px; text-align: center; border-bottom: 1px solid #f1f5f9; color: #374151; }
+        .cal-table tr:nth-child(even) td { background: #f9fafb; }
+        .cal-table .weight-col { font-weight: 700; color: #0f172a; text-align: left; }
+        .cal-highlight { color: #166534; font-weight: 700; }
+
+        /* SAFETY */
+        .safety-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 14px; padding: 28px 36px; margin-bottom: 28px; }
+        .safety-card h3 { font-size: 1rem; font-weight: 800; color: #92400e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .safety-card ul { list-style: none; }
+        .safety-card ul li { font-size: 0.9rem; color: #374151; padding: 6px 0; border-bottom: 1px solid #fde68a; display: flex; gap: 10px; }
+        .safety-card ul li:last-child { border-bottom: none; }
+        .safety-card ul li::before { content: "⚠️"; flex-shrink: 0; }
+
+        /* RELATED READING */
+        .related-card { background: #fff; border-radius: 14px; padding: 28px 36px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 28px; }
+        .related-card h3 { font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+        .related-links { display: flex; flex-direction: column; gap: 10px; }
+        .related-links a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #f8faff; border-radius: 8px; text-decoration: none; font-size: 0.9rem; color: #1e40af; font-weight: 600; border: 1px solid #dbeafe; transition: background 0.2s; }
+        .related-links a:hover { background: #dbeafe; }
+        .related-links a::before { content: "→"; flex-shrink: 0; }
+
+        @media (max-width: 640px) {
+            .access-header { padding: 28px 24px; }
+            .download-card, .contents-card, .week-card, .calorie-card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="index.html" class="logo">Mind Performance Hub</a>
+    <a href="index.html" class="back-link">← Back to site</a>
+</nav>
+
+<div class="page-wrap">
+
+    <!-- ACCESS HEADER -->
+    <div class="access-header">
+        <div class="check">🎉</div>
+        <h1>You've Got Access!</h1>
+        <p>Your 12-week walking program is ready. Download the PDF below or read it right here.</p>
+    </div>
+
+    <!-- DOWNLOAD CARD -->
+    <div class="download-card">
+        <div class="dc-header">
+            <div class="dc-icon">📄</div>
+            <div>
+                <div class="dc-title">Walking for Weight Loss: The Incline & Interval Method</div>
+                <div class="dc-sub">12-Week Program · PDF · ~20 pages · Evidence-Based</div>
+            </div>
+        </div>
+        <p class="dc-desc">The complete program including all 12 weeks, session scripts, calorie tables, warm-up/cool-down routines, safety guidelines, equipment tips, and printable tracker templates. Referenced to ACSM, NHS, WHO, and Arthritis Foundation guidelines.</p>
+        <!-- REPLACE THIS HREF WITH YOUR ACTUAL GOOGLE DRIVE LINK -->
+        <a href="YOUR_GOOGLE_DRIVE_PDF_LINK_HERE" class="download-btn" target="_blank" rel="noopener">
+            ⬇️ Download the PDF Program
+        </a>
+        <p class="download-note">Opens in Google Drive · Save to your device · Print-ready PDF</p>
+    </div>
+
+    <!-- CONTENTS -->
+    <div class="contents-card">
+        <h2>📋 What's In Your Program</h2>
+        <div class="contents-grid">
+            <div class="content-item">
+                <div class="ci-num">1</div>
+                <div class="ci-text"><strong>Executive Summary</strong>Program rationale, science, and overview</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">2</div>
+                <div class="ci-text"><strong>Goals & Audience</strong>Who this is for and what to expect</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">3</div>
+                <div class="ci-text"><strong>12-Week Schedule</strong>Full weekly table with all 3 session types</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">4</div>
+                <div class="ci-text"><strong>Treadmill Session Script</strong>Detailed incline interval walkthrough</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">5</div>
+                <div class="ci-text"><strong>Outdoor Hill Session</strong>Step-by-step outdoor walk guide</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">6</div>
+                <div class="ci-text"><strong>Recovery Day Plan</strong>Active rest, stretching, joint mobility</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">7</div>
+                <div class="ci-text"><strong>Warm-Up & Cool-Down</strong>Routines with form and posture cues</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">8</div>
+                <div class="ci-text"><strong>Safety Guidelines</strong>Joint-friendly modifications, medical advice</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">9</div>
+                <div class="ci-text"><strong>Calorie Burn Tables</strong>By body weight, speed, and incline</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">10</div>
+                <div class="ci-text"><strong>Equipment Guide</strong>Treadmill specs, footwear, accessories</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">11</div>
+                <div class="ci-text"><strong>Printable Tracker</strong>Weekly log sheets per session</div>
+            </div>
+            <div class="content-item">
+                <div class="ci-num">12</div>
+                <div class="ci-text"><strong>12-Week Calendar</strong>Plan and track your full programme</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12-WEEK OVERVIEW -->
+    <div class="week-card">
+        <h2>🗓️ Your 12-Week Schedule at a Glance</h2>
+        <div class="phase-badges">
+            <span class="phase-badge base">📗 Weeks 1–4: Base Building</span>
+            <span class="phase-badge build">📘 Weeks 5–8: Intensification</span>
+            <span class="phase-badge peak">📙 Weeks 9–12: Peak Conditioning</span>
+        </div>
+        <div style="overflow-x:auto;">
+        <table class="week-table">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Treadmill Session</th>
+                    <th>Outdoor Walk</th>
+                    <th>Recovery Day</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="week-num"><span class="phase-dot dot-base"></span>1</td><td>20 min · 0–1% incline · Intervals 1/2 min ×3</td><td>20 min flat/gentle · RPE 4</td><td>15–20 min gentle walk + mobility</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-base"></span>2</td><td>25 min · 2–3% incline · Intervals ×4</td><td>25 min rolling terrain · RPE 5</td><td>15 min easy walk or cycling</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-base"></span>3</td><td>30 min · 3% incline · Intervals 1.5/2 min ×5</td><td>30 min moderate hill · RPE 5–6</td><td>20 min easy + balance moves</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-base"></span>4</td><td>35 min · 3–4% · Intervals 2/2 min ×6</td><td>30–35 min hilly · RPE 6</td><td>20 min walk + stretching</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-build"></span>5</td><td>40 min · 4–5% · Intervals ×6–7</td><td>35–40 min steeper hills · RPE 6–7</td><td>20 min cycle + stretching</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-build"></span>6</td><td>40 min · 5–6% · Intervals 2/1 min ×8</td><td>40 min 2–3 hills · RPE 6</td><td>25 min walk + joint mobility</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-build"></span>7</td><td>45 min · 6–7% · Intervals 3/2 min ×6</td><td>45 min varied hills · RPE 7</td><td>25 min yoga/Pilates</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-build"></span>8</td><td>50 min · 7–8% · Intervals 3/2 min ×7</td><td>45–50 min sustained incline</td><td>30 min easy biking + flexibility</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-peak"></span>9</td><td>55 min · 8% · Intervals 4/2 min ×7</td><td>50 min mixed terrain + stairs</td><td>30 min walk + foam rolling</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-peak"></span>10</td><td>55–60 min · 8–9% · Intervals 4/1 min ×8</td><td>50–55 min fast flats + hills</td><td>30 min walk · breath control</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-peak"></span>11</td><td>60 min · 9–10% · Intervals 5/2 min ×6</td><td>55 min multiple hills RPE 7–8</td><td>35 min slow hike or swimming</td></tr>
+                <tr><td class="week-num"><span class="phase-dot dot-peak"></span>12</td><td>60 min · 10% · Intervals 5/2 min ×6–7</td><td>60 min long hike + steep bursts</td><td>30–40 min gentle walk + yoga</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <!-- CALORIE TABLE -->
+    <div class="calorie-card">
+        <h2>🔥 Estimated Calorie Burn Per 30 Minutes</h2>
+        <p class="cal-sub">Based on ACSM metabolic equations · Walking at 3.0 mph (4.8 km/h)</p>
+        <div style="overflow-x:auto;">
+        <table class="cal-table">
+            <thead>
+                <tr>
+                    <th style="text-align:left;">Body Weight</th>
+                    <th>0% (Flat)</th>
+                    <th>5% Incline</th>
+                    <th>10% Incline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="weight-col">55 kg (8.6 st)</td><td>87 kcal</td><td>141 kcal</td><td class="cal-highlight">195 kcal</td></tr>
+                <tr><td class="weight-col">70 kg (11.0 st)</td><td>104 kcal</td><td>169 kcal</td><td class="cal-highlight">234 kcal</td></tr>
+                <tr><td class="weight-col">85 kg (13.4 st)</td><td>121 kcal</td><td>197 kcal</td><td class="cal-highlight">273 kcal</td></tr>
+                <tr><td class="weight-col">100 kg (15.7 st)</td><td>138 kcal</td><td>225 kcal</td><td class="cal-highlight">312 kcal</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.78rem;color:#9ca3af;margin-top:12px;">Incline walking at 10% burns up to <strong>126% more calories</strong> than flat walking at the same speed. All estimates are approximate and vary individually.</p>
+    </div>
+
+    <!-- SAFETY -->
+    <div class="safety-card">
+        <h3>⚠️ Before You Start — Important Safety Notes</h3>
+        <ul>
+            <li>Consult your GP before starting if you have not exercised recently or have a medical condition (NHS guidance)</li>
+            <li>Stop immediately if you experience sharp joint pain, chest tightness, dizziness, or shortness of breath beyond normal exertion</li>
+            <li>Begin at Week 1 regardless of current fitness — progression is gradual by design</li>
+            <li>If you have arthritis or joint pain, keep inclines below 5% until Week 6 and prioritise smooth surfaces</li>
+            <li>Drink water before, during, and after every session</li>
+            <li>Wear supportive walking shoes — replace every 500–800 km or 6–9 months</li>
+        </ul>
+    </div>
+
+    <!-- RELATED READING -->
+    <div class="related-card">
+        <h3>📖 Continue Learning — Related Articles</h3>
+        <div class="related-links">
+            <a href="articles/exercise-mental-energy-connection.html">Exercise and Mental Energy: The Complete Connection Guide</a>
+            <a href="articles/exercise-and-memory.html">Exercise and Memory: The Ultimate Brain Booster</a>
+            <a href="articles/mental-vs-physical-fatigue.html">Mental Fatigue vs Physical Fatigue: Understanding the Difference</a>
+            <a href="articles/boost-mental-energy-naturally.html">How to Boost Mental Energy Naturally: 12 Proven Strategies</a>
+            <a href="articles/sustainable-energy-systems-guide.html">Building Sustainable Energy Systems for Peak Performance</a>
+        </div>
+    </div>
+
+</div>
+
+<footer style="background:#1e293b;padding:24px;text-align:center;">
+    <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);">© 2026 Mind Performance Hub · <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">mindperformancehub.com</a> · <a href="disclaimer.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">Disclaimer</a></p>
+    <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:6px;">This program is for educational purposes only. Always consult a healthcare professional before beginning a new exercise programme.</p>
+</footer>
+
+</body>
+</html>

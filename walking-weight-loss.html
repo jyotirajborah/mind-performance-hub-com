@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Most people are unknowingly losing thousands in health costs, lost energy, and years of life — just from sitting too much. This changes today.">
+    <title>The Hidden Cost of Doing Nothing | Mind Performance Hub</title>
+    <link rel="canonical" href="https://mindperformancehub.com/walking-weight-loss.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1f2937; line-height: 1.7; }
+
+        /* NAV */
+        .sp-nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .sp-nav .logo { font-size: 1.2rem; font-weight: 700; color: #2563eb; text-decoration: none; }
+        .sp-nav .nav-cta { background: #16a34a; color: #fff; padding: 9px 20px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 0.88rem; transition: background 0.2s; }
+        .sp-nav .nav-cta:hover { background: #15803d; }
+
+        /* HERO */
+        .hero { background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 60%, #166534 100%); padding: 80px 24px 70px; text-align: center; color: #fff; }
+        .hero .eyebrow { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: #86efac; margin-bottom: 18px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; max-width: 780px; margin: 0 auto 22px; }
+        .hero h1 .red { color: #fca5a5; }
+        .hero h1 .green { color: #86efac; }
+        .hero .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 620px; margin: 0 auto 36px; line-height: 1.75; }
+        .hero .hero-cta { display: inline-block; background: #16a34a; color: #fff; padding: 18px 44px; border-radius: 8px; font-size: 1.15rem; font-weight: 800; text-decoration: none; box-shadow: 0 4px 20px rgba(22,163,74,0.4); transition: all 0.2s; }
+        .hero .hero-cta:hover { background: #15803d; transform: translateY(-2px); }
+        .hero .hero-note { margin-top: 14px; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+        /* SECTIONS */
+        section { padding: 64px 24px; }
+        .container { max-width: 860px; margin: 0 auto; }
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #2563eb; margin-bottom: 12px; }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); font-weight: 800; color: #0f172a; line-height: 1.25; margin-bottom: 18px; }
+        p { font-size: 1.02rem; color: #374151; margin-bottom: 16px; }
+
+        /* COST STATS */
+        .cost-bg { background: #fef2f2; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 36px; }
+        .stat-card { background: #fff; border: 2px solid #fca5a5; border-radius: 12px; padding: 28px 22px; text-align: center; }
+        .stat-card .stat-num { font-size: 2.4rem; font-weight: 900; color: #dc2626; line-height: 1; margin-bottom: 8px; }
+        .stat-card .stat-label { font-size: 0.88rem; color: #6b7280; line-height: 1.5; }
+
+        /* PROBLEM POINTS */
+        .problem-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+        .problem-list li { display: flex; gap: 14px; align-items: flex-start; background: #f9fafb; border-left: 4px solid #dc2626; border-radius: 0 8px 8px 0; padding: 16px 20px; }
+        .problem-list li .p-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .problem-list li .p-text { font-size: 0.97rem; color: #374151; line-height: 1.6; }
+        .problem-list li .p-text strong { color: #0f172a; }
+
+        /* SOLUTION */
+        .solution-bg { background: linear-gradient(135deg, #f0fdf4, #eff6ff); }
+        .solution-intro { font-size: 1.1rem; color: #374151; line-height: 1.8; margin-bottom: 32px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 8px; }
+        .benefit-card { background: #fff; border-radius: 12px; padding: 26px 22px; border: 1px solid #d1fae5; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .benefit-card .b-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .benefit-card h4 { font-size: 0.95rem; font-weight: 700; color: #166534; margin-bottom: 6px; }
+        .benefit-card p { font-size: 0.88rem; color: #4b5563; margin: 0; line-height: 1.6; }
+
+        /* SCIENCE CALLOUT */
+        .science-box { background: #eff6ff; border-left: 5px solid #2563eb; border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 32px 0; }
+        .science-box p { font-size: 0.97rem; color: #1e40af; margin: 0; line-height: 1.8; }
+        .science-box strong { color: #1e3a8a; }
+
+        /* WHAT YOU GET */
+        .get-bg { background: #f8faff; }
+        .get-list { list-style: none; margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        @media (max-width: 600px) { .get-list { grid-template-columns: 1fr; } }
+        .get-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #374151; }
+        .get-list li::before { content: "✓"; width: 22px; height: 22px; background: #16a34a; color: #fff; border-radius: 50%; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+        /* AUDIENCE */
+        .audience-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 28px; }
+        .audience-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 22px 18px; text-align: center; }
+        .audience-card .a-icon { font-size: 2rem; margin-bottom: 10px; }
+        .audience-card h4 { font-size: 0.92rem; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+        .audience-card p { font-size: 0.82rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+        /* CTA SECTION */
+        .cta-bg { background: linear-gradient(135deg, #0f172a, #166534); }
+        .cta-section { text-align: center; color: #fff; }
+        .cta-section h2 { color: #fff; margin-bottom: 14px; }
+        .cta-section h2 span { color: #86efac; }
+        .cta-section .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 32px; line-height: 1.7; }
+        .price-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 36px 32px; max-width: 480px; margin: 0 auto 28px; }
+        .price-box .price-label { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+        .price-box .price-value { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 6px; }
+        .price-box .price-value span { font-size: 2.5rem; font-weight: 900; color: #86efac; }
+        .price-box ul { list-style: none; text-align: left; margin: 20px 0 24px; }
+        .price-box ul li { font-size: 0.88rem; color: rgba(255,255,255,0.8); padding: 6px 0; display: flex; gap: 8px; }
+        .price-box ul li::before { content: "✓"; color: #86efac; font-weight: 800; }
+        .main-cta { display: block; background: #16a34a; color: #fff; padding: 18px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 800; text-decoration: none; box-shadow: 0 4px 20px rgba(22,163,74,0.4); transition: all 0.2s; max-width: 420px; margin: 0 auto 14px; }
+        .main-cta:hover { background: #15803d; transform: translateY(-2px); }
+        .cta-guarantee { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+        /* RELATED ARTICLES */
+        .related-bg { background: #f9fafb; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 28px; }
+        .related-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; text-decoration: none; transition: box-shadow 0.2s; }
+        .related-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+        .related-card .r-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2563eb; margin-bottom: 8px; }
+        .related-card h4 { font-size: 0.92rem; font-weight: 700; color: #0f172a; margin-bottom: 6px; line-height: 1.4; }
+        .related-card p { font-size: 0.82rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+        /* FOOTER */
+        .sp-footer { background: #1e293b; padding: 28px 24px; text-align: center; }
+        .sp-footer p { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin: 0; }
+        .sp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 640px) {
+            .hero { padding: 56px 20px 48px; }
+            section { padding: 48px 20px; }
+            .price-box { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="sp-nav">
+    <a href="index.html" class="logo">Mind Performance Hub</a>
+    <a href="#get-the-program" class="nav-cta">Get the Program →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <p class="eyebrow">⚠️ The Silent Health Crisis</p>
+    <h1>Sitting Is <span class="red">Slowly Costing You</span> — And Most People <span class="green">Don't Know It</span></h1>
+    <p class="hero-sub">Every year you spend sedentary, your body pays a price — in energy lost, weight gained, joints that ache, and years of life quietly slipping away. The solution is simpler than you think.</p>
+    <a href="#get-the-program" class="hero-cta">Show Me the Solution →</a>
+    <p class="hero-note">No running required. No gym membership. Just walking.</p>
+</section>
+
+<!-- THE REAL COST -->
+<section class="cost-bg">
+    <div class="container">
+        <p class="section-label">💸 The Numbers Don't Lie</p>
+        <h2>What Inactivity Is Costing You Every Year</h2>
+        <p>Inactivity isn't free. Research from the NHS, WHO, and academic institutions puts a hard number on what sedentary living actually costs — in health, money, and quality of life.</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-num">£910</div>
+                <div class="stat-label">Average annual cost of inactivity per person in the UK (NHS data) — in extra medical visits, sick days, and medication</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">3–5 yrs</div>
+                <div class="stat-label">Years of life expectancy lost by physically inactive adults compared to those who walk regularly (WHO)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">35%</div>
+                <div class="stat-label">Higher risk of cardiovascular disease in sedentary adults vs. those who walk 150+ min per week (ACSM)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">+2.5 kg</div>
+                <div class="stat-label">Average weight gained per year by adults who don't meet basic physical activity guidelines (CDC)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM DETAIL -->
+<section>
+    <div class="container">
+        <p class="section-label">🔍 What's Really Happening</p>
+        <h2>The 5 Ways Inactivity Is Working Against You Right Now</h2>
+        <p>You might not feel it today. But your body is keeping score.</p>
+
+        <ul class="problem-list">
+            <li>
+                <span class="p-icon">⚡</span>
+                <span class="p-text"><strong>Chronic fatigue that never goes away.</strong> Sedentary muscles become inefficient at producing and using energy. The less you move, the more tired you feel — it's a vicious cycle that worsens every year.</span>
+            </li>
+            <li>
+                <span class="p-icon">⚖️</span>
+                <span class="p-text"><strong>Slow, creeping weight gain.</strong> Without regular movement, your metabolism slows. Calories that once burned off now accumulate as fat — particularly around the abdomen, where it raises the most health risks.</span>
+            </li>
+            <li>
+                <span class="p-icon">🦵</span>
+                <span class="p-text"><strong>Joint pain that worsens with age.</strong> Counterintuitively, inactivity makes joint pain worse. Without gentle movement, cartilage degrades faster, muscles weaken, and stiffness increases — making everything harder.</span>
+            </li>
+            <li>
+                <span class="p-icon">🧠</span>
+                <span class="p-text"><strong>Brain fog and declining cognitive function.</strong> Exercise increases blood flow to the brain and supports BDNF — the molecule behind memory and mental clarity. Without movement, cognitive decline accelerates.</span>
+            </li>
+            <li>
+                <span class="p-icon">🫀</span>
+                <span class="p-text"><strong>Rising cardiovascular risk.</strong> Every year of inactivity raises blood pressure, increases LDL cholesterol, and stiffens arteries. The damage is silent until it isn't.</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- SOLUTION INTRO -->
+<section class="solution-bg">
+    <div class="container">
+        <p class="section-label">✅ The Solution</p>
+        <h2>You Don't Need to Run. You Don't Need a Gym. You Just Need to Walk — Smarter.</h2>
+        <p class="solution-intro">Walking is the most underrated tool in exercise science. It's free, low-impact, accessible to almost everyone — and when done with <strong>strategic incline and interval variation</strong>, it burns up to <strong>60% more calories</strong> than flat walking and activates three times more muscle fibres.</p>
+
+        <div class="science-box">
+            <p><strong>The science is clear:</strong> WHO and ACSM guidelines show that just 150–300 minutes per week of moderate-intensity walking delivers substantial cardiovascular protection, supports healthy weight, reduces joint pain in arthritis, and improves cognitive function. That's 22–43 minutes a day. Nothing extreme. Nothing that requires special fitness.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="b-icon">🔥</div>
+                <h4>Burn Up to 60% More Calories</h4>
+                <p>Incline walking dramatically raises calorie expenditure without adding impact stress to joints.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">🦴</div>
+                <h4>Joint-Friendly by Design</h4>
+                <p>No running, no jumping. The program is built specifically for beginners, seniors, and those with joint pain.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">📈</div>
+                <h4>Progressive — So You Never Plateau</h4>
+                <p>12 structured weeks that build from 20 minutes to 60 minutes, preventing stagnation and maintaining results.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">🧠</div>
+                <h4>Brain Benefits Included</h4>
+                <p>Exercise boosts BDNF, improves memory, reduces brain fog, and lifts mood — every session.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">🏠</div>
+                <h4>Works at Home or Outdoors</h4>
+                <p>Treadmill or outdoor hills — both are covered with specific session plans for each setting.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">📋</div>
+                <h4>Printable Trackers Included</h4>
+                <p>Weekly log sheets and a 12-week calendar to keep you accountable and measure real progress.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section>
+    <div class="container">
+        <p class="section-label">👥 Who This Is For</p>
+        <h2>This Program Was Built Specifically For</h2>
+
+        <div class="audience-cards">
+            <div class="audience-card">
+                <div class="a-icon">🧓</div>
+                <h4>Seniors</h4>
+                <p>Safe, gentle progression with full joint-friendly modifications and balance exercises</p>
+            </div>
+            <div class="audience-card">
+                <div class="a-icon">🔰</div>
+                <h4>Beginners</h4>
+                <p>Starts at 20 minutes, builds slowly — no fitness base needed to get started</p>
+            </div>
+            <div class="audience-card">
+                <div class="a-icon">🦵</div>
+                <h4>Joint Pain / Arthritis</h4>
+                <p>Low-impact throughout, endorsed methods from Arthritis Foundation guidelines</p>
+            </div>
+            <div class="audience-card">
+                <div class="a-icon">⚖️</div>
+                <h4>Overweight Adults</h4>
+                <p>Progressive calorie burn without the injury risk of high-impact exercise</p>
+            </div>
+            <div class="audience-card">
+                <div class="a-icon">😴</div>
+                <h4>Chronically Fatigued</h4>
+                <p>Short sessions that rebuild energy levels — the more you walk, the more energy you create</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="get-bg" id="get-the-program">
+    <div class="container">
+        <p class="section-label">📦 What's Inside</p>
+        <h2>The Walking for Weight Loss: Incline & Interval Method</h2>
+        <p>A complete 12-week program with everything you need to start, progress, and succeed — evidence-based, structured, and ready to download.</p>
+
+        <ul class="get-list">
+            <li>Complete 12-week progressive walking schedule</li>
+            <li>Treadmill incline interval session scripts</li>
+            <li>Outdoor hill walk session plans</li>
+            <li>Recovery and active rest day guidance</li>
+            <li>Warm-up and cool-down routines</li>
+            <li>Safety guidelines for joint pain & seniors</li>
+            <li>Calorie burn tables by weight & incline</li>
+            <li>Equipment and footwear recommendations</li>
+            <li>Printable weekly tracker sheets</li>
+            <li>12-week calendar for planning</li>
+            <li>ACSM / WHO / NHS evidence references</li>
+            <li>3-phase visual timeline (Base → Build → Peak)</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bg">
+    <div class="container cta-section">
+        <p class="section-label" style="color:#86efac;">🚶 Start Today</p>
+        <h2>Get the Full 12-Week Program<br><span>and Start Walking Your Way to Better Health</span></h2>
+        <p class="cta-sub">Download the complete PDF program instantly. Evidence-based. Structured. Designed for real people with real constraints — not athletes.</p>
+
+        <div class="price-box">
+            <p class="price-label">Instant Digital Download</p>
+            <p class="price-value">Complete Program — <span>Free</span></p>
+            <ul>
+                <li>12-week walking schedule</li>
+                <li>3 sample session scripts</li>
+                <li>Calorie burn reference tables</li>
+                <li>Printable tracker + calendar</li>
+                <li>Safety & joint-care guidelines</li>
+            </ul>
+            <!-- REPLACE THIS HREF WITH YOUR ACTUAL PAYMENT OR DELIVERY LINK -->
+            <a href="walking-program-download.html" class="main-cta">
+                📥 Get Instant Access →
+            </a>
+        </div>
+        <p class="cta-guarantee">Evidence-based · NHS/ACSM/WHO referenced · Suitable for all fitness levels</p>
+    </div>
+</section>
+
+<!-- RELATED ARTICLES -->
+<section class="related-bg">
+    <div class="container">
+        <p class="section-label">📖 Related Reading</p>
+        <h2>Deepen Your Understanding</h2>
+        <p>These articles from Mind Performance Hub connect directly to the science behind this program:</p>
+
+        <div class="related-grid">
+            <a href="articles/exercise-mental-energy-connection.html" class="related-card">
+                <p class="r-tag">Mental Energy</p>
+                <h4>Exercise and Mental Energy: The Complete Connection Guide</h4>
+                <p>How exercise boosts mental energy, cognitive function, and brain health.</p>
+            </a>
+            <a href="articles/exercise-and-memory.html" class="related-card">
+                <p class="r-tag">Memory</p>
+                <h4>Exercise and Memory: The Ultimate Brain Booster</h4>
+                <p>How exercise enhances memory through BDNF, neurogenesis, and improved brain function.</p>
+            </a>
+            <a href="articles/mental-vs-physical-fatigue.html" class="related-card">
+                <p class="r-tag">Brain Health</p>
+                <h4>Mental Fatigue vs Physical Fatigue: Understanding the Difference</h4>
+                <p>The critical differences and evidence-based strategies to manage each type.</p>
+            </a>
+            <a href="articles/boost-mental-energy-naturally.html" class="related-card">
+                <p class="r-tag">Mental Energy</p>
+                <h4>How to Boost Mental Energy Naturally: 12 Proven Strategies</h4>
+                <p>Science-backed ways to boost mental energy — movement is strategy #3.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sp-footer">
+    <p>
+        <a href="index.html">Home</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact</a>
+    </p>
+    <p style="margin-top:10px;">© 2026 Mind Performance Hub · mindperformancehub.com</p>
+    <p style="margin-top:8px;">This program is for informational purposes only. Consult a healthcare provider before starting any new exercise programme.</p>
+</footer>
+
+</body>
+</html>
