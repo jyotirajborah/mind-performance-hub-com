@@ -165,6 +165,7 @@ li{font-size:.97rem;color:#374151;line-height:1.7;margin-bottom:6px}
   .guarantee{flex-direction:column;gap:14px}
   .review-grid{grid-template-columns:1fr}
   .mobile-cta-bar{display:block}
+  .mobile-zoom-hint{display:block !important}
   body{padding-bottom:72px}
 }
 </style>
@@ -456,13 +457,14 @@ li{font-size:.97rem;color:#374151;line-height:1.7;margin-bottom:6px}
     <!-- INFOGRAPHIC / VISUAL SUMMARY -->
     <div style="margin-top:40px;text-align:center">
       <p class="section-label" style="margin-bottom:16px">Visual Summary</p>
-      <div style="max-width:100%;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.14)">
+      <div style="max-width:100%;margin:0 auto;border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;box-shadow:0 8px 32px rgba(0,0,0,0.14)">
         <img
           src="assets/Sound-Based_Cognitive_Optimization_Guide.webp"
           alt="Sound-Based Cognitive Optimization — The Brain Song Science Guide"
           style="width:100%;height:auto;display:block"
           loading="lazy">
       </div>
+      <p style="font-size:0.75rem;color:#9ca3af;text-align:center;margin-top:8px;display:none" class="mobile-zoom-hint">Pinch to zoom · Tap and hold to save</p>
     </div>
   </div>
 </section>
