@@ -455,26 +455,28 @@ li{font-size:.97rem;color:#374151;line-height:1.7;margin-bottom:6px}
       <p class="section-label" style="margin-bottom:16px">Visual Summary</p>
       <p style="font-size:0.8rem;color:#9ca3af;margin-bottom:12px">Tap image to expand</p>
 
-      <!-- Lightbox trigger -->
-      <a href="#infograph-lightbox" style="display:block;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.14);cursor:zoom-in">
+      <!-- Thumbnail -->
+      <div onclick="document.getElementById('infograph-lb').style.display='flex'"
+           style="border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.14);cursor:zoom-in">
         <img
           src="assets/Sound-Based_Cognitive_Optimization_Guide.webp"
           alt="Sound-Based Cognitive Optimization — The Brain Song Science Guide"
           style="width:100%;height:auto;display:block"
           loading="lazy">
-      </a>
+      </div>
 
-      <!-- Lightbox overlay -->
-      <div id="infograph-lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out" onclick="this.style.display='none'">
+      <!-- Lightbox -->
+      <div id="infograph-lb"
+           style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:9999;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px">
+        <!-- Close button -->
+        <button onclick="document.getElementById('infograph-lb').style.display='none'"
+                style="position:sticky;top:0;align-self:flex-end;background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.4rem;cursor:pointer;line-height:1;margin-bottom:12px;flex-shrink:0;z-index:10">✕</button>
         <img
           src="assets/Sound-Based_Cognitive_Optimization_Guide.webp"
           alt="Sound-Based Cognitive Optimization — The Brain Song Science Guide"
-          style="width:100%;max-width:1200px;height:auto;display:block;margin:20px auto;border-radius:8px;padding:0 12px">
-        <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;text-align:center;padding-bottom:20px">Pinch to zoom · Tap anywhere to close</p>
+          style="width:100%;max-width:1200px;height:auto;border-radius:8px;touch-action:pinch-zoom">
+        <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:12px;padding-bottom:20px">Pinch to zoom</p>
       </div>
-      <style>
-        #infograph-lightbox:target { display:block !important; }
-      </style>
     </div>
   </div>
 </section>
