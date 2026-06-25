@@ -453,14 +453,28 @@ li{font-size:.97rem;color:#374151;line-height:1.7;margin-bottom:6px}
     <!-- INFOGRAPHIC / VISUAL SUMMARY -->
     <div style="margin-top:40px;text-align:center">
       <p class="section-label" style="margin-bottom:16px">Visual Summary</p>
-      <div style="max-width:100%;margin:0 auto;border-radius:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;box-shadow:0 8px 32px rgba(0,0,0,0.14)">
+      <p style="font-size:0.8rem;color:#9ca3af;margin-bottom:12px">Tap image to expand</p>
+
+      <!-- Lightbox trigger -->
+      <a href="#infograph-lightbox" style="display:block;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.14);cursor:zoom-in">
         <img
           src="assets/Sound-Based_Cognitive_Optimization_Guide.webp"
           alt="Sound-Based Cognitive Optimization — The Brain Song Science Guide"
           style="width:100%;height:auto;display:block"
           loading="lazy">
+      </a>
+
+      <!-- Lightbox overlay -->
+      <div id="infograph-lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out" onclick="this.style.display='none'">
+        <img
+          src="assets/Sound-Based_Cognitive_Optimization_Guide.webp"
+          alt="Sound-Based Cognitive Optimization — The Brain Song Science Guide"
+          style="width:100%;max-width:1200px;height:auto;display:block;margin:20px auto;border-radius:8px;padding:0 12px">
+        <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;text-align:center;padding-bottom:20px">Pinch to zoom · Tap anywhere to close</p>
       </div>
-      <p style="font-size:0.75rem;color:#9ca3af;text-align:center;margin-top:8px;display:none" class="mobile-zoom-hint">Pinch to zoom · Tap and hold to save</p>
+      <style>
+        #infograph-lightbox:target { display:block !important; }
+      </style>
     </div>
   </div>
 </section>
