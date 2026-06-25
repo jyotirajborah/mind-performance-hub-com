@@ -447,7 +447,126 @@
                 </div>
             </div>
 
-            <div class="article-featured-image"></div>
+            <div class="article-featured-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" role="img" aria-label="Brain with sound waves representing brainwave audio for focus" style="width:100%;height:auto;display:block;">
+                    <defs>
+                        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0f172a"/>
+                            <stop offset="60%" style="stop-color:#1e3a8a"/>
+                            <stop offset="100%" style="stop-color:#1e4d6b"/>
+                        </linearGradient>
+                        <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#60a5fa"/>
+                            <stop offset="100%" style="stop-color:#a78bfa"/>
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <!-- Wave animation -->
+                        <style>
+                            .wave-ring { animation: pulse 2.8s ease-in-out infinite; transform-origin: 450px 170px; }
+                            .wave-ring:nth-child(2) { animation-delay: 0.5s; }
+                            .wave-ring:nth-child(3) { animation-delay: 1s; }
+                            .wave-ring:nth-child(4) { animation-delay: 1.5s; }
+                            @keyframes pulse { 0%,100%{opacity:0.15;} 50%{opacity:0.55;} }
+                            .freq-line { animation: freq 2s ease-in-out infinite alternate; }
+                            .freq-line:nth-child(2n) { animation-delay: 0.3s; }
+                            .freq-line:nth-child(3n) { animation-delay: 0.6s; }
+                            @keyframes freq { 0%{transform:scaleY(0.4);} 100%{transform:scaleY(1);} }
+                        </style>
+                    </defs>
+
+                    <!-- Background -->
+                    <rect width="900" height="340" fill="url(#bgGrad)"/>
+
+                    <!-- Subtle grid lines -->
+                    <g stroke="#1e3a8a" stroke-width="0.5" opacity="0.3">
+                        <line x1="0" y1="85" x2="900" y2="85"/>
+                        <line x1="0" y1="170" x2="900" y2="170"/>
+                        <line x1="0" y1="255" x2="900" y2="255"/>
+                        <line x1="225" y1="0" x2="225" y2="340"/>
+                        <line x1="450" y1="0" x2="450" y2="340"/>
+                        <line x1="675" y1="0" x2="675" y2="340"/>
+                    </g>
+
+                    <!-- Pulsing wave rings around brain -->
+                    <circle class="wave-ring" cx="450" cy="170" r="90" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+                    <circle class="wave-ring" cx="450" cy="170" r="118" fill="none" stroke="#3b82f6" stroke-width="1"/>
+                    <circle class="wave-ring" cx="450" cy="170" r="148" fill="none" stroke="#6366f1" stroke-width="0.8"/>
+                    <circle class="wave-ring" cx="450" cy="170" r="180" fill="none" stroke="#6366f1" stroke-width="0.6"/>
+
+                    <!-- Brain shape (simplified path) -->
+                    <g filter="url(#glow)">
+                        <path d="M450,105
+                            C430,95 410,98 400,112
+                            C388,108 374,112 370,125
+                            C358,125 350,135 352,148
+                            C344,154 342,165 348,174
+                            C344,184 348,196 358,200
+                            C360,212 370,220 382,218
+                            C388,228 400,232 412,228
+                            C420,236 436,238 448,234
+                            C452,236 458,236 462,234
+                            C474,238 490,236 498,228
+                            C510,232 522,228 528,218
+                            C540,220 550,212 552,200
+                            C562,196 566,184 562,174
+                            C568,165 566,154 558,148
+                            C560,135 552,125 540,125
+                            C536,112 522,108 510,112
+                            C500,98 480,95 460,105
+                            C457,103 453,103 450,105 Z"
+                            fill="url(#brainGrad)" opacity="0.9"/>
+                        <!-- Brain fold lines -->
+                        <path d="M415,130 C420,140 418,152 412,158 C408,164 410,172 416,176" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M450,118 C448,130 450,145 448,158 C446,168 450,178 450,188" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M484,130 C480,140 482,152 488,158 C492,164 490,172 484,176" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M432,148 C438,154 444,154 450,150 C456,154 462,154 468,148" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                        <!-- Brain dividing line (left/right hemispheres) -->
+                        <line x1="450" y1="110" x2="450" y2="225" stroke="#1e3a8a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+                    </g>
+
+                    <!-- LEFT: Frequency visualizer bars -->
+                    <g transform="translate(155, 110)">
+                        <text x="0" y="-12" fill="#86efac" font-size="9" font-family="monospace" letter-spacing="2">BRAINWAVE INPUT</text>
+                        <g transform-box="fill-box">
+                            <rect class="freq-line" x="0"  y="0" width="8" height="120" rx="2" fill="#3b82f6" opacity="0.7" style="transform-origin:4px 120px"/>
+                            <rect class="freq-line" x="14" y="20" width="8" height="100" rx="2" fill="#3b82f6" opacity="0.7" style="transform-origin:18px 120px"/>
+                            <rect class="freq-line" x="28" y="5"  width="8" height="115" rx="2" fill="#6366f1" opacity="0.7" style="transform-origin:32px 120px"/>
+                            <rect class="freq-line" x="42" y="30" width="8" height="90"  rx="2" fill="#6366f1" opacity="0.7" style="transform-origin:46px 120px"/>
+                            <rect class="freq-line" x="56" y="10" width="8" height="110" rx="2" fill="#8b5cf6" opacity="0.7" style="transform-origin:60px 120px"/>
+                            <rect class="freq-line" x="70" y="40" width="8" height="80"  rx="2" fill="#8b5cf6" opacity="0.7" style="transform-origin:74px 120px"/>
+                        </g>
+                    </g>
+
+                    <!-- RIGHT: Frequency output bars -->
+                    <g transform="translate(600, 110)">
+                        <text x="0" y="-12" fill="#fbbf24" font-size="9" font-family="monospace" letter-spacing="2">COGNITIVE OUTPUT</text>
+                        <g transform-box="fill-box">
+                            <rect class="freq-line" x="0"  y="15" width="8" height="105" rx="2" fill="#f59e0b" opacity="0.7" style="transform-origin:4px 120px"/>
+                            <rect class="freq-line" x="14" y="0"  width="8" height="120" rx="2" fill="#f59e0b" opacity="0.7" style="transform-origin:18px 120px"/>
+                            <rect class="freq-line" x="28" y="25" width="8" height="95"  rx="2" fill="#fbbf24" opacity="0.7" style="transform-origin:32px 120px"/>
+                            <rect class="freq-line" x="42" y="8"  width="8" height="112" rx="2" fill="#fbbf24" opacity="0.7" style="transform-origin:46px 120px"/>
+                            <rect class="freq-line" x="56" y="20" width="8" height="100" rx="2" fill="#fcd34d" opacity="0.7" style="transform-origin:60px 120px"/>
+                            <rect class="freq-line" x="70" y="35" width="8" height="85"  rx="2" fill="#fcd34d" opacity="0.7" style="transform-origin:74px 120px"/>
+                        </g>
+                    </g>
+
+                    <!-- Frequency labels bottom -->
+                    <g font-family="-apple-system, sans-serif" text-anchor="middle">
+                        <text x="450" y="295" fill="#60a5fa" font-size="11" font-weight="700" letter-spacing="3">GAMMA · 40 Hz · PEAK FOCUS STATE</text>
+                        <text x="160" y="310" fill="#94a3b8" font-size="9" letter-spacing="1">β BETA 12–30 Hz</text>
+                        <text x="350" y="310" fill="#94a3b8" font-size="9" letter-spacing="1">α ALPHA 8–12 Hz</text>
+                        <text x="550" y="310" fill="#94a3b8" font-size="9" letter-spacing="1">θ THETA 4–8 Hz</text>
+                        <text x="740" y="310" fill="#94a3b8" font-size="9" letter-spacing="1">δ DELTA 0.5–4 Hz</text>
+                    </g>
+
+                    <!-- Title overlay -->
+                    <text x="450" y="42" fill="white" font-size="15" font-weight="700" font-family="-apple-system, sans-serif" text-anchor="middle" opacity="0.85">Brainwave Audio for Focus</text>
+                    <text x="450" y="62" fill="#93c5fd" font-size="10" font-family="monospace" text-anchor="middle" letter-spacing="2" opacity="0.7">THE SCIENCE OF NEURAL ENTRAINMENT</text>
+                </svg>
+            </div>
 
             <div class="article-container">
                 <aside class="article-sidebar">
