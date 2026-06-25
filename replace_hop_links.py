@@ -7,7 +7,7 @@ old_links = [
     'https://gobrainsong.com/?hopId=b7831111-f811-46f5-8a3c-b8afc7f5e4d5',
 ]
 
-files = ['brain-song.html', 'articles/brain-song-review.html']
+files = ['brain-song.html', 'articles/brainwave-audio-for-focus.html']
 
 for filepath in files:
     with open(filepath, 'r', encoding='utf-8') as f:

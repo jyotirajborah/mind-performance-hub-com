@@ -138,11 +138,11 @@ These are **foundation articles** you wrote before creating the Excel editorial 
 | File | Purpose |
 |------|---------|
 | `brain-song.html` | Landing page (root level) |
-| `articles/brain-song-review.html` | Bridge page — review article with email capture |
+| `articles/brainwave-audio-for-focus.html` | Bridge page — review article with email capture |
 
 ### Funnel Flow
 ```
-Existing articles → bridge page (brain-song-review.html)
+Existing articles → bridge page (brainwave-audio-for-focus.html)
                          ↓
               Email capture (optional)
               OR skip directly to landing page
@@ -153,7 +153,7 @@ Existing articles → bridge page (brain-song-review.html)
 ```
 
 ### Articles to Add Internal Links To (pending)
-These articles should link to `brain-song-review.html`:
+These articles should link to `brainwave-audio-for-focus.html`:
 
 | Priority | Article File | Reason |
 |----------|-------------|--------|
