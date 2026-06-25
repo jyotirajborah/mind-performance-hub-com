@@ -67,6 +67,18 @@
     <style>
         /* ===== BRIDGE PAGE SPECIFIC STYLES ===== */
 
+        /* Snippet paragraph */
+        .article-snippet {
+            font-size: 1.05rem;
+            color: #1f2937;
+            line-height: 1.75;
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 0 0 24px;
+        }
+
         /* At a Glance box */
         .at-a-glance {
             background: #f8faff;
@@ -331,8 +343,44 @@
         .rating-row .stars { color: #f59e0b; letter-spacing: 2px; }
         .rating-label { font-weight: 600; min-width: 160px; }
 
-        /* Bottom CTA strip */
-        .bottom-cta-strip {
+        /* FAQ expandable */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0 40px;
+        }
+        .faq-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 16px 20px;
+            font-weight: 700;
+            font-size: 0.97rem;
+            color: #1e3a8a;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background: #f9fafb;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; font-size: 1.3rem; color: #2563eb; font-weight: 400; }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item[open] summary { background: #eff6ff; }
+        .faq-answer {
+            padding: 14px 20px 18px;
+            font-size: 0.94rem;
+            color: #374151;
+            line-height: 1.7;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Bottom CTA strip */        .bottom-cta-strip {
             background: #fafafa;
             border: 2px solid #e5e7eb;
             border-radius: 12px;
@@ -419,6 +467,7 @@
                             <li><a href="#individual">Individual Differences</a></li>
                             <li><a href="#brain-song">The Brain Song: Our Take</a></li>
                             <li><a href="#verdict">Final Verdict</a></li>
+                            <li><a href="#faq">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="share-widget">
@@ -434,6 +483,8 @@
                 <div class="article-content-wrapper">
                     <div class="article-content">
 
+                        <p class="article-snippet"><strong>Brainwave audio for focus</strong> refers to sound-based tools — binaural beats, isochronic tones, and amplitude-modulated music — designed to guide the brain toward frequency states associated with concentration and cognitive performance. Research shows these tools produce small-to-moderate benefits on average (effect size g ≈ 0.4), with gamma frequencies around 40 Hz showing the strongest evidence for attention. Results vary significantly between individuals, placebo effects play a meaningful role, and they work best as a complement to proven fundamentals like sleep and exercise — not a replacement.</p>
+
                         <div class="at-a-glance">
                             <div class="stat"><div class="stat-value">3,200+</div><div class="stat-label">words</div></div>
                             <div class="stat"><div class="stat-value">14 min</div><div class="stat-label">read time</div></div>
@@ -445,11 +496,11 @@
                         <div class="quick-summary">
                             <h3>📋 Quick Summary</h3>
                             <ul>
-                                <li>Brainwave audio uses rhythmic sound (binaural beats, isochronic tones, modulated music) to influence neural oscillations — a process called brainwave entrainment.</li>
-                                <li>Meta-analyses of 15–22 studies report small-to-moderate cognitive benefits (Hedges' <em>g</em> ≈ 0.4–0.45), but heterogeneity is high and many individual studies find no effect.</li>
-                                <li>Gamma frequencies (~40 Hz) currently show the strongest evidence for attention enhancement; beta frequencies (12–30 Hz) are less consistent.</li>
+                                <li>Brainwave audio uses rhythmic sound to influence neural oscillations — a process called brainwave entrainment.</li>
+                                <li>Meta-analyses of 15–22 studies report small-to-moderate cognitive benefits (Hedges' g ≈ 0.4–0.45), but heterogeneity is high and many individual studies find no effect.</li>
+                                <li>Gamma frequencies (~40 Hz) currently show the strongest evidence for attention enhancement; beta (12–30 Hz) is less consistent.</li>
                                 <li>Binaural beats require headphones; isochronic tones and monaural beats do not.</li>
-                                <li>Placebo and expectancy effects are a significant confound — one n=1,000 study found binaural beats <em>worsened</em> cognitive performance.</li>
+                                <li>Placebo and expectancy effects are a significant confound — one n=1,000 study found binaural beats worsened cognitive performance.</li>
                                 <li>Brainwave audio is generally safe; primary risks are excessive volume and unrealistic expectations.</li>
                                 <li>Best used as a supplement to sleep, exercise, and distraction management — not a replacement.</li>
                             </ul>
@@ -641,6 +692,39 @@
                                 <li>Brain.fm has more research support than competitors but lacks independent replication</li>
                                 <li>Test it yourself and measure objective output — subjective feeling is unreliable</li>
                             </ul>
+                        </div>
+
+                        <!-- EXPANDABLE FAQ -->
+                        <h2 id="faq">Frequently Asked Questions</h2>
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary>Does brainwave audio for focus actually work?</summary>
+                                <div class="faq-answer">Research suggests it may produce small improvements in some people under specific conditions. Meta-analyses report effect sizes of approximately 0.4 (Hedges' g), indicating modest but real benefits on average. However, results are inconsistent across studies and placebo effects likely contribute significantly. One large study (n=1,000) found binaural beats worsened performance, so individual responses vary considerably.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>What frequency is best for focus and concentration?</summary>
+                                <div class="faq-answer">Beta (12–30 Hz) and gamma (30–40 Hz) frequencies are most associated with alert concentration. Recent research suggests gamma around 40 Hz may be more effective than beta for attention, particularly when paired with a lower carrier tone (around 340 Hz). Most focus-oriented products target the beta range, but gamma is the direction current science points toward.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Do you need headphones for binaural beats?</summary>
+                                <div class="faq-answer">Yes — binaural beats require stereo headphones. The effect depends on each ear receiving a different frequency, which is impossible through speakers. Isochronic tones and monaural beats produce a real acoustic pulse and work without headphones, though headphones are still recommended for focus and isolation.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>How long should a brainwave audio session be?</summary>
+                                <div class="faq-answer">Most research uses 10–30 minute sessions. Starting the audio 5–10 minutes before a task appears more effective than starting simultaneously. Sessions under 10 minutes show limited evidence of benefit. There is no clear advantage to sessions longer than 30 minutes, and extended listening can produce fatigue.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Is brainwave audio safe?</summary>
+                                <div class="faq-answer">Brainwave audio is generally safe for healthy adults. No serious adverse events have been reported across dozens of research studies. Keep volume at comfortable conversation levels (~50–60 dB), limit sessions to 15–30 minutes, and stop if you experience dizziness or headaches. People with epilepsy or neurological conditions should consult a doctor before use.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>What is the difference between binaural beats and isochronic tones?</summary>
+                                <div class="faq-answer">Binaural beats create a phantom beat inside the brain by sending slightly different frequencies to each ear — the beat doesn't physically exist in the audio. Isochronic tones are a single tone pulsed on and off at the target frequency, creating a real audible beat with stronger cortical driving. Isochronic tones are generally considered more potent and don't require headphones.</div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Can brainwave audio improve memory?</summary>
+                                <div class="faq-answer">Some studies have found improvements in memory-related tasks after brainwave audio use, particularly with theta frequencies for encoding and gamma for retrieval. However, the evidence is modest and inconsistent. For more on the relationship between brainwave activity and memory, see our guide on <a href="neuroplasticity-and-memory.html">neuroplasticity and memory</a>.</div>
+                            </details>
                         </div>
 
                         <!-- SECOND EMAIL CAPTURE / FINAL CTA -->
