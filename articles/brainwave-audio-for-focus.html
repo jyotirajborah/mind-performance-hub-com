@@ -642,5 +642,33 @@
                 </div>`;
         }
     </script>
+    <script>
+        // Scroll-spy: highlight active TOC item as user scrolls
+        (function() {
+            const tocLinks = document.querySelectorAll('.toc-widget a[href^="#"]');
+            const headings = Array.from(tocLinks).map(link => {
+                return document.querySelector(link.getAttribute('href'));
+            }).filter(Boolean);
+
+            function onScroll() {
+                const scrollY = window.scrollY + 120; // offset for sticky nav
+                let current = headings[0];
+                for (const h of headings) {
+                    if (h.getBoundingClientRect().top + window.scrollY <= scrollY) {
+                        current = h;
+                    }
+                }
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (current && link.getAttribute('href') === '#' + current.id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll(); // run on load
+        })();
+    </script>
 </body>
 </html>
