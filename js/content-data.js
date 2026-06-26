@@ -681,6 +681,237 @@ window.MPH_CONTENT = {
       "readTime": "13 min read",
       "date": "2026-06-03",
       "slug": "semantic-memory-explained"
+    },
+    {
+      "id": 63,
+      "title": "Brainwave Audio for Focus: The Complete Science Guide",
+      "excerpt": "Does brainwave audio actually improve focus? We cover meta-analyses, EEG evidence, gamma frequencies, and how to use these tools effectively.",
+      "category": "Brain Health",
+      "subcategory": "Brain Optimization",
+      "type": "guide",
+      "readTime": "14 min read",
+      "date": "2026-06-25",
+      "slug": "brainwave-audio-for-focus"
+    },
+    {
+      "id": 64,
+      "title": "Brain Training Games: Do They Actually Work?",
+      "excerpt": "An evidence-based look at whether brain training apps and games genuinely improve memory, attention, and cognitive performance.",
+      "category": "Brain Health",
+      "subcategory": "Brain Optimization",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-04",
+      "slug": "brain-training-games-effectiveness"
+    },
+    {
+      "id": 65,
+      "title": "The Pomodoro Technique: A Complete Guide",
+      "excerpt": "Master the Pomodoro Technique to boost focus, manage time effectively, and get more done with structured work-rest cycles.",
+      "category": "Focus & Concentration",
+      "subcategory": "Focus Habits",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "pomodoro-technique-guide"
+    },
+    {
+      "id": 66,
+      "title": "Deep Work Scheduling: How to Plan for Focused Work",
+      "excerpt": "Learn how to schedule deep work sessions that protect your most productive hours and eliminate shallow work interruptions.",
+      "category": "Focus & Concentration",
+      "subcategory": "Deep Work",
+      "type": "guide",
+      "readTime": "9 min read",
+      "date": "2026-06-04",
+      "slug": "deep-work-scheduling"
+    },
+    {
+      "id": 67,
+      "title": "Flow State Mastery: How to Get Into the Zone",
+      "excerpt": "Discover the science of flow states and practical techniques to enter deep focus on demand for peak performance.",
+      "category": "Focus & Concentration",
+      "subcategory": "Focus Habits",
+      "type": "guide",
+      "readTime": "9 min read",
+      "date": "2026-06-04",
+      "slug": "flow-state-mastery"
+    },
+    {
+      "id": 68,
+      "title": "Attention Span Expansion: Science-Backed Strategies",
+      "excerpt": "Learn evidence-based techniques to expand your attention span and build the capacity for sustained concentration.",
+      "category": "Focus & Concentration",
+      "subcategory": "Attention Training",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "attention-span-expansion"
+    },
+    {
+      "id": 69,
+      "title": "Attention Control Exercises: Train Your Focus",
+      "excerpt": "Practical exercises to develop stronger attention control, reduce mind-wandering, and sharpen concentration.",
+      "category": "Focus & Concentration",
+      "subcategory": "Attention Training",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "attention-control-exercises"
+    },
+    {
+      "id": 70,
+      "title": "Sustained Attention Training: Build Laser Focus",
+      "excerpt": "Discover how to train sustained attention using science-backed methods that improve your ability to focus for longer periods.",
+      "category": "Focus & Concentration",
+      "subcategory": "Attention Training",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "sustained-attention-training"
+    },
+    {
+      "id": 71,
+      "title": "Digital Minimalism for Focus: Reclaim Your Attention",
+      "excerpt": "How to apply digital minimalism principles to eliminate distractions, reduce screen time, and improve deep focus.",
+      "category": "Focus & Concentration",
+      "subcategory": "Distraction Management",
+      "type": "guide",
+      "readTime": "9 min read",
+      "date": "2026-06-04",
+      "slug": "digital-minimalism-focus"
+    },
+    {
+      "id": 72,
+      "title": "Notification Management Strategy: Stop the Interruptions",
+      "excerpt": "A practical system for managing notifications across all devices to protect focus and reduce context switching.",
+      "category": "Focus & Concentration",
+      "subcategory": "Distraction Management",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "notification-management-strategy"
+    },
+    {
+      "id": 73,
+      "title": "Phone Addiction Solutions: Take Back Your Focus",
+      "excerpt": "Science-backed strategies to overcome smartphone addiction, reduce compulsive checking, and reclaim your attention.",
+      "category": "Focus & Concentration",
+      "subcategory": "Distraction Management",
+      "type": "guide",
+      "readTime": "9 min read",
+      "date": "2026-06-04",
+      "slug": "phone-addiction-solutions"
+    },
+    {
+      "id": 74,
+      "title": "Atomic Habits Principles: Small Changes, Remarkable Results",
+      "excerpt": "The core principles behind James Clear's Atomic Habits framework and how to apply them to build lasting behavior change.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Habit Building",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "atomic-habits-principles"
+    },
+    {
+      "id": 75,
+      "title": "The Habit Stacking Method: Link New Habits to Existing Ones",
+      "excerpt": "How to use habit stacking to build new routines by anchoring them to habits you already have — with practical examples.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Habit Building",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "habit-stacking-method"
+    },
+    {
+      "id": 76,
+      "title": "The Eisenhower Matrix: Prioritize What Actually Matters",
+      "excerpt": "Master the Eisenhower Matrix to distinguish urgent from important tasks and make better decisions about how you spend your time.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Time Management",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "eisenhower-matrix-guide"
+    },
+    {
+      "id": 77,
+      "title": "SMART Goals Framework: Set Goals That Actually Work",
+      "excerpt": "How to use the SMART goal framework to set clear, achievable goals and build the systems to reach them consistently.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Goal Setting",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "smart-goals-framework"
+    },
+    {
+      "id": 78,
+      "title": "Backward Goal Planning: Start With the End in Mind",
+      "excerpt": "How to use backward planning to reverse-engineer your goals into concrete daily actions and realistic timelines.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Goal Setting",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "backward-goal-planning"
+    },
+    {
+      "id": 79,
+      "title": "OKR System Implementation: Goals That Scale",
+      "excerpt": "A practical guide to implementing Objectives and Key Results (OKRs) for personal productivity and team alignment.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Goal Setting",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "okr-system-implementation"
+    },
+    {
+      "id": 80,
+      "title": "Peak Performance States: How to Perform at Your Best",
+      "excerpt": "Discover what peak performance states are, how they are triggered, and practical techniques to access them consistently.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Personal Performance",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "peak-performance-states"
+    },
+    {
+      "id": 81,
+      "title": "Morning Routine Optimization: Start Your Day Right",
+      "excerpt": "How to design a morning routine that primes your brain for focus, energy, and productivity throughout the day.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Personal Performance",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "morning-routine-optimization"
+    },
+    {
+      "id": 82,
+      "title": "Personal Energy Management: Work With Your Natural Rhythms",
+      "excerpt": "How to manage your personal energy — physical, mental, and emotional — to sustain high performance without burnout.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Personal Performance",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "personal-energy-management"
+    },
+    {
+      "id": 83,
+      "title": "The Retrieval Practice Guide: Learn Faster by Testing Yourself",
+      "excerpt": "Why retrieval practice is one of the most effective learning strategies and how to apply it to any subject.",
+      "category": "Focus & Concentration",
+      "subcategory": "Study Techniques",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "retrieval-practice-guide"
     }
   ]
 };
