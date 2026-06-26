@@ -961,15 +961,48 @@ window.MPH_CONTENT = {
       "slug": "testing-effect-learning"
     },
     {
-      "id": 89,
-      "title": "Dual Coding Theory: Learn Better with Words and Images",
-      "excerpt": "How combining verbal and visual information accelerates learning and improves long-term memory retention.",
-      "category": "Focus & Concentration",
-      "subcategory": "Study Techniques",
+      "id": 90,
+      "title": "The Brain Song for Memory: Does Gamma Audio Support Recall?",
+      "excerpt": "Can The Brain Song improve memory? We examine the science linking Gamma brainwaves, BDNF, and memory formation — and what users report after consistent use.",
+      "category": "Brain Health",
+      "subcategory": "Brain Optimization",
       "type": "article",
-      "readTime": "8 min read",
-      "date": "2026-06-04",
-      "slug": "dual-coding-theory"
+      "readTime": "9 min read",
+      "date": "2026-06-26",
+      "slug": "brain-song-for-memory"
+    },
+    {
+      "id": 91,
+      "title": "The Brain Song Mental Energy: How Gamma Audio Supports Cognitive Stamina",
+      "excerpt": "How The Brain Song Gamma brainwave audio supports sustained mental energy, reduces brain fog, and improves cognitive alertness without stimulants.",
+      "category": "Brain Health",
+      "subcategory": "Brain Optimization",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-26",
+      "slug": "brain-song-mental-energy"
+    },
+    {
+      "id": 92,
+      "title": "The Brain Song to Boost Focus: How Gamma Audio Sharpens Concentration",
+      "excerpt": "The Brain Song targets 40 Hz Gamma — the frequency with the strongest research support for attention. How it works and how to use it for deep focus.",
+      "category": "Focus & Concentration",
+      "subcategory": "Brain Optimization",
+      "type": "article",
+      "readTime": "9 min read",
+      "date": "2026-06-26",
+      "slug": "brain-song-focus"
+    },
+    {
+      "id": 93,
+      "title": "The Brain Song vs Supplements: Audio vs Nootropics for Brain Performance",
+      "excerpt": "Comparing The Brain Song Gamma audio to cognitive supplements and nootropics for focus, memory, and mental clarity — honest head-to-head analysis.",
+      "category": "Brain Health",
+      "subcategory": "Brain Optimization",
+      "type": "article",
+      "readTime": "10 min read",
+      "date": "2026-06-26",
+      "slug": "brain-song-vs-supplements"
     }
   ]
 };
