@@ -269,7 +269,7 @@ window.MPH_CONTENT = {
       "title": "Neuroplasticity and Memory: Your Brain's Superpower",
       "excerpt": "Discover how neuroplasticity enables memory formation and learn strategies to harness your brain's ability to rewire itself.",
       "category": "Brain Health",
-      "subcategory": "Cognitive Performance",
+      "subcategory": "Brain Optimization",
       "type": "article",
       "readTime": "10 min read",
       "date": "2026-06-02",
@@ -340,17 +340,6 @@ window.MPH_CONTENT = {
       "readTime": "10 min read",
       "date": "2026-06-02",
       "slug": "sleep-and-memory-formation"
-    },
-    {
-      "id": 32,
-      "title": "Spaced Repetition Guide: Remember Everything",
-      "excerpt": "Master spaced repetition to remember anything long-term with minimal study time.",
-      "category": "Brain Health",
-      "subcategory": "Learning",
-      "type": "guide",
-      "readTime": "8 min read",
-      "date": "2026-06-02",
-      "slug": "spaced-repetition-guide"
     },
     {
       "id": 33,
@@ -922,6 +911,17 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "15 min read",
       "date": "2026-06-04",
+      "slug": "memory-enhancement-techniques"
+    },
+    {
+      "id": 86,
+      "title": "Memory Enhancement Techniques: Science-Backed Methods",
+      "excerpt": "A comprehensive guide to the most effective memory enhancement techniques, backed by cognitive science research.",
+      "category": "Brain Health",
+      "subcategory": "Learning",
+      "type": "guide",
+      "readTime": "12 min read",
+      "date": "2026-06-03",
       "slug": "memory-enhancement-techniques"
     }
   ]
