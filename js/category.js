@@ -114,6 +114,6 @@ function makeItem(a, isPillar) {
     li.innerHTML =
         '<span style="position:absolute;left:' + (isPillar ? '6px' : '0') + ';top:' + (isPillar ? '7px' : '0') + ';color:' + (isPillar ? '#f59e0b' : '#2563eb') + ';font-weight:700;font-size:' + (isPillar ? '0.9rem' : '0.8rem') + '">' + (isPillar ? '★' : '→') + '</span>' +
         '<a href="articles/' + a.slug + '.html" style="color:#1e3a8a;text-decoration:none;line-height:1.4;' + (isPillar ? 'font-weight:700;' : '') + '">' + a.title + '</a>' +
-        (isPillar ? ' <span style="font-size:0.68rem;background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle">Pillar</span>' : '');
+        (isPillar ? ' <span style="font-size:0.68rem;background:#fef3c7;color:#92400e;padding:1px 5px;border-radius:8px;margin-left:4px;vertical-align:middle">Start Here</span>' : '');
     return li;
 }
