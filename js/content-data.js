@@ -413,7 +413,7 @@ window.MPH_CONTENT = {
       "title": "10 Science-Backed Ways to Improve Your Memory",
       "excerpt": "Discover 10 science-backed techniques to improve your memory, boost retention, and enhance recall. Evidence-based strategies for better brain health.",
       "category": "Brain Health",
-      "subcategory": "Learning",
+      "subcategory": "Memory",
       "type": "article",
       "readTime": "8 min read",
       "date": "2026-05-28",
