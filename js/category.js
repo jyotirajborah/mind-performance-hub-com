@@ -64,16 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (matched.length === 0) return;
 
+        // Sort: pillar first, then supporting
+        matched.sort((a, b) => (b.pillar ? 1 : 0) - (a.pillar ? 1 : 0));
+
         const ul = document.createElement('ul');
         ul.style.cssText = 'list-style:none;padding:0;margin:10px 0 0;';
 
         matched.forEach(a => {
             const li = document.createElement('li');
             li.style.cssText = 'margin-bottom:5px;padding-left:14px;position:relative;font-size:0.88rem;';
+            const isPillar = a.pillar === true;
             li.innerHTML =
-                '<span style="position:absolute;left:0;color:#2563eb;font-weight:700">→</span>' +
-                '<a href="articles/' + a.slug + '.html" style="color:#2563eb;text-decoration:none;line-height:1.4">' +
-                a.title + '</a>';
+                '<span style="position:absolute;left:0;color:' + (isPillar ? '#f59e0b' : '#2563eb') + ';font-weight:700">' + (isPillar ? '★' : '→') + '</span>' +
+                '<a href="articles/' + a.slug + '.html" style="color:#2563eb;text-decoration:none;line-height:1.4;' + (isPillar ? 'font-weight:700' : '') + '">' +
+                a.title + '</a>' +
+                (isPillar ? ' <span style="font-size:0.7rem;background:#fef3c7;color:#92400e;padding:1px 6px;border-radius:10px;margin-left:4px">Pillar</span>' : '');
             ul.appendChild(li);
         });
 

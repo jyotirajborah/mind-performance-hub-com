@@ -42,6 +42,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "10 min read",
       "date": "2026-06-02",
+      "pillar": true,
       "slug": "boost-mental-energy-naturally"
     },
     {
@@ -416,6 +417,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "8 min read",
       "date": "2026-05-28",
+      "pillar": true,
       "slug": "improve-memory-science-backed"
     },
     {
@@ -427,6 +429,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "12 min read",
       "date": "2026-05-25",
+      "pillar": true,
       "slug": "deep-work-focus-guide"
     },
     {
@@ -438,6 +441,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "10 min read",
       "date": "2026-05-22",
+      "pillar": true,
       "slug": "building-habits-framework"
     },
     {
@@ -449,6 +453,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "7 min read",
       "date": "2026-05-20",
+      "pillar": true,
       "slug": "sleep-cognitive-performance"
     },
     {
@@ -460,6 +465,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "9 min read",
       "date": "2026-05-18",
+      "pillar": true,
       "slug": "time-management-strategies"
     },
     {
@@ -471,6 +477,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "6 min read",
       "date": "2026-05-15",
+      "pillar": true,
       "slug": "mindfulness-better-focus"
     },
     {
@@ -680,6 +687,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "14 min read",
       "date": "2026-06-25",
+      "pillar": true,
       "slug": "brainwave-audio-for-focus"
     },
     {
@@ -735,6 +743,7 @@ window.MPH_CONTENT = {
       "type": "article",
       "readTime": "8 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "attention-span-expansion"
     },
     {
@@ -768,6 +777,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "9 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "digital-minimalism-focus"
     },
     {
@@ -834,6 +844,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "8 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "smart-goals-framework"
     },
     {
@@ -867,6 +878,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "8 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "peak-performance-states"
     },
     {
@@ -900,6 +912,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "8 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "retrieval-practice-guide"
     },
     {
@@ -933,6 +946,7 @@ window.MPH_CONTENT = {
       "type": "guide",
       "readTime": "8 min read",
       "date": "2026-06-04",
+      "pillar": true,
       "slug": "retrieval-practice-guide"
     },
     {
