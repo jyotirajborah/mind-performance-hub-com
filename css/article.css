@@ -2,6 +2,18 @@
     background: var(--white);
 }
 
+/* AI/Copilot snippet paragraph - direct answer to keyword query */
+.article-snippet {
+    font-size: 1.05rem;
+    color: #1f2937;
+    line-height: 1.75;
+    background: #f0f9ff;
+    border-left: 4px solid #0ea5e9;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 0 0 28px;
+}
+
 .article-header {
     background: var(--bg-light);
     padding: 2rem 0;
