@@ -1,135 +1,82 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const categoryArticlesContainer = document.getElementById('category-articles');
-    
-    // Get articles from content-data.js
+
     const articles = window.MPH_CONTENT ? window.MPH_CONTENT.articles : [];
-    
-    if (categoryArticlesContainer && articles.length > 0) {
-        // Get current page category from title
-        const pageTitle = document.querySelector('.category-hero h1').textContent;
-        
-        // Filter articles by category
-        let categoryArticles = articles.filter(article => {
-            if (pageTitle.includes('Brain Health')) {
-                return article.category === 'Brain Health';
-            } else if (pageTitle.includes('Focus')) {
-                return article.category === 'Focus & Concentration';
-            } else if (pageTitle.includes('Productivity')) {
-                return article.category === 'Productivity';
-            }
-            return false;
-        });
+    const pageTitle = document.querySelector('.category-hero h1')?.textContent || '';
 
-        console.log(`${pageTitle}: Found ${categoryArticles.length} articles`);
+    // ── 1. Determine current category ──────────────────────────────────────
+    let currentCategory = '';
+    if (pageTitle.includes('Brain Health'))   currentCategory = 'Brain Health';
+    else if (pageTitle.includes('Focus'))     currentCategory = 'Focus & Concentration';
+    else if (pageTitle.includes('Productivity')) currentCategory = 'Productivity & Self-Improvement';
 
-        // Render articles
-        if (categoryArticles.length > 0) {
-            categoryArticlesContainer.innerHTML = categoryArticles.map(article => 
-                renderArticleCard(article)
-            ).join('');
+    // ── 2. Populate "Latest Articles" grid ─────────────────────────────────
+    const grid = document.getElementById('category-articles');
+    if (grid && currentCategory) {
+        const filtered = articles.filter(a => a.category === currentCategory);
+        if (filtered.length > 0) {
+            grid.innerHTML = filtered.map(a => renderArticleCard(a)).join('');
         } else {
-            categoryArticlesContainer.innerHTML = '<p style="text-align: center; color: var(--text-light);">No articles available yet. Check back soon!</p>';
+            grid.innerHTML = '<p style="text-align:center;color:#6b7280">No articles available yet. Check back soon!</p>';
         }
     }
-    
-    // Auto-populate subcategory lists with article links
-    populateSubcategoryLists(articles);
-});
 
-function populateSubcategoryLists(articles) {
-    console.log('populateSubcategoryLists called with', articles.length, 'articles');
-    
-    // Find all subcategory cards
-    const subcategoryCards = document.querySelectorAll('.subcategory-card');
-    console.log('Found', subcategoryCards.length, 'subcategory cards');
-    
-    subcategoryCards.forEach(card => {
-        const heading = card.querySelector('h3')?.textContent.trim();
-        console.log('Processing card:', heading);
-        
-        // Get current page category
-        const pageTitle = document.querySelector('.category-hero h1')?.textContent || '';
-        let categoryFilter = '';
-        
-        if (pageTitle.includes('Brain Health')) {
-            categoryFilter = 'Brain Health';
-        } else if (pageTitle.includes('Focus')) {
-            categoryFilter = 'Focus & Concentration';
-        } else if (pageTitle.includes('Productivity')) {
-            categoryFilter = 'Productivity';
-        }
-        
-        console.log('Category filter:', categoryFilter);
-        
-        // Map heading text to the exact subcategory value used in content-data.js
-        // This prevents the same article appearing in multiple subcategories
-        const headingToSubcategory = {
-            'Memory':                    'Memory',
-            'Mental Energy':             'Mental Energy',
-            'Sleep & Brain Function':    'Sleep',
-            'Learning & Cognitive Skills': 'Learning',
-            'Brain Optimization':        'Cognitive Performance',
-            // Focus & Concentration
-            'Focus Habits':              'Focus Habits',
-            'Deep Work':                 'Deep Work',
-            'Attention Training':        'Attention',
-            'Study & Learning Methods':  'Study Methods',
-            'Distraction Management':    'Distraction',
-            // Productivity
-            'Habit Formation':           'Habits',
-            'Time Management':           'Time Management',
-            'Goal Setting':              'Goals',
-            'Learning & Skill Development': 'Skill Development',
-            'Personal Performance':      'Performance'
-        };
+    // ── 3. Populate subcategory cards ───────────────────────────────────────
+    // Map: card h3 text (partial) → subcategory value in content-data.js
+    const subMap = {
+        // Brain Health
+        'Memory':                      'Memory',
+        'Mental Energy':               'Mental Energy',
+        'Sleep':                       'Sleep',
+        'Learning & Cognitive':        'Learning',
+        'Brain Optimization':          'Brain Optimization',
+        // Focus & Concentration
+        'Focus Habits':                'Focus Habits',
+        'Deep Work':                   'Deep Work',
+        'Attention Training':          'Attention Training',
+        'Study':                       'Study Techniques',
+        'Distraction':                 'Distraction Management',
+        // Productivity & Self-Improvement
+        'Habit Building':              'Habit Building',
+        'Time Management':             'Time Management',
+        'Goal Setting':                'Goal Setting',
+        'Learning & Skill':            'Skill Development',
+        'Personal Performance':        'Personal Performance'
+    };
 
-        // Find the matching subcategory key (partial match on heading)
-        let subcategoryValue = null;
-        for (const [key, value] of Object.entries(headingToSubcategory)) {
-            if (heading.includes(key)) {
-                subcategoryValue = value;
-                break;
-            }
+    document.querySelectorAll('.subcategory-card').forEach(card => {
+        const heading = card.querySelector('h3')?.textContent.trim() || '';
+
+        // Find matching subcategory key
+        let subcatValue = null;
+        for (const [key, val] of Object.entries(subMap)) {
+            if (heading.includes(key)) { subcatValue = val; break; }
         }
 
-        // Filter strictly by subcategory field — no keyword fallback to prevent duplicates
-        let matchingArticles = [];
-        if (subcategoryValue) {
-            matchingArticles = articles.filter(a =>
-                a.category === categoryFilter &&
-                a.subcategory === subcategoryValue
-            );
-        }
-        
-        console.log(`${heading}: Found ${matchingArticles.length} matching articles`);
-        
-        // Remove existing ul/ol if present (even hardcoded ones)
-        const existingList = card.querySelector('ul, ol');
-        if (existingList) {
-            existingList.remove();
-        }
-        
-        // Create and append new list with all matching articles
-        if (matchingArticles.length > 0) {
-            const ol = document.createElement('ol');
-            ol.style.marginTop = '10px';
-            ol.style.fontSize = '0.9em';
-            ol.style.paddingLeft = '1.4em';
-            
-            matchingArticles.forEach(article => {
-                const li = document.createElement('li');
-                li.style.marginBottom = '4px';
-                const a = document.createElement('a');
-                a.href = `articles/${article.slug}.html`;
-                a.textContent = article.title;
-                li.appendChild(a);
-                ol.appendChild(li);
-            });
-            
-            card.appendChild(ol);
-            console.log(`✓ Populated ${heading} with ${matchingArticles.length} articles`);
-        } else {
-            console.log(`✗ No articles found for ${heading}`);
-        }
+        // Remove any existing list (static HTML or previous JS run)
+        card.querySelectorAll('ul, ol').forEach(el => el.remove());
+
+        if (!subcatValue) return;
+
+        const matched = articles.filter(a =>
+            a.category === currentCategory &&
+            a.subcategory === subcatValue
+        );
+
+        if (matched.length === 0) return;
+
+        const ul = document.createElement('ul');
+        ul.style.cssText = 'list-style:none;padding:0;margin:10px 0 0;';
+
+        matched.forEach(a => {
+            const li = document.createElement('li');
+            li.style.cssText = 'margin-bottom:5px;padding-left:14px;position:relative;font-size:0.88rem;';
+            li.innerHTML =
+                '<span style="position:absolute;left:0;color:#2563eb;font-weight:700">→</span>' +
+                '<a href="articles/' + a.slug + '.html" style="color:#2563eb;text-decoration:none;line-height:1.4">' +
+                a.title + '</a>';
+            ul.appendChild(li);
+        });
+
+        card.appendChild(ul);
     });
-}
+});

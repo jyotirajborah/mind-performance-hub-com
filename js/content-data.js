@@ -906,12 +906,23 @@ window.MPH_CONTENT = {
       "id": 83,
       "title": "The Retrieval Practice Guide: Learn Faster by Testing Yourself",
       "excerpt": "Why retrieval practice is one of the most effective learning strategies and how to apply it to any subject.",
-      "category": "Focus & Concentration",
-      "subcategory": "Study Techniques",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Skill Development",
       "type": "guide",
       "readTime": "8 min read",
       "date": "2026-06-04",
       "slug": "retrieval-practice-guide"
+    },
+    {
+      "id": 84,
+      "title": "Memory Enhancement Techniques: Science-Backed Methods",
+      "excerpt": "A comprehensive guide to the most effective memory enhancement techniques, backed by cognitive science research.",
+      "category": "Productivity & Self-Improvement",
+      "subcategory": "Skill Development",
+      "type": "guide",
+      "readTime": "15 min read",
+      "date": "2026-06-04",
+      "slug": "memory-enhancement-techniques"
     }
   ]
 };
