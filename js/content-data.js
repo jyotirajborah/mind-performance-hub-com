@@ -923,6 +923,39 @@ window.MPH_CONTENT = {
       "readTime": "12 min read",
       "date": "2026-06-03",
       "slug": "memory-enhancement-techniques"
+    },
+    {
+      "id": 87,
+      "title": "The Retrieval Practice Guide: Learn Faster by Testing Yourself",
+      "excerpt": "Why retrieval practice is one of the most effective learning strategies and how to apply it to any subject.",
+      "category": "Focus & Concentration",
+      "subcategory": "Study Techniques",
+      "type": "guide",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "retrieval-practice-guide"
+    },
+    {
+      "id": 88,
+      "title": "The Testing Effect: Why Self-Testing Beats Re-Reading",
+      "excerpt": "The testing effect is one of the most powerful and underused learning strategies. Here's the science and how to apply it.",
+      "category": "Focus & Concentration",
+      "subcategory": "Study Techniques",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "testing-effect-learning"
+    },
+    {
+      "id": 89,
+      "title": "Dual Coding Theory: Learn Better with Words and Images",
+      "excerpt": "How combining verbal and visual information accelerates learning and improves long-term memory retention.",
+      "category": "Focus & Concentration",
+      "subcategory": "Study Techniques",
+      "type": "article",
+      "readTime": "8 min read",
+      "date": "2026-06-04",
+      "slug": "dual-coding-theory"
     }
   ]
 };
