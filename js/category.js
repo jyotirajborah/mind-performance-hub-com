@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentCategory = '';
     if (pageTitle.includes('Brain Health'))   currentCategory = 'Brain Health';
     else if (pageTitle.includes('Focus'))     currentCategory = 'Focus & Concentration';
-    else if (pageTitle.includes('Productivity')) currentCategory = 'Productivity & Self-Improvement';
+    else if (pageTitle.includes('Productivity')) currentCategory = 'Productivity';
 
     // ── 2. Populate "Latest Articles" grid ─────────────────────────────────
     const grid = document.getElementById('category-articles');
